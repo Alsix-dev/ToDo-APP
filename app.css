@@ -45,11 +45,6 @@ body { background-color: #212529; }
     border: 8px solid #31353a;
 }
 
-.cabezalMenu { grid-area: cabezalMenu; }
-.cabezalListado { grid-area: cabezaListado;}
-.menuBotones { grid-area: menuBotones;}
-.listadoTareas { grid-area: listadoTareas; }
-
 .contenedor {
     height: 100%;
     display: grid;
@@ -67,7 +62,6 @@ body { background-color: #212529; }
 .cabezalListado { grid-area: cabezalListado;}
 .menuBotones { grid-area: menuBotones;}
 .listadoTareas { grid-area: listadoTareas; }
-
 
 /* ##################### MENU ##################### */
 /* ################################################ */
@@ -169,18 +163,17 @@ body { background-color: #212529; }
     padding-bottom: 8px;
 }
 
-.contenedor .listadoTareas .cajaDeTareas .tareaX div {
+.contenedor .listadoTareas .cajaDeTareas .tareaX > div:first-of-type {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0.1rem;
 }
 
-.contenedor .listadoTareas .cajaDeTareas .tareaX div > button {
+.contenedor .listadoTareas .cajaDeTareas .tareaX div > button, .btn-info {
     margin: 2px;
     padding: 0.5rem;
     padding-right: 1rem;
-
     border-radius: 5px;
 }
 
@@ -191,7 +184,7 @@ body { background-color: #212529; }
 /* ICONOS */
 
 /* BOTONES */
-button {
+button, .btn-info{
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -201,7 +194,7 @@ button {
 }
 
 /* BOTONES DE MENU */
-.contenedor .menuBotones .controles > button .material-symbols-outlined {
+.contenedor .menuBotones .controles > button .material-symbols-outlined, .btn-info .material-symbols-outlined{
     color: #0d6efd;
 }
 
@@ -214,6 +207,13 @@ button {
     color: var(--color);
     background-color: var(--background-color);
 }
+
+/* BOTON DE DETALLE DE TAREA */
+#checkboxInfo, .detailsInfo { display: none; }
+#checkboxInfo:checked ~ .detailsInfo { display: block;}
+
+/* ###################### EFECTO DE MENU ####################### */
+/* ############################################################# */
 
 /* OCULTAR/MOSTRAR MENUS */
 .ocultarVista {
