@@ -86,6 +86,32 @@ html, body, #app {
     align-items: center;
 
     color: white;
-    border-right: 2px solid #212529;
     background-color: #28a745;
 }
+
+/* LISTADO DE TAREAS */
+.contenedor .listadoTareas {
+    min-height: 0;              /*Evitamos que el padre crezca y el hijo se encargue de su contenido agregando un overflow-y: auto*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor .listadoTareas .cajaDeTareas {
+    height: 95%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    gap: 8px;
+    padding: 2rem;
+
+    border-radius: 5px;
+    border: 1px solid #1e221f;
+}
+
+/* .contenedor .listadoTareas .cajaDeTareas .tareaX {
+    
+} */
