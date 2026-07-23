@@ -90,9 +90,10 @@ body { background-color: #212529; }
     align-items: center;
 
     border-right: 2px solid #21252976;
+    position: relative;
 }
 
-.contenedor .menuBotones .controles {
+.contenedor .menuBotones .controlesRoot {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -102,7 +103,7 @@ body { background-color: #212529; }
     border: 2px solid #2D6CDF;
 }
 
-.contenedor .menuBotones .controles > button {
+.contenedor .menuBotones .controlesRoot > button {
     margin: 8px;
     padding: 8px;
 
@@ -212,4 +213,19 @@ button {
     border: 2px solid var(--color);
     color: var(--color);
     background-color: var(--background-color);
+}
+
+/* OCULTAR/MOSTRAR MENUS */
+.ocultarVista {
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.ocultarVista.activa {
+    display: flex;
 }
