@@ -22,14 +22,29 @@ html, body, #app {
     border: 2px solid #212529;
 }
 
+.cabezalMenu { grid-area: cabezalMenu; }
+.cabezalListado { grid-area: cabezaListado;}
+.menuBotones { grid-area: menuBotones;}
+.listadoTareas { grid-area: listadoTareas; }
+
 .contenedor {
     height: 100%;
     display: grid;
     grid-template-columns: 25% auto;
     grid-template-rows: 60px 1fr;
 
+    grid-template-areas:
+    "cabezalMenu cabezalListado"
+    "menuBotones listadoTareas";
+
     background-color: #f3f7ff;
 }
+
+.cabezalMenu { grid-area: cabezalMenu; }
+.cabezalListado { grid-area: cabezalListado;}
+.menuBotones { grid-area: menuBotones;}
+.listadoTareas { grid-area: listadoTareas; }
+
 
 /* ##################### MENU ##################### */
 /* ################################################ */
@@ -127,6 +142,7 @@ html, body, #app {
 .contenedor .listadoTareas .cajaDeTareas .tareaX > h2 {
     text-align: center;
     border-bottom: 1px solid #bfc1c3;
+    padding-bottom: 8px;
 }
 
 .contenedor .listadoTareas .cajaDeTareas .tareaX div {
@@ -139,13 +155,28 @@ html, body, #app {
 .contenedor .listadoTareas .cajaDeTareas .tareaX div > button {
     margin: 2px;
     padding: 0.5rem;
-
-    /* Alineo los textos para que empiecen a la izquierda juntos */
-    width: 100px;
-    text-align: center;
-    /* ////////////// */
+    padding-right: 1rem;
 
     border-radius: 5px;
     border: 1.5px solid #28a745; /*Luego cambiar por el color asignado*/
     background-color: white;
 }
+
+
+/* ##################### EFECTO DE BOTONES ##################### */
+/* ############################################################# */
+
+/* ICONOS */
+
+/* BOTONES */
+button {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+/* BOTONES DE MENU */
+/* BOTONES DE TAREAS */

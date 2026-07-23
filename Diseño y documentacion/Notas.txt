@@ -1,1 +1,3 @@
 1) DETALLES: Habilitar un boton de configuracion en menu donde se pueda seleccionar como aparecer detalles, si desplazando hacia abajo o hacia la izquierda.
+
+2) FINALIZADO: Deberia quitar la tarea o poner la opcion de eliminarla y sea decision del usuario? En todo caso, poner finalizado como titulo y luego quitar los botones.
