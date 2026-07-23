@@ -27,6 +27,8 @@ html, body, #app {
     display: grid;
     grid-template-columns: 25% auto;
     grid-template-rows: 60px 1fr;
+
+    background-color: #f3f7ff;
 }
 
 /* ##################### MENU ##################### */
@@ -50,7 +52,6 @@ html, body, #app {
     align-items: center;
 
     border-right: 2px solid #21252976;
-    background-color: #f3f7ff;
 }
 
 .contenedor .menuBotones .controles {
@@ -106,12 +107,45 @@ html, body, #app {
     overflow-y: auto;
 
     gap: 8px;
-    padding: 2rem;
+    padding: 1rem;
 
     border-radius: 5px;
     border: 1px solid #1e221f;
 }
 
-/* .contenedor .listadoTareas .cajaDeTareas .tareaX {
-    
-} */
+.contenedor .listadoTareas .cajaDeTareas .tareaX {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #28a745;
+    background-color: white;
+}
+
+.contenedor .listadoTareas .cajaDeTareas .tareaX > h2 {
+    text-align: center;
+    border-bottom: 1px solid #bfc1c3;
+}
+
+.contenedor .listadoTareas .cajaDeTareas .tareaX div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.1rem;
+}
+
+.contenedor .listadoTareas .cajaDeTareas .tareaX div > button {
+    margin: 2px;
+    padding: 0.5rem;
+
+    /* Alineo los textos para que empiecen a la izquierda juntos */
+    width: 100px;
+    text-align: center;
+    /* ////////////// */
+
+    border-radius: 5px;
+    border: 1.5px solid #28a745; /*Luego cambiar por el color asignado*/
+    background-color: white;
+}
