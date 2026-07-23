@@ -38,7 +38,7 @@ html, body, #app {
     align-items: center;
 
     color: white;
-    border-right: 2px solid #212529;
+    border-right: 2px solid #21252976;
     background-color: #2D6CDF;
 }
 
@@ -49,7 +49,7 @@ html, body, #app {
     justify-content: center;
     align-items: center;
 
-    border-right: 2px solid #212529;
+    border-right: 2px solid #21252976;
     background-color: #f3f7ff;
 }
 
@@ -77,6 +77,15 @@ html, body, #app {
     background-color: white;
 }
 
-/* ##################### MENU ##################### */
-/* ################################################ */
-/* LISTADO DE TAREAS */
+/* ##################### LISTADO ##################### */
+/* ################################################### */
+/* CABEZAL */
+.contenedor .cabezalListado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    border-right: 2px solid #212529;
+    background-color: #28a745;
+}
