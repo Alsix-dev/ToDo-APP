@@ -1,3 +1,24 @@
+/* ######################## VARIABLES ######################## */
+/* ########################################################### */
+.btn-start  { 
+    --color: #28a745; 
+    --background-color: #28a7460d;
+}
+.btn-pause  { 
+    --color: #ffc107; 
+    --background-color: #ffc1070d;
+}
+.btn-delete { 
+    --color: #dc3545; 
+    --background-color: #dc35460d;
+}
+.btn-info { 
+    --color: #0d6efd;
+    --background-color: #0d6efd0d;
+}
+
+/* ########################### APP ########################### */
+/* ########################################################### */
 * {
     margin: 0;
     padding: 0;
@@ -141,7 +162,7 @@ html, body, #app {
 
 .contenedor .listadoTareas .cajaDeTareas .tareaX > h2 {
     text-align: center;
-    border-bottom: 1px solid #bfc1c3;
+    border-bottom: 1.5px solid #bfc1c3;
     padding-bottom: 8px;
 }
 
@@ -158,8 +179,6 @@ html, body, #app {
     padding-right: 1rem;
 
     border-radius: 5px;
-    border: 1.5px solid #28a745;
-    background-color: white;
 }
 
 
@@ -175,8 +194,20 @@ button {
     gap: 8px;
     align-items: center;
     cursor: pointer;
+    font-weight:bold;
 }
 
-
 /* BOTONES DE MENU */
+.contenedor .menuBotones .controles > button .material-symbols-outlined {
+    color: #0d6efd;
+}
+
 /* BOTONES DE TAREAS */
+.btn-start, 
+.btn-pause, 
+.btn-delete, 
+.btn-info {
+    border: 2px solid var(--color);
+    color: var(--color);
+    background-color: var(--background-color);
+}
