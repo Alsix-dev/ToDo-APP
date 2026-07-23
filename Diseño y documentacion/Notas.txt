@@ -1,0 +1,1 @@
+1) DETALLES: Habilitar un boton de configuracion en menu donde se pueda seleccionar como aparecer detalles, si desplazando hacia abajo o hacia la izquierda.

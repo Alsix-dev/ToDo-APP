@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    height: 95%;
+    width: 95%;
+    border-radius: 5px;
+    border: 2px solid #212529;
+}
+
+.contenedor {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-template-rows: 60px 1fr;
+}
+
+/* ##################### MENU ##################### */
+/* ################################################ */
+/* CABEZAL */
+.contenedor .cabezalMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    border-right: 2px solid #212529;
+    background-color: #2D6CDF;
+}
+
+/* MENU DE INTERACCION */
+
+.contenedor .menuBotones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-right: 2px solid #212529;
+    background-color: #f3f7ff;
+}
+
+.contenedor .menuBotones .controles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 1rem;                  /*Modificar*/
+    border-radius: 5px;
+    border: 1px solid #2D6CDF;
+}
+
+.contenedor .menuBotones .controles > button {
+    margin: 8px;
+    padding: 8px;
+
+    /* Alineo los textos para que empiecen a la izquierda juntos */
+    width: 200px;
+    text-align: left;
+    /* ////////////// */
+
+    border-radius: 5px;
+    border: 1.5px solid #2D6CDF;
+    background-color: white;
+}
+
+/* ##################### MENU ##################### */
+/* ################################################ */
+/* LISTADO DE TAREAS */
