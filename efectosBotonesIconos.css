@@ -1,51 +1,78 @@
+/* ######################## VARIABLES ######################## */
+/* ########################################################### */
+/* CONTROLES DE LISTA DE TAREAS */
+.btn-start  { 
+    --color: #28a745; 
+    --background-color: #28a7460d;
+}
+.btn-pause  { 
+    --color: #ffc107; 
+    --background-color: #ffc1070d;
+}
+.btn-delete { 
+    --color: #dc3545; 
+    --background-color: #dc35460d;
+}
+.btn-info { 
+    --color: #0d6efd;
+    --background-color: #0d6efd0d;
+}
+
+/* CONTROLES DE MENU */
+.controlesRoot {
+    --color: #2D6CDF;
+    --background-color: white;
+}
+
 /* ########################## EFECTOS ########################## */
 /* ############################################################# */
-
-/* ICONOS */
-
 /* BOTONES */
+/* button:not(.controlesRoot > button), .btn-info { color: var(--color); }  INVESTIGAR SI ES O NO APTO EN TODOS LOS NAVEGADORES */
 button, .btn-info{
     display: flex;
     flex-direction: row;
-    gap: 8px;
     align-items: center;
+    text-align: left;
+    
+    gap: 8px;    
+    margin: 8px;
+    padding: 0.5rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+
     cursor: pointer;
+
     font-weight:bold;
-}
 
-/* BOTONES DE MENU */
-.contenedor .menuBotones .controles > button .material-symbols-outlined, .btn-info .material-symbols-outlined{
-    color: #0d6efd;
-}
-
-/* BOTONES DE TAREAS */
-.btn-start, 
-.btn-pause, 
-.btn-delete, 
-.btn-info {
+    color:  var(--color);
     border: 2px solid var(--color);
-    color: var(--color);
     background-color: var(--background-color);
 }
+.controlesRoot > button {
+    color: inherit;
+}
 
-/* BOTON DE DETALLE DE TAREA */
+/* ICONOS */
+.contenedor .menuBotones > div .controlesRoot .material-symbols-outlined {
+    color: #2D6CDF;
+}
+
+/* ########################## ACCIONES ########################## */
+/* ############################################################# */
+
+/* BOTON DE DETALLES: Desplazamiento de informacion */
 #checkboxInfo, .detailsInfo { display: none; }
 #checkboxInfo:checked ~ .detailsInfo { display: block;}
 
-/* ###################### EFECTO DE MENU ####################### */
-/* ############################################################# */
 
+/* INTERCAMBIO DE MENU "CONTROL ROOTS": Cambiamos los controles de MENU */
 /* OCULTAR/MOSTRAR MENUS */
 .ocultarVista {
     position:absolute;
     inset:0;
 
     display:none;
-
     justify-content:center;
     align-items:center;
 }
-
-.ocultarVista.activa {
-    display: flex;
-}
+.ocultarVista.activa { display: flex; }
