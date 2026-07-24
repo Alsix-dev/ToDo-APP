@@ -1,6 +1,5 @@
 /* ######################## VARIABLES ######################## */
 /* ########################################################### */
-/* CONTROLES DE LISTA DE TAREAS */
 .btn-start  { 
     --color: #28a745; 
     --background-color: #28a7460d;
@@ -18,7 +17,6 @@
     --background-color: #0d6efd0d;
 }
 
-/* CONTROLES DE MENU */
 .controlesRoot {
     --color: #2D6CDF;
     --background-color: white;
@@ -27,15 +25,12 @@
 
 /* ########################## EFECTOS ########################## */
 /* ############################################################# */
-input, button, .btn-info { border-radius: 5px; }
-/* BOTONES */
-/* button:not(.controlesRoot > button), .btn-info { color: var(--color); }  INVESTIGAR SI ES O NO APTO EN TODOS LOS NAVEGADORES */
 button, .btn-info, input {
     margin: 8px;
-    padding: 0.5rem;
     font-weight:bold;
     border: 2px solid var(--color);
     background-color: var(--background-color);
+    border-radius: 5px;
 }
 
 button, .btn-info {
@@ -46,26 +41,46 @@ button, .btn-info {
     
     gap: 8px;
     padding-right: 1rem;
+    padding: 0.5rem;
 
     cursor: pointer;
     color:  var(--color);
     background-color: var(--background-color);
 }
-.controlesRoot > button { color: inherit; }
 
-/* ICONOS */
-.contenedor .menuBotones > div .controlesRoot .material-symbols-outlined { color: #2D6CDF; }
+.controlesRoot > button, input { 
+    color: inherit; 
+}
+
+input { 
+    padding: 8px 8px 8px 40px; 
+}
+
+textarea {
+    text-align: center;
+}
+
+/* ########################### ICONOS ########################## */
+/* ############################################################# */
+.material-symbols-outlined { 
+    pointer-events: none; 
+}
+
+.controlesRoot .material-symbols-outlined { 
+    color: #2D6CDF; 
+}
 
 /* ########################## ACCIONES ########################## */
 /* ############################################################# */
+                                        /* DETALLE: Desplazamiento vertical*/
+#checkboxInfo, .detailsInfo { 
+    display: none; 
+}
+#checkboxInfo:checked ~ .detailsInfo { 
+    display: block;
+}
 
-/* BOTON DE DETALLES: Desplazamiento de informacion */
-#checkboxInfo, .detailsInfo { display: none; }
-#checkboxInfo:checked ~ .detailsInfo { display: block;}
-
-
-/* INTERCAMBIO DE MENU "CONTROL ROOTS": Cambiamos los controles de MENU */
-/* OCULTAR/MOSTRAR MENUS */
+                                        /* CAMBIO DE TARJETA DE CONTROLES ROOT DE MENU */
 .ocultarVista {
     position:absolute;
     inset:0;
@@ -73,4 +88,7 @@ button, .btn-info {
     justify-content:center;
     align-items:center;
 }
-.ocultarVista.activa { display: flex; }
+
+.ocultarVista.activa { 
+    display: flex; 
+}

@@ -13,64 +13,71 @@
 
 </head>
 <body>
-    <div id="app">                      <!-- Configuraciones iniciales: Margin, Box, Padding -->
-        <div id="root">                 <!-- Contenedor general donde cargo todos mis elementos -->
-            <div class="contenedor">    <!-- Nuestro Layout: Aplicamos CSS grid -->
+    <div id="app">                          <!-- Configuraciones iniciales: Margin, Box, Padding -->
+        <div id="root">                     <!-- Contenedor general donde cargo todos mis elementos -->
+            <div class="contenedor">        <!-- Nuestro Layout: Aplicamos CSS grid -->
 
-                                        <!-- TITULO DE MENU: A veces boton cuando cambiamos en SPA -->
-            <div class="cabezalMenu">
-                <h1>MENÚ</h1>
-            </div>
-                                        <!-- TITULO DE LISTADO DE TAREAS -->
-            <div class="cabezalListado">
-                <h1>LISTADO</h1>
-            </div>
-
-                                        <!-- MENU DE BOTONES -->
+            <div class="cabezalMenu"> <h1>MENÚ</h1> </div>
             <section class="menuBotones">
                 <div class="ocultarVista">
                     <div class="controlesRoot">
-                        <button><span class="material-symbols-outlined">add</span>Agregar tarea</button>
-                        <button><span class="material-symbols-outlined">search</span>Buscar tarea</button>
-                        <button><span class="material-symbols-outlined">format_list_bulleted</span>Mostrar estado tareas</button>
-                        <button><span class="material-symbols-outlined">history</span>Mostrar historial tareas</button>
+                        <button>
+                            <span class="material-symbols-outlined">add</span>
+                            Agregar tarea
+                        </button>
+
+                        <button>
+                            <span class="material-symbols-outlined">search</span>
+                            Buscar tarea
+                        </button>
+
+                        <button>
+                            <span class="material-symbols-outlined">format_list_bulleted</span>
+                            Mostrar estado tareas
+                        </button>
+
+                        <button>
+                            <span class="material-symbols-outlined">history</span>
+                            Mostrar historial tareas
+                        </button>
                     </div>
                 </div>
 
                 <div class="ocultarVista activa">
                     <form class="controlesRoot agregarTarea">
-                        <h2>Agregar tarea</h2>
-                        
-                        <input type="text" placeholder="Titulo tarea">
-                        <label>Fecha limite: <input type="date"></label>
-                        <input type="text" placeholder="Colaborador? Nombre">
+                        <div class="ingresoDatos">
+                            <h2>Agregar tarea</h2>
 
-                        <textarea placeholder="Descripción de la tarea"></textarea>
+                            <div>
+                                <span class="material-symbols-outlined">format_h2</span>
+                                <input type="text" placeholder="Titulo tarea">
+                            </div>
+
+                            <label>
+                                Fecha limite:
+                                <input type="date">
+                            </label>
+
+                            <div>
+                                <span class="material-symbols-outlined">pattern</span>
+                                <input type="text" placeholder="Colaborador? Nombre">
+                            </div>
+                            
+                            <div class="textAreaDescription">
+                                <span class="material-symbols-outlined">text_ad</span>
+                                <textarea placeholder="Descripción de la tarea"></textarea>
+                            </div>
+                        </div>
                         
-                        <button><span class="material-symbols-outlined">add_task</span>Crear tarea</button>
+                        <button class="botonCrearTarea">
+                            <span class="material-symbols-outlined">add_task</span>
+                            Crear tarea
+                        </button>
                     </form>
                 </div>
-
-                <!-- <div class="ocultarVista">
-                    <div class="controlesSearch">
-                        <button><span class="material-symbols-outlined">add</span>Agregar tarea</button>
-                        <button><span class="material-symbols-outlined">search</span>Buscar tarea</button>
-                        <button><span class="material-symbols-outlined">format_list_bulleted</span>Mostrar estado tareas</button>
-                        <button><span class="material-symbols-outlined">history</span>Mostrar historial tareas</button>
-                    </div>
-                </div>
-
-                <div class="ocultarVista">
-                    <div class="controlesHistory">
-                        <button><span class="material-symbols-outlined">add</span>Agregar tarea</button>
-                        <button><span class="material-symbols-outlined">search</span>Buscar tarea</button>
-                        <button><span class="material-symbols-outlined">format_list_bulleted</span>Mostrar estado tareas</button>
-                        <button><span class="material-symbols-outlined">history</span>Mostrar historial tareas</button>
-                    </div>
-                </div> -->
             </section>
 
-                                        <!-- LISTADO DE TAREAS -->
+            <div class="cabezalListado"> <h1>LISTADO</h1> </div>
             <section class="listadoTareas">
                 <div class="cajaDeTareas">
                     <div class="tareaX">
@@ -81,9 +88,11 @@
                             <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
                             <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
                             <div>
-                                <label for="checkboxInfo" class="btn-info"><span class="material-symbols-outlined">info</span>Detalles</label>
+                                <label for="checkboxInfo" class="btn-info">
+                                    <span class="material-symbols-outlined">info</span>Detalles
+                                    <!-- Recordar que el input esta fuera del label, arriba. -->
+                                </label>
                             </div>
-                            <!-- <button class="btn-info"><span class="material-symbols-outlined">info</span>Detalles</button> -->
                         </div>
                         <div class="detailsInfo">
                             <p>Fecha inicio: 23/07/2026</p>
@@ -94,8 +103,6 @@
                     </div>
                 </div>
             </section>
-
-            </div>
         </div>
     </div>
 </body>

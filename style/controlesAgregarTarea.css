@@ -1,18 +1,23 @@
-.menuBotones div form.agregarTarea > label {
+form.agregarTarea {
+    /* Ya esta en app.css definido el display: flex como flex-direction: column, pero
+       si aplico un center en ese apartado, se veran afectado los otros menus. Aqui solo busco, centrar
+       el boton por separado del ingreso de datos. */
+    justify-content: center;
+    align-items: center;
+}
+
+form.agregarTarea .ingresoDatos > label {
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight:bold;
 }
-.menuBotones div form.agregarTarea > label input { color: inherit; }
 
-.menuBotones div form.agregarTarea > textarea{
+form.agregarTarea textarea {
     width: 100%;
     min-height: 120px;
     border-radius: 5px;
     padding: 12px 14px;
-
 
     font-weight:bold;
     transition: .15s ease;
@@ -21,6 +26,22 @@
     outline: none;
     box-sizing: border-box;
     border: 2px solid var(--color);
+}
 
-    /* background-color: var(--color-fondo); */
+/* ########################## ICONOS ########################### */
+/* ############################################################# */
+form.agregarTarea .ingresoDatos > div,
+form.agregarTarea .ingresoDatos > label {
+    position: relative;
+}
+
+form.agregarTarea .ingresoDatos > div .material-symbols-outlined {
+    position: absolute;
+    top: 25%;
+    left: 20px;
+}
+
+form.agregarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
+    top: 7%;
+    left: 15px;
 }
