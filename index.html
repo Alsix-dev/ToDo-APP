@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../style/app.css">
     <link rel="stylesheet" href="../style/efectosBotonesIconos.css">
-    <link rel="stylesheet" href="../style/controlesAgregarTarea.css">
+    <link rel="stylesheet" href="../style/operarTareas.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
@@ -45,8 +45,8 @@
                     </div>
                 </div>
 
-                <div class="ocultarVista activa">
-                    <form class="controlesRoot agregarTarea">
+                <div class="ocultarVista">
+                    <form class="controlesRoot operarTarea">
                         <div class="ingresoDatos">
                             <h2>Agregar tarea</h2>
 
@@ -75,6 +75,28 @@
                             <span class="material-symbols-outlined">add_task</span>
                             Crear tarea
                         </button>
+                    </form>
+                </div>
+
+                <div class="ocultarVista activa">
+                    <form class="controlesRoot operarTarea">
+                        <div class="ingresoDatos">
+                            <h2>Buscar tarea</h2>
+
+                            <div>
+                                <span class="material-symbols-outlined">format_h2</span>
+                                <input type="text" placeholder="Titulo tarea">
+                            </div>
+
+                            <label>
+                                Fecha inicio:
+                                <input class="fechaLimite" type="date">
+                            </label>
+
+                            <label>
+                                Fecha limite:
+                                <input class="fechaLimite" type="date">
+                            </label>
                     </form>
                 </div>
             </section>

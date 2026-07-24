@@ -1,6 +1,6 @@
 /* ######################## ESTRUCTURA ######################### */
 /* ############################################################# */
-form.agregarTarea {
+form.operarTarea {
     /* Ya esta en app.css definido el display: flex como flex-direction: column, pero
        si aplico un center en ese apartado, se veran afectado los otros menus. Aqui solo busco, centrar
        el boton por separado del ingreso de datos. */
@@ -8,11 +8,11 @@ form.agregarTarea {
     align-items: center;
 }
 
-form.agregarTarea .ingresoDatos {
+form.operarTarea .ingresoDatos {
     width: 100%;
 }
 
-form.agregarTarea .ingresoDatos > label {
+form.operarTarea .ingresoDatos > label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ form.agregarTarea .ingresoDatos > label {
     gap: 25px;
 }
 
-form.agregarTarea textarea {
+form.operarTarea textarea {
     width: 100%;
     min-height: 120px;
     border-radius: 5px;
@@ -37,27 +37,27 @@ form.agregarTarea textarea {
 
 /* ########################## ICONOS ########################### */
 /* ############################################################# */
-form.agregarTarea .ingresoDatos > div {
+form.operarTarea .ingresoDatos > div {
     position: relative;
 }
 
-form.agregarTarea .ingresoDatos > div .material-symbols-outlined {
+form.operarTarea .ingresoDatos > div .material-symbols-outlined {
     position: absolute;
     top: 25%;
     left: 20px;
 }
 
-form.agregarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
+form.operarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
     top: 7%;
     left: 15px;
 }
 
 /* ########################## INPUTS ########################### */
 /* ############################################################# */
-form.agregarTarea .ingresoDatos input:not(.fechaLimite) {
+form.operarTarea .ingresoDatos input:not(.fechaLimite) {
     width: 95%;
 }
 
-form.agregarTarea .ingresoDatos .fechaLimite {
+form.operarTarea .ingresoDatos .fechaLimite {
     padding: 8px 8px 8px 20px;
 }
