@@ -1,0 +1,51 @@
+/* ########################## EFECTOS ########################## */
+/* ############################################################# */
+
+/* ICONOS */
+
+/* BOTONES */
+button, .btn-info{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+    font-weight:bold;
+}
+
+/* BOTONES DE MENU */
+.contenedor .menuBotones .controles > button .material-symbols-outlined, .btn-info .material-symbols-outlined{
+    color: #0d6efd;
+}
+
+/* BOTONES DE TAREAS */
+.btn-start, 
+.btn-pause, 
+.btn-delete, 
+.btn-info {
+    border: 2px solid var(--color);
+    color: var(--color);
+    background-color: var(--background-color);
+}
+
+/* BOTON DE DETALLE DE TAREA */
+#checkboxInfo, .detailsInfo { display: none; }
+#checkboxInfo:checked ~ .detailsInfo { display: block;}
+
+/* ###################### EFECTO DE MENU ####################### */
+/* ############################################################# */
+
+/* OCULTAR/MOSTRAR MENUS */
+.ocultarVista {
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.ocultarVista.activa {
+    display: flex;
+}
