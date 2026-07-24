@@ -1,15 +1,4 @@
-/* ################### ALGUNOS GENERICOS ##################### */
-/* ########################################################### */
-/* hacer generico los 5px de borde, asi ahorramos lineas de codigo innecesarios
-    Revisar otras lineas */
-
-h2 {
-    text-align: center;
-    border-bottom: 1.5px solid #bfc1c3;
-    padding-bottom: 8px;
-}
-
-/* ########################### APP ########################### */
+/* ################### ALGUNOS GENERALES ##################### */
 /* ########################################################### */
 * {
     margin: 0;
@@ -17,13 +6,34 @@ h2 {
     box-sizing: border-box;
 }
 
-html, body, #app {
+html, body, #app, .contenedor {
     height: 100%;
     width: 100%;
 }
 
 body { background-color: #212529; }
 
+h2 {
+    text-align: center;
+    border-bottom: 1.5px solid #bfc1c3;
+    padding-bottom: 8px;
+}
+
+#root, .controlesRoot, .cajaDeTareas, .tareaX, input, button { border-radius: 5px; }
+
+.cabezalMenu, .menuBotones, .cabezalListado, .listadoTareas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajaDeTareas, .tareaX, .controlesRoot {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ########################### APP ########################### */
+/* ########################################################### */
 #app {
     display: flex;
     justify-content: center;
@@ -33,12 +43,10 @@ body { background-color: #212529; }
 #root {
     height: 95%;
     width: 95%;
-    border-radius: 5px;
     border: 8px solid #31353a;
 }
 
 .contenedor {
-    height: 100%;
     display: grid;
     grid-template-columns: 25% auto;
     grid-template-rows: 60px 1fr;
@@ -59,33 +67,20 @@ body { background-color: #212529; }
 /* ################################################ */
 /* CABEZAL */
 .contenedor .cabezalMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     color: white;
     border-right: 2px solid #21252976;
     background-color: #2D6CDF;
 }
 
 /* MENU DE INTERACCION */
-
 .contenedor .menuBotones {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     border-right: 2px solid #21252976;
     position: relative;
 }
 
 .contenedor .menuBotones .controlesRoot {
-    display: flex;
-    flex-direction: column;
     gap: 8px;
-
-    padding: 1rem;                  /*Modificar*/
-    border-radius: 5px;
+    padding: 1rem;
     border: 2px solid #2D6CDF;
 }
 
@@ -93,10 +88,6 @@ body { background-color: #212529; }
 /* ################################################### */
 /* CABEZAL */
 .contenedor .cabezalListado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     color: white;
     background-color: #28a745;
 }
@@ -104,33 +95,20 @@ body { background-color: #212529; }
 /* LISTADO DE TAREAS */
 .contenedor .listadoTareas {
     min-height: 0;              /*Evitamos que el padre crezca y el hijo se encargue de su contenido agregando un overflow-y: auto*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .contenedor .listadoTareas .cajaDeTareas {
     height: 95%;
     width: 90%;
-
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-
     gap: 8px;
     padding: 1rem;
-
-    border-radius: 5px;
+    overflow-y: auto;
     border: 2px solid #28a745;
 }
 
 .contenedor .listadoTareas .cajaDeTareas .tareaX {
-    display: flex;
-    flex-direction: column;
     gap: 12px;
-
     padding: 0.5rem;
-    border-radius: 5px;
     border: 2px solid #28a745;
     background-color: white;
 }

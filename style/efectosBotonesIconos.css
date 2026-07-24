@@ -38,7 +38,6 @@ button, .btn-info {
     margin: 8px;
     padding: 0.5rem;
     padding-right: 1rem;
-    border-radius: 5px;
 
     cursor: pointer;
 
@@ -49,15 +48,14 @@ button, .btn-info {
     background-color: var(--background-color);
 }
 .controlesRoot > button { color: inherit; }
+.btn-info { border-radius: 5px; }
 
 /* INPUTS */
 input {       
     margin: 8px;
     padding: 0.5rem;
     border-radius: 5px;
-
     font-weight:bold;
-
     border: 2px solid var(--color);
     background-color: var(--background-color);
 }
@@ -78,7 +76,6 @@ input {
 .ocultarVista {
     position:absolute;
     inset:0;
-
     display:none;
     justify-content:center;
     align-items:center;
