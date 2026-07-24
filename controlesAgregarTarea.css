@@ -1,0 +1,26 @@
+.menuBotones div form.agregarTarea > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight:bold;
+}
+.menuBotones div form.agregarTarea > label input { color: inherit; }
+
+.menuBotones div form.agregarTarea > textarea{
+    width: 100%;
+    min-height: 120px;
+    border-radius: 5px;
+    padding: 12px 14px;
+
+
+    font-weight:bold;
+    transition: .15s ease;
+
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid var(--color);
+
+    /* background-color: var(--color-fondo); */
+}
