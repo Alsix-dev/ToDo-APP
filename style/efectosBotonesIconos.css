@@ -52,7 +52,7 @@ button, .btn-info {
     color: inherit; 
 }
 
-input { 
+input:not(.fechaLimite) {
     padding: 8px 8px 8px 40px; 
 }
 

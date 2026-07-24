@@ -1,3 +1,5 @@
+/* ######################## ESTRUCTURA ######################### */
+/* ############################################################# */
 form.agregarTarea {
     /* Ya esta en app.css definido el display: flex como flex-direction: column, pero
        si aplico un center en ese apartado, se veran afectado los otros menus. Aqui solo busco, centrar
@@ -6,11 +8,16 @@ form.agregarTarea {
     align-items: center;
 }
 
+form.agregarTarea .ingresoDatos {
+    width: 100%;
+}
+
 form.agregarTarea .ingresoDatos > label {
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight:bold;
+    gap: 25px;
 }
 
 form.agregarTarea textarea {
@@ -22,7 +29,7 @@ form.agregarTarea textarea {
     font-weight:bold;
     transition: .15s ease;
 
-    resize: vertical;
+    resize: none;
     outline: none;
     box-sizing: border-box;
     border: 2px solid var(--color);
@@ -30,8 +37,7 @@ form.agregarTarea textarea {
 
 /* ########################## ICONOS ########################### */
 /* ############################################################# */
-form.agregarTarea .ingresoDatos > div,
-form.agregarTarea .ingresoDatos > label {
+form.agregarTarea .ingresoDatos > div {
     position: relative;
 }
 
@@ -44,4 +50,14 @@ form.agregarTarea .ingresoDatos > div .material-symbols-outlined {
 form.agregarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
     top: 7%;
     left: 15px;
+}
+
+/* ########################## INPUTS ########################### */
+/* ############################################################# */
+form.agregarTarea .ingresoDatos input:not(.fechaLimite) {
+    width: 95%;
+}
+
+form.agregarTarea .ingresoDatos .fechaLimite {
+    padding: 8px 8px 8px 20px;
 }

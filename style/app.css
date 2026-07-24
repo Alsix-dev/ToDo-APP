@@ -19,9 +19,11 @@ h2 {
     padding-bottom: 8px;
 }
 
-#root, .controlesRoot, .cajaDeTareas, .tareaX { border-radius: 5px; }
+#root, .controlesRoot, .cajaDeTareas, .tareaX { 
+    border-radius: 5px; 
+}
 
-.cabezalMenu, .menuBotones, .cabezalListado, .listadoTareas{
+.cabezalMenu, .menuBotones, .cabezalListado, .listadoTareas {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +78,10 @@ h2 {
 .contenedor .menuBotones {
     border-right: 2px solid #21252976;
     position: relative;
+}
+
+.contenedor .menuBotones .controlesRoot {
+    width: 90%;
 }
 
 .contenedor .menuBotones .controlesRoot {
