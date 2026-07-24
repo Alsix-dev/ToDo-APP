@@ -24,41 +24,34 @@
     --background-color: white;
 }
 
+
 /* ########################## EFECTOS ########################## */
 /* ############################################################# */
+input, button, .btn-info { border-radius: 5px; }
 /* BOTONES */
 /* button:not(.controlesRoot > button), .btn-info { color: var(--color); }  INVESTIGAR SI ES O NO APTO EN TODOS LOS NAVEGADORES */
+button, .btn-info, input {
+    margin: 8px;
+    padding: 0.5rem;
+    font-weight:bold;
+    border: 2px solid var(--color);
+    background-color: var(--background-color);
+}
+
 button, .btn-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: left;
     
-    gap: 8px;    
-    margin: 8px;
-    padding: 0.5rem;
+    gap: 8px;
     padding-right: 1rem;
 
     cursor: pointer;
-
-    font-weight:bold;
-
     color:  var(--color);
-    border: 2px solid var(--color);
     background-color: var(--background-color);
 }
 .controlesRoot > button { color: inherit; }
-.btn-info { border-radius: 5px; }
-
-/* INPUTS */
-input {       
-    margin: 8px;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight:bold;
-    border: 2px solid var(--color);
-    background-color: var(--background-color);
-}
 
 /* ICONOS */
 .contenedor .menuBotones > div .controlesRoot .material-symbols-outlined { color: #2D6CDF; }

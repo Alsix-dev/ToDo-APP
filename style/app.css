@@ -19,7 +19,7 @@ h2 {
     padding-bottom: 8px;
 }
 
-#root, .controlesRoot, .cajaDeTareas, .tareaX, input, button { border-radius: 5px; }
+#root, .controlesRoot, .cajaDeTareas, .tareaX { border-radius: 5px; }
 
 .cabezalMenu, .menuBotones, .cabezalListado, .listadoTareas{
     display: flex;
