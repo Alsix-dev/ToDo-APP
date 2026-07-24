@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="efectosBotonesIconos.css">
+    <link rel="stylesheet" href="controlesAgregarTarea.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
@@ -18,16 +19,16 @@
 
                                         <!-- TITULO DE MENU: A veces boton cuando cambiamos en SPA -->
             <div class="cabezalMenu">
-                <h2>MENÚ</h2>
+                <h1>MENÚ</h1>
             </div>
                                         <!-- TITULO DE LISTADO DE TAREAS -->
             <div class="cabezalListado">
-                <h2>LISTADO</h2>
+                <h1>LISTADO</h1>
             </div>
 
                                         <!-- MENU DE BOTONES -->
             <section class="menuBotones">
-                <div class="ocultarVista activa">
+                <div class="ocultarVista">
                     <div class="controlesRoot">
                         <button><span class="material-symbols-outlined">add</span>Agregar tarea</button>
                         <button><span class="material-symbols-outlined">search</span>Buscar tarea</button>
@@ -36,16 +37,16 @@
                     </div>
                 </div>
 
-                <div class="ocultarVista">
-                    <form class="controlesRoot">
+                <div class="ocultarVista activa">
+                    <form class="controlesRoot agregarTarea">
                         <h2>Agregar tarea</h2>
+                        
                         <input type="text" placeholder="Titulo tarea">
-                        <label>
-                            Fecha limite:
-                            <input type="date">
-                        </label>
+                        <label>Fecha limite: <input type="date"></label>
                         <input type="text" placeholder="Colaborador? Nombre">
+
                         <textarea placeholder="Descripción de la tarea"></textarea>
+                        
                         <button><span class="material-symbols-outlined">add_task</span>Crear tarea</button>
                     </form>
                 </div>

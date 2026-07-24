@@ -28,7 +28,7 @@
 /* ############################################################# */
 /* BOTONES */
 /* button:not(.controlesRoot > button), .btn-info { color: var(--color); }  INVESTIGAR SI ES O NO APTO EN TODOS LOS NAVEGADORES */
-button, .btn-info{
+button, .btn-info {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,14 +48,22 @@ button, .btn-info{
     border: 2px solid var(--color);
     background-color: var(--background-color);
 }
-.controlesRoot > button {
-    color: inherit;
+.controlesRoot > button { color: inherit; }
+
+/* INPUTS */
+input {       
+    margin: 8px;
+    padding: 0.5rem;
+    border-radius: 5px;
+
+    font-weight:bold;
+
+    border: 2px solid var(--color);
+    background-color: var(--background-color);
 }
 
 /* ICONOS */
-.contenedor .menuBotones > div .controlesRoot .material-symbols-outlined {
-    color: #2D6CDF;
-}
+.contenedor .menuBotones > div .controlesRoot .material-symbols-outlined { color: #2D6CDF; }
 
 /* ########################## ACCIONES ########################## */
 /* ############################################################# */

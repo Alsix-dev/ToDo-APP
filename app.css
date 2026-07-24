@@ -1,3 +1,14 @@
+/* ################### ALGUNOS GENERICOS ##################### */
+/* ########################################################### */
+/* hacer generico los 5px de borde, asi ahorramos lineas de codigo innecesarios
+    Revisar otras lineas */
+
+h2 {
+    text-align: center;
+    border-bottom: 1.5px solid #bfc1c3;
+    padding-bottom: 8px;
+}
+
 /* ########################### APP ########################### */
 /* ########################################################### */
 * {
@@ -122,12 +133,6 @@ body { background-color: #212529; }
     border-radius: 5px;
     border: 2px solid #28a745;
     background-color: white;
-}
-
-.contenedor .listadoTareas .cajaDeTareas .tareaX > h2 {
-    text-align: center;
-    border-bottom: 1.5px solid #bfc1c3;
-    padding-bottom: 8px;
 }
 
 .contenedor .listadoTareas .cajaDeTareas .tareaX > div:first-of-type {
