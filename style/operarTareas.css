@@ -1,6 +1,6 @@
 /* ######################## ESTRUCTURA ######################### */
 /* ############################################################# */
-form.operarTarea {
+.operarTarea {
     /* Ya esta en app.css definido el display: flex como flex-direction: column, pero
        si aplico un center en ese apartado, se veran afectado los otros menus. Aqui solo busco, centrar
        el boton por separado del ingreso de datos. */
@@ -8,11 +8,11 @@ form.operarTarea {
     align-items: center;
 }
 
-form.operarTarea .ingresoDatos {
+.operarTarea .ingresoDatos {
     width: 100%;
 }
 
-form.operarTarea .ingresoDatos > label {
+.operarTarea .ingresoDatos > label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ form.operarTarea .ingresoDatos > label {
     gap: 25px;
 }
 
-form.operarTarea textarea {
+.operarTarea textarea {
     width: 100%;
     min-height: 120px;
     border-radius: 5px;
@@ -37,27 +37,27 @@ form.operarTarea textarea {
 
 /* ########################## ICONOS ########################### */
 /* ############################################################# */
-form.operarTarea .ingresoDatos > div {
+.operarTarea .ingresoDatos > div {
     position: relative;
 }
 
-form.operarTarea .ingresoDatos > div .material-symbols-outlined {
+.operarTarea .ingresoDatos > div .material-symbols-outlined {
     position: absolute;
     top: 25%;
     left: 20px;
 }
 
-form.operarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
+.operarTarea .ingresoDatos .textAreaDescription .material-symbols-outlined { 
     top: 7%;
     left: 15px;
 }
 
 /* ########################## INPUTS ########################### */
 /* ############################################################# */
-form.operarTarea .ingresoDatos input:not(.fechaLimite) {
+.operarTarea .ingresoDatos input:not(.fechaLimite) {
     width: 95%;
 }
 
-form.operarTarea .ingresoDatos .fechaLimite {
+.operarTarea .ingresoDatos .fechaLimite {
     padding: 8px 8px 8px 20px;
 }

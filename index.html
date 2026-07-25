@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../style/app.css">
     <link rel="stylesheet" href="../style/efectosBotonesIconos.css">
     <link rel="stylesheet" href="../style/operarTareas.css">
+    <link rel="stylesheet" href="../style/estadoTareas.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
@@ -16,119 +17,217 @@
     <div id="app">                          <!-- Configuraciones iniciales: Margin, Box, Padding -->
         <div id="root">                     <!-- Contenedor general donde cargo todos mis elementos -->
             <div class="contenedor">        <!-- Nuestro Layout: Aplicamos CSS grid -->
-
-            <div class="cabezalMenu"> 
-                <h1>MENÚ</h1> 
-            </div>
-            <section class="menuBotones">
-                <div class="ocultarVista">
-                    <div class="controlesRoot">
-                        <button>
-                            <span class="material-symbols-outlined">add</span>
-                            Agregar tarea
-                        </button>
-
-                        <button>
-                            <span class="material-symbols-outlined">search</span>
-                            Buscar tarea
-                        </button>
-
-                        <button>
-                            <span class="material-symbols-outlined">format_list_bulleted</span>
-                            Mostrar estado tareas
-                        </button>
-
-                        <button>
-                            <span class="material-symbols-outlined">history</span>
-                            Mostrar historial tareas
-                        </button>
+            
+                <div class="mainTodoApp mostrarMain ">
+                    <div class="cabezalMenu"> 
+                        <h1>MENÚ</h1> 
                     </div>
-                </div>
+                    <section class="menuBotones">
+                        <div class="ocultarMenu activa">
+                            <div class="controlesRoot">
+                                <button>
+                                    <span class="material-symbols-outlined">add</span>
+                                    Agregar tarea
+                                </button>
 
-                <div class="ocultarVista">
-                    <form class="controlesRoot operarTarea">
-                        <div class="ingresoDatos">
-                            <h2>Agregar tarea</h2>
+                                <button>
+                                    <span class="material-symbols-outlined">search</span>
+                                    Buscar tarea
+                                </button>
 
-                            <div>
-                                <span class="material-symbols-outlined">format_h2</span>
-                                <input type="text" placeholder="Titulo tarea">
-                            </div>
+                                <button>
+                                    <span class="material-symbols-outlined">format_list_bulleted</span>
+                                    Mostrar estado tareas
+                                </button>
 
-                            <label>
-                                Fecha limite:
-                                <input class="fechaLimite" type="date">
-                            </label>
-
-                            <div>
-                                <span class="material-symbols-outlined">pattern</span>
-                                <input type="text" placeholder="Colaborador? Nombre">
-                            </div>
-                            
-                            <div class="textAreaDescription">
-                                <span class="material-symbols-outlined">text_ad</span>
-                                <textarea placeholder="Descripción de la tarea"></textarea>
+                                <button>
+                                    <span class="material-symbols-outlined">history</span>
+                                    Mostrar historial tareas
+                                </button>
                             </div>
                         </div>
-                        
-                        <button class="botonCrearTarea">
-                            <span class="material-symbols-outlined">add_task</span>
-                            Crear tarea
-                        </button>
-                    </form>
-                </div>
 
-                <div class="ocultarVista activa">
-                    <form class="controlesRoot operarTarea">
-                        <div class="ingresoDatos">
-                            <h2>Buscar tarea</h2>
+                        <div class="ocultarMenu">
+                            <form class="controlesRoot operarTarea">
+                                <div class="ingresoDatos">
+                                    <h2>Agregar tarea</h2>
 
-                            <div>
-                                <span class="material-symbols-outlined">format_h2</span>
-                                <input type="text" placeholder="Titulo tarea">
-                            </div>
+                                    <div>
+                                        <span class="material-symbols-outlined">format_h2</span>
+                                        <input type="text" placeholder="Titulo tarea">
+                                    </div>
 
-                            <label>
-                                Fecha inicio:
-                                <input class="fechaLimite" type="date">
-                            </label>
+                                    <label>
+                                        Fecha limite:
+                                        <input class="fechaLimite" type="date">
+                                    </label>
 
-                            <label>
-                                Fecha limite:
-                                <input class="fechaLimite" type="date">
-                            </label>
-                    </form>
-                </div>
-            </section>
+                                    <div>
+                                        <span class="material-symbols-outlined">pattern</span>
+                                        <input type="text" placeholder="Colaborador? Nombre">
+                                    </div>
+                                    
+                                    <div class="textAreaDescription">
+                                        <span class="material-symbols-outlined">text_ad</span>
+                                        <textarea placeholder="Descripción de la tarea"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <button class="botonCrearTarea">
+                                    <span class="material-symbols-outlined">add_task</span>
+                                    Crear tarea
+                                </button>
+                            </form>
+                        </div>
 
-            <div class="cabezalListado"> 
-                <h1>LISTADO</h1> 
-            </div>
-            <section class="listadoTareas">
-                <div class="cajaDeTareas">
-                    <div class="tareaX">
-                        <h2>Titulo tarea</h2>
-                        <input type="checkbox" id="checkboxInfo">
-                        <div>
-                            <button class="btn-start"><span class="material-symbols-outlined">arrow_right</span>Empezar</button>
-                            <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
-                            <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
-                            <div>
-                                <label for="checkboxInfo" class="btn-info">
-                                    <span class="material-symbols-outlined">info</span>Detalles
-                                    <!-- Recordar que el input esta fuera del label, arriba. -->
-                                </label>
+                        <div class="ocultarMenu">
+                            <div class="controlesRoot operarTarea">
+                                <div class="ingresoDatos">
+                                    <h2>Buscar tarea</h2>
+
+                                    <div>
+                                        <span class="material-symbols-outlined">format_h2</span>
+                                        <input type="text" placeholder="Titulo tarea">
+                                    </div>
+
+                                    <label>
+                                        Fecha inicio:
+                                        <input class="fechaLimite" type="date">
+                                    </label>
+
+                                    <label>
+                                        Fecha limite:
+                                        <input class="fechaLimite" type="date">
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <div class="detailsInfo">
-                            <p>Fecha inicio: 23/07/2026</p>
-                            <p>Fecha limite: 23/07/2026</p>
-                            <p>Colaborador: xxxx-xxxx</p>
-                            <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit dolores, velit rerum, nesciunt quaerat iusto mollitia quo maxime explicabo esse aperiam ipsum dicta eligendi sed quae beatae culpa sequi.</p>
-                        </div>
+                    </section>
+
+                    <div class="cabezalListado"> 
+                        <h1>LISTADO</h1> 
                     </div>
+                    <section class="listadoTareas">
+                        <div class="cajaDeTareas">
+                            <div class="tareaX">
+                                <h2>Titulo tarea</h2>
+                                <input type="checkbox" class="checkboxInfo" id="detalle1">
+                                <div>
+                                    <button class="btn-start"><span class="material-symbols-outlined">arrow_right</span>Empezar</button>
+                                    <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
+                                    <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
+                                    <div>
+                                        <label for="detalle1" class="btn-info">
+                                            <span class="material-symbols-outlined">info</span>Detalles
+                                            <!-- Recordar que el input esta fuera del label, arriba. -->
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="detailsInfo">
+                                    <p>Fecha inicio: 23/07/2026</p>
+                                    <p>Fecha limite: 23/07/2026</p>
+                                    <p>Colaborador: xxxx-xxxx</p>
+                                    <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit dolores, velit rerum, nesciunt quaerat iusto mollitia quo maxime explicabo esse aperiam ipsum dicta eligendi sed quae beatae culpa sequi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
+
+                <!-- Si quiero separar los estados en mas cuadros, solo debo agregar mas cuadrantesSecciones segun la seccion1 o 2 -->
+                <div class="PantallaDeEstados mostrarMain activaMain">
+                    <div class="cabezalMenu">
+                        <h1>Volver al inicio</h1>
+                    </div>
+                    <div class="cabezalListado"> 
+                        <h1>ESTADO</h1> 
+                    </div>
+                    <section class="seccion1ListaEstados">
+                        <div class="cuadrantesSecciones cuadranteTareasPausa">
+                            <h2>TAREAS EN PAUSA</h2>
+                            <div class="cajaDeTareas">
+                                <div class="tareaX">
+                                    <h2>Titulo tarea</h2>
+                                    <input type="checkbox" class="checkboxInfo" id="detalle2">
+                                    <div>
+                                        <button class="btn-start"><span class="material-symbols-outlined">arrow_right</span>Empezar</button>
+                                        <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
+                                        <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
+                                        <div>
+                                            <label for="detalle2" class="btn-info">
+                                                <span class="material-symbols-outlined">info</span>Detalles
+                                                <!-- Recordar que el input esta fuera del label, arriba. -->
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="detailsInfo">
+                                        <p>Fecha inicio: 23/07/2026</p>
+                                        <p>Fecha limite: 23/07/2026</p>
+                                        <p>Colaborador: xxxx-xxxx</p>
+                                        <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit dolores, velit rerum, nesciunt quaerat iusto mollitia quo maxime explicabo esse aperiam ipsum dicta eligendi sed quae beatae culpa sequi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="seccion2ListaEstados">
+                            <div class="cuadrantesSecciones cuadranteTareasProgreso">
+                                <h2>TAREAS EN PROGRESO</h2>
+                                <div class="cajaDeTareas">
+                                    <div class="tareaX">
+                                        <h2>Titulo tarea</h2>
+                                        <input type="checkbox" class="checkboxInfo" id="detalle3">
+                                        <div>
+                                            <button class="btn-start"><span class="material-symbols-outlined">arrow_right</span>Empezar</button>
+                                            <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
+                                            <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
+                                            <div>
+                                                <label for="detalle3" class="btn-info">
+                                                    <span class="material-symbols-outlined">info</span>Detalles
+                                                    <!-- Recordar que el input esta fuera del label, arriba. -->
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="detailsInfo">
+                                            <p>Fecha inicio: 23/07/2026</p>
+                                            <p>Fecha limite: 23/07/2026</p>
+                                            <p>Colaborador: xxxx-xxxx</p>
+                                            <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit dolores, velit rerum, nesciunt quaerat iusto mollitia quo maxime explicabo esse aperiam ipsum dicta eligendi sed quae beatae culpa sequi.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="cuadrantesSecciones cuadranteTareasCompletas">
+                                <h2>TAREAS COMPLETAS</h2>
+                                <div class="cajaDeTareas">
+                                    <div class="tareaX">
+                                        <h2>Titulo tarea</h2>
+                                        <input type="checkbox" class="checkboxInfo" id="detalle4">
+                                        <div>
+                                            <button class="btn-start"><span class="material-symbols-outlined">arrow_right</span>Empezar</button>
+                                            <button class="btn-pause"><span class="material-symbols-outlined">pause</span>Pausar</button>
+                                            <button class="btn-delete"><span class="material-symbols-outlined">delete</span>Eliminar</button>
+                                            <div>
+                                                <label for="detalle4" class="btn-info">
+                                                    <span class="material-symbols-outlined">info</span>Detalles
+                                                    <!-- Recordar que el input esta fuera del label, arriba. -->
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="detailsInfo">
+                                            <p>Fecha inicio: 23/07/2026</p>
+                                            <p>Fecha limite: 23/07/2026</p>
+                                            <p>Colaborador: xxxx-xxxx</p>
+                                            <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit dolores, velit rerum, nesciunt quaerat iusto mollitia quo maxime explicabo esse aperiam ipsum dicta eligendi sed quae beatae culpa sequi.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+            </div>
         </div>
     </div>
 </body>

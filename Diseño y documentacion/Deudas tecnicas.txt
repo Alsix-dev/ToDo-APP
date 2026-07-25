@@ -3,3 +3,6 @@
 2) FINALIZADO: Deberia quitar la tarea o poner la opcion de eliminarla y sea decision del usuario? En todo caso, poner finalizado como titulo y luego quitar los botones.
 
 3) PRIORIDAD TAREA: Agregar un sistema de prioridades que se establece cuando se agrega.
+
+4) BOTON DE REGRESO: Al agregar JS a la aplicacion, ajustrar los textos de MENU por un boton que permita el regreso al inicio.
+	

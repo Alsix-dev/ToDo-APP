@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-html, body, #app, .contenedor {
+html, body, #app, .contenedor, .mainTodoApp, .PantallaDeEstados {
     height: 100%;
     width: 100%;
 }
@@ -49,15 +49,24 @@ h2 {
 }
 
 .contenedor {
-    display: grid;
+    background-color: #f3f7ff;
+}
+
+.mainTodoApp {
+    /* display: grid; */
     grid-template-columns: 25% auto;
     grid-template-rows: 60px 1fr;
 
     grid-template-areas:
     "cabezalMenu cabezalListado"
     "menuBotones listadoTareas";
+}
 
-    background-color: #f3f7ff;
+.mostrarMain {
+    display: none;
+}
+.mostrarMain.activaMain {
+    display: grid;
 }
 
 .cabezalMenu { grid-area: cabezalMenu; }
@@ -68,14 +77,15 @@ h2 {
 /* ##################### MENU ##################### */
 /* ################################################ */
 /* CABEZAL */
-.contenedor .cabezalMenu {
+.cabezalMenu {
     color: white;
     border-right: 2px solid #21252976;
     background-color: #2D6CDF;
 }
 
 /* MENU DE INTERACCION */
-.contenedor .menuBotones {
+/* barra lateral */
+.contenedor .mainTodoApp .menuBotones {
     border-right: 2px solid #21252976;
     position: relative;
 }
@@ -84,7 +94,7 @@ h2 {
     width: 90%;
 }
 
-.contenedor .menuBotones .controlesRoot {
+.contenedor .mainTodoApp .menuBotones .controlesRoot {
     gap: 8px;
     padding: 1rem;
     border: 2px solid #2D6CDF;
@@ -93,17 +103,17 @@ h2 {
 /* ##################### LISTADO ##################### */
 /* ################################################### */
 /* CABEZAL */
-.contenedor .cabezalListado {
+.cabezalListado {
     color: white;
     background-color: #28a745;
 }
 
 /* LISTADO DE TAREAS */
-.contenedor .listadoTareas {
+.listadoTareas {
     min-height: 0;              /*Evitamos que el padre crezca y el hijo se encargue de su contenido agregando un overflow-y: auto*/
 }
 
-.contenedor .listadoTareas .cajaDeTareas {
+.cajaDeTareas {
     height: 95%;
     width: 90%;
     gap: 8px;
@@ -112,14 +122,14 @@ h2 {
     border: 2px solid #28a745;
 }
 
-.contenedor .listadoTareas .cajaDeTareas .tareaX {
+.cajaDeTareas .tareaX {
     gap: 12px;
     padding: 0.5rem;
     border: 2px solid #28a745;
     background-color: white;
 }
 
-.contenedor .listadoTareas .cajaDeTareas .tareaX > div:first-of-type {
+.cajaDeTareas .tareaX > div:first-of-type {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

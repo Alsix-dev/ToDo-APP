@@ -73,15 +73,16 @@ textarea {
 /* ########################## ACCIONES ########################## */
 /* ############################################################# */
                                         /* DETALLE: Desplazamiento vertical*/
-#checkboxInfo, .detailsInfo { 
-    display: none; 
+
+.checkboxInfo, .detailsInfo { 
+    display: none;
 }
-#checkboxInfo:checked ~ .detailsInfo { 
+.checkboxInfo:checked ~ .detailsInfo { 
     display: block;
 }
 
                                         /* CAMBIO DE TARJETA DE CONTROLES ROOT DE MENU */
-.ocultarVista {
+.ocultarMenu {
     position:absolute;
     inset:0;
     display:none;
@@ -89,6 +90,6 @@ textarea {
     align-items:center;
 }
 
-.ocultarVista.activa { 
+.ocultarMenu.activa { 
     display: flex; 
 }

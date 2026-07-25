@@ -1,0 +1,69 @@
+.PantallaDeEstados {
+    /* display: grid; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 60px 1fr;
+
+    grid-template-areas:
+    "cabezalMenu cabezalListado"
+    "seccion1ListaEstados seccion2ListaEstados";
+
+    overflow-y: auto;
+}
+
+.cabezalMenu { grid-area: cabezalMenu; }
+.cabezalListado { grid-area: cabezalListado;}
+.seccion1ListaEstados { grid-area: seccion1ListaEstados; }
+.seccion2ListaEstados { grid-area: seccion2ListaEstados; }
+
+.cuadrantesSecciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    overflow-y: auto;
+}
+
+.cuadrantesSecciones.cuadranteTareasPausa {
+    margin-top: 60px;
+    height: 500px;
+}
+
+.cuadrantesSecciones.cuadranteTareasProgreso {
+    margin-top: 60px;
+    height: 350px;
+}
+
+.cuadrantesSecciones.cuadranteTareasCompletas {
+    height: 100%;
+    height: 350px;
+}
+
+.cuadranteTareasPausa > .cajaDeTareas {
+    background-color: #ffc10727;
+}
+
+.cuadranteTareasProgreso > .cajaDeTareas {
+    background-color: #28a74627;
+}
+
+.cuadranteTareasCompletas > .cajaDeTareas {
+    background-color: #2d6bdf3f;
+    margin-bottom: 20px;
+}
+
+.seccion1ListaEstados, .seccion2ListaEstados {
+    border-right: 2px solid #21252976;
+    min-height: 0;
+    gap: 20px;
+}
+
+.seccion2ListaEstados {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, 1fr);
+}
