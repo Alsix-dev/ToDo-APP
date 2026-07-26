@@ -18,36 +18,38 @@
         <div id="root">                     <!-- Contenedor general donde cargo todos mis elementos -->
             <div class="contenedor">        <!-- Nuestro Layout: Aplicamos CSS grid -->
             
-                <div class="mainTodoApp mostrarMain ">
+                <div class="mainTodoApp mostrarMain activaMain">
                     <div class="cabezalMenu"> 
-                        <h1>MENÚ</h1> 
+                        <button data-tarjeta="volverInicio" class="volverInicio">
+                            <h1>MENÚ</h1>
+                        </button>
                     </div>
                     <section class="menuBotones">
-                        <div class="ocultarMenu activa">
+                        <div class="ocultarMenu vistaMenu activa" id="volverInicio"> <!-- Falta agregar el boton para volver -->
                             <div class="controlesRoot">
-                                <button>
+                                <button data-tarjeta="agregar">
                                     <span class="material-symbols-outlined">add</span>
                                     Agregar tarea
                                 </button>
 
-                                <button>
+                                <button data-tarjeta="buscar">
                                     <span class="material-symbols-outlined">search</span>
                                     Buscar tarea
                                 </button>
 
-                                <button>
+                                <button data-tarjeta="estado">
                                     <span class="material-symbols-outlined">format_list_bulleted</span>
                                     Mostrar estado tareas
                                 </button>
 
-                                <button>
+                                <button data-tarjeta="historial">
                                     <span class="material-symbols-outlined">history</span>
                                     Mostrar historial tareas
                                 </button>
                             </div>
                         </div>
 
-                        <div class="ocultarMenu">
+                        <div class="ocultarMenu vistaMenu" id="agregar">
                             <form class="controlesRoot operarTarea">
                                 <div class="ingresoDatos">
                                     <h2>Agregar tarea</h2>
@@ -80,7 +82,7 @@
                             </form>
                         </div>
 
-                        <div class="ocultarMenu">
+                        <div class="ocultarMenu vistaMenu" id="buscar">
                             <div class="controlesRoot operarTarea">
                                 <div class="ingresoDatos">
                                     <h2>Buscar tarea</h2>
@@ -135,7 +137,7 @@
                 </div>
 
                 <!-- Si quiero separar los estados en mas cuadros, solo debo agregar mas cuadrantesSecciones segun la seccion1 o 2 -->
-                <div class="PantallaDeEstados mostrarMain activaMain">
+                <div class="PantallaDeEstados mostrarMain" id="estado">
                     <div class="cabezalMenu">
                         <h1>Volver al inicio</h1>
                     </div>
@@ -230,5 +232,7 @@
             </div>
         </div>
     </div>
+
+    <script type="module" src="../script/cambiarMenu.js"></script>
 </body>
 </html>
