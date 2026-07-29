@@ -1,0 +1,56 @@
+/* ############################# HEADER ############################# */
+/* ################################################################## */
+.header {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    align-items: center;
+    margin: 12px 4px 4px 4px;
+    gap: 8px;
+}
+
+/* ############################# TITLE IZQUIERDA ############################# */
+.header .titleApp {
+    justify-self: center;
+    padding: 4px;
+    color: #f0f0f0;
+}
+
+/* ############################# INPUT CENTRO ############################# */
+.header .contentFilterTask {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 50%;
+    margin: 2px;
+    padding: 8px;
+    border: 2px solid #ADADAD;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.header .contentFilterTask .titleh2 {
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.header .contentFilterTask .inputFilterTask {
+    width: 70%;
+    position: relative;
+}
+
+.header .contentFilterTask .inputFilterTask > input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 8px 8px 8px 40px;
+    margin: 2px;
+    outline: none;
+    border: none;
+}
+
+.header .contentFilterTask .inputFilterTask .iconoSearchTask {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+}

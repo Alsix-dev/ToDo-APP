@@ -6,132 +6,34 @@
     box-sizing: border-box;
 }
 
-html, body, #app, .contenedor, .mainTodoApp, .PantallaDeEstados {
+html, body, #app, #root, .contenedor {
     height: 100%;
     width: 100%;
 }
 
-body { background-color: #212529; }
 
-h2 {
-    text-align: center;
-    border-bottom: 1.5px solid #bfc1c3;
-    padding-bottom: 8px;
-}
+/* ########################### CONTENEDOR ########################### */
+/* ################################################################## */
 
-#root, .controlesRoot, .cajaDeTareas, .tareaX { 
-    border-radius: 5px; 
-}
-
-.cabezalMenu, .menuBotones, .cabezalListado, .listadoTareas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cajaDeTareas, .tareaX, .controlesRoot {
+.contenedor {
+    background: radial-gradient(circle at 50% 20%, #1E2229 0%, #111315 80%);
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* ########################### APP ########################### */
-/* ########################################################### */
-#app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main.contentAll {
+    /* background-color: black; */
+    flex: 1;
 }
-
-#root {
-    height: 95%;
-    width: 95%;
-    border: 8px solid #31353a;
+.footer {
+    background-color: blue;
 }
+/* #######################333 */
 
-.contenedor {
-    background-color: #f3f7ff;
-}
+/* ########################### EXTRAS ########################### */
 
-.mainTodoApp {
-    /* display: grid; */
-    grid-template-columns: 25% auto;
-    grid-template-rows: 60px 1fr;
-
-    grid-template-areas:
-    "cabezalMenu cabezalListado"
-    "menuBotones listadoTareas";
-}
-
-.mostrarMain {
-    display: none;
-}
-.mostrarMain.activaMain {
-    display: grid;
-}
-
-.cabezalMenu { grid-area: cabezalMenu; }
-.cabezalListado { grid-area: cabezalListado;}
-.menuBotones { grid-area: menuBotones;}
-.listadoTareas { grid-area: listadoTareas; }
-
-/* ##################### MENU ##################### */
-/* ################################################ */
-/* CABEZAL */
-.cabezalMenu {
-    color: white;
-    border-right: 2px solid #21252976;
-    background-color: #2D6CDF;
-}
-
-/* MENU DE INTERACCION */
-/* barra lateral */
-.contenedor .mainTodoApp .menuBotones {
-    border-right: 2px solid #21252976;
-    position: relative;
-}
-
-.contenedor .menuBotones .controlesRoot {
-    width: 90%;
-}
-
-.contenedor .mainTodoApp .menuBotones .controlesRoot {
-    gap: 8px;
-    padding: 1rem;
-    border: 2px solid #2D6CDF;
-}
-
-/* ##################### LISTADO ##################### */
-/* ################################################### */
-/* CABEZAL */
-.cabezalListado {
-    color: white;
-    background-color: #28a745;
-}
-
-/* LISTADO DE TAREAS */
-.listadoTareas {
-    min-height: 0;              /*Evitamos que el padre crezca y el hijo se encargue de su contenido agregando un overflow-y: auto*/
-}
-
-.cajaDeTareas {
-    height: 95%;
-    width: 90%;
-    gap: 8px;
-    padding: 1rem;
-    overflow-y: auto;
-    border: 2px solid #28a745;
-}
-
-.cajaDeTareas .tareaX {
-    gap: 12px;
-    padding: 0.5rem;
-    border: 2px solid #28a745;
-    background-color: white;
-}
-
-.cajaDeTareas .tareaX > div:first-of-type {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.1rem;
+.titleh2 {
+    color: #f0f0f0;
 }
