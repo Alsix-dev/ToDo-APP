@@ -12,16 +12,16 @@ main.contentAll {
 main.contentAll .contentFirstMain {
     height: 100%;
     display: grid;
-    grid-template-columns: 220px 1fr 220px;
+    grid-template-columns: 280px 1fr 280px;
     grid-template-rows: 0.2fr 1fr;
     grid-template-areas: 
     ". mainAddTask ."
-    "contentNav2 contentTaskList contentNav1";
+    "rootNav2 contentTaskList rootNav1";
 }
 main.contentAll .mainAddTask { grid-area: mainAddTask;}
 main.contentAll .contentTaskList { grid-area: contentTaskList;}
-main.contentAll .contentNav1 { grid-area: contentNav1;}
-main.contentAll .contentNav2 { grid-area: contentNav2;}
+main.contentAll .rootNav1 { grid-area: rootNav1;}
+main.contentAll .rootNav2 { grid-area: rootNav2;}
 
 /* ############################# AGREGAR TAREA ############################# */
 
@@ -57,5 +57,82 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
 /* ######################################################################### */
 /* ######################################################################### */
 
-/* ############################# AGREGAR TAREA ############################# */
+/* ############################### NAV MENU ################################ */
 
+.contentNav {
+    position: relative;
+}
+
+.contentNav > .navMenuButtons {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 1%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
+}
+
+.contentNav .navMenuButtons > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px;
+    gap: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    /* background-color: #212529; */
+    background-color: transparent;
+}
+
+/* ############################# NAV MENU 1 ############################# */
+.contentNav.rootNav1 > .navMenuButtons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.contentNav.rootNav1 .navMenuButtons > button {
+    border-radius: 8px 0 0 8px;
+    /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
+                    columna 1                  columna 2        columna 3             columna 4
+        fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
+    box-shadow: 
+        -2px 0 2px 1px rgba(195, 53, 220, 0.6),
+        0px 2px 2px 1px rgba(195, 53, 220, 0.6),
+        0px -2px 2px 1px rgba(195, 53, 220, 0.6);
+}
+.contentNav.rootNav1 .navMenuButtons > button > span {
+    color: #C335DC;
+}
+
+/* ############################# NAV MENU 2 ############################# */
+.contentNav.rootNav2 > .navMenuButtons {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contentNav.rootNav2 .navMenuButtons > button {
+    border-radius: 0 8px 8px 0;
+    /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
+                    columna 1                  columna 2        columna 3             columna 4
+        fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
+    box-shadow: 
+        2px 0 2px 1px rgba(220, 53, 69, 0.6),
+        0px 2px 2px 1px rgba(220, 53, 69, 0.6),
+        0px -2px 2px 1px rgba(220, 53, 69, 0.6);
+}
+.contentNav.rootNav2 .navMenuButtons > button > span {
+    color: #DC3545;
+}
+
+/* ######################################################################### */
+/* ######################################################################### */
+
+/* ############################### TASKS LIST ################################ */
+
+.contentTaskList {
+    background-color: red;
+}
