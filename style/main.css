@@ -166,6 +166,9 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     padding:0;
     margin:0;
     overflow-y: auto;
+
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;    
+    scrollbar-width: thin;  /* Hace la barra delgada */
 }
 
 .contentTaskList > ul > li {
@@ -173,7 +176,6 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     margin: 12px;
     padding: 4px;
     border-radius: 8px;
-    box-shadow: 0 0 5px 1px rgba(32, 201, 151, 0.5);
 }
 
 .contentTaskList > ul > li > div {
@@ -268,4 +270,35 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
 
 .contentTaskList > ul .controlsRootTask #btn-Delete {
     color: #DC3545;
+}
+
+/* ############################### CLASIFICACION DE TAREAS ################################ */
+/* ############################### EN PROGRESO */
+.contentTaskList > ul .taskInProgress {
+    box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
+}
+.contentTaskList > ul .taskInProgress h2,
+.contentTaskList > ul .taskInProgress > .detailsTask *{
+    color: #4DA361;
+    text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
+}
+
+/* ############################### EN PAUSA */
+.contentTaskList > ul .taskIsPause {
+    box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
+}
+.contentTaskList > ul .taskIsPause h2,
+.contentTaskList > ul .taskIsPause > .detailsTask *{
+    color: #F2A359;
+    text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
+}
+
+/* ############################### COMPLETADA */
+.contentTaskList > ul .taskIsComplete {
+    box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
+}
+.contentTaskList > ul .taskIsComplete h2,
+.contentTaskList > ul .taskIsComplete > .detailsTask *{
+    color: #3A82F7;
+    text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
 }
