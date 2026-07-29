@@ -22,10 +22,6 @@ html, body, #app, #root, .contenedor {
     flex-direction: column;
 }
 
-.footer {
-    background-color: blue;
-}
-
 /* ########################### EXTRAS ########################### */
 
 .titleh2 {
