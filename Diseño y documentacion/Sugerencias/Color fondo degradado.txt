@@ -1,0 +1,5 @@
+body, .app-container {
+  background: radial-gradient(circle at 50% 20%, #1E2229 0%, #111315 80%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}

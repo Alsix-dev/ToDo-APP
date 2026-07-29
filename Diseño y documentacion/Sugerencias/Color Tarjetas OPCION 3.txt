@@ -1,0 +1,51 @@
+Fondo y Elementos Comunes
+Fondo de la interfaz (Gris oscuro): #161b22
+
+Texto de descripción (Gris claro apagado): #8b949e
+
+Sombra de caja (Box-Shadow) Base (Sutil):box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+Tarjeta 1: Tarea Urgente (Roja/Rosa)
+Borde y Resplandor (Glow): #ff1761
+
+box-shadow: 0 0 10px 2px rgba(255, 23, 97, 0.6);
+
+Icono de Alerta y Papelera: #e52b31
+
+Texto de Categoría: #f78da7
+
+Tarjeta 2: Tarea en Proceso (Verde)
+Borde y Resplandor (Glow): #00ff41
+
+box-shadow: 0 0 10px 2px rgba(0, 255, 65, 0.5);
+
+Icono de Check: #1dc944
+
+Texto de Categoría: #8b949e (Usando el color de texto común)
+
+Tarjeta 3: Tarea Pendiente (Naranja/Ámbar)
+Borde y Resplandor (Glow): #ffb066
+
+box-shadow: 0 0 10px 2px rgba(255, 176, 102, 0.6);
+
+Icono de Alerta: #f2994a
+
+Texto de Categoría: #e0c19a (Un marrón claro/beige tostado)
+
+Tarjeta 4: Tarea Completada (Azul)
+Borde y Resplandor (Glow): #0055ff
+
+box-shadow: 0 0 12px 3px rgba(0, 85, 255, 0.7);
+
+Icono de Check: #3296fa
+
+Texto de Categoría: #5c7080 (Un azul marino apagado)
+
+Iconos de Acción Universales (Lado Derecho)
+Icono de Archivo/Carpeta: #f2994a (Naranja ámbar)
+
+Icono de Lápiz (Editar): #3296fa (Azul cielo)
+
+Icono de Papelera (Eliminar): #e52b31 (Rojo suave)
+
+Destello (Sparkle) de la Tarjeta 4: #f0f6fc (Blanco muy claro)
