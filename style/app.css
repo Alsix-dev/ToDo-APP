@@ -11,6 +11,10 @@ html, body, #app, #root, .contenedor {
     width: 100%;
 }
 
+body, .navMenuButtons > button {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* ########################### CONTENEDOR ########################### */
 /* ################################################################## */
 
@@ -26,4 +30,5 @@ html, body, #app, #root, .contenedor {
 
 .titleh2 {
     color: #f0f0f0;
+    font-size: 20px;
 }
