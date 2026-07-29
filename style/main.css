@@ -1,0 +1,55 @@
+/* 
+    Revisar al finalizar las etiquetas:
+        "CAMBIAR"
+        "QUITAR"
+
+    Todas estas etiquetas indican codigo que luego deben ser cambiados, modificados, testeados, etc...
+*/
+main.contentAll {
+    flex: 1;
+}
+
+main.contentAll .contentFirstMain {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    grid-template-rows: 0.2fr 1fr;
+    grid-template-areas: 
+    ". mainAddTask ."
+    "contentNav2 contentTaskList contentNav1";
+}
+main.contentAll .mainAddTask { grid-area: mainAddTask;}
+main.contentAll .contentTaskList { grid-area: contentTaskList;}
+main.contentAll .contentNav1 { grid-area: contentNav1;}
+main.contentAll .contentNav2 { grid-area: contentNav2;}
+
+/* ############################# AGREGAR TAREA ############################# */
+
+main.contentAll .mainAddTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    padding: 8px;
+}
+
+main.contentAll .mainAddTask #btn-AddTask {
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 60px;
+    gap: 12px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6); /*CAMBIAR*/
+    /* box-shadow: 0 0 10px 1px rgba(32, 201, 151, 0.5); */
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
+    color: white;
+    font-size: 35px;
+}

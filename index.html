@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../style/app.css">
     <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/main.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 
@@ -15,6 +16,8 @@
     <div id="app">                          <!-- Configuraciones iniciales: Margin, Box, Padding -->
         <div id="root">                     <!-- Contenedor general donde cargo todos mis elementos -->
             <div class="contenedor">        <!-- Nuestro Layout: Aplicamos CSS grid -->
+
+<!--###################################################### HEADER ##########################################################-->
                 <header class="header">
                     <section class="titleApp">
                         <h1 id="titleApp">Todo App</h1>
@@ -32,9 +35,69 @@
                     </section>
                 </header>
 
+<!--###################################################### MAIN ##########################################################-->
                 <main class="contentAll">
-                    mundo
+                    <section class="contentFirstMain">
+                        <div class="mainAddTask">
+                            <button id="btn-AddTask" data-btn-event="addTask">
+                                <h2 class="titleh2">AGREGAR TAREA</h2>
+                                <span class="material-symbols-outlined iconoAddTask">add_circle</span>
+                            </button>
+                        </div>
+
+                        <div class="contentTaskList">
+                            <ul id="taskListItem">
+                                <li class="taskItem">
+                                    <div class="mainTask">
+                                        <input type="checkbox" name="" id="">
+                                        <h2 class="titleh2">Titulo tarea</h2>
+                                    </div>
+
+                                    <div class="detailsTask">
+                                        <span class="material-symbols-outlined">description</span>
+                                        <button id="btn-Details">Detalles</button>
+                                    </div>
+
+                                    <div class="controlsRootTask">
+                                        <button id="btn-Pause">
+                                            <span class="material-symbols-outlined">pause_circle</span>
+                                        </button>
+                                        <button id="btn-Edit">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button id="btn-Delete">
+                                            <span class="material-symbols-outlined">delete</span>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <section class="contentNav1">
+                            <div class="navMenuButtons">
+                                <button id="historyTasks">
+                                    <span class="material-symbols-outlined">horizontal_align_left</span>
+                                    Historial
+                                </button>
+                                <button id="stateTasks">
+                                    <span class="material-symbols-outlined">horizontal_align_left</span>
+                                    Estado
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="contentNav2">
+                            <div class="navMenuButtons">
+                                <button id="historyTasks">
+                                    <span class="material-symbols-outlined">horizontal_align_right</span>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </section>
+                    </section>
                 </main>
+                
+<!--###################################################### FOOTER ##########################################################-->
                 <footer class="footer">
                     que tal
                 </footer>

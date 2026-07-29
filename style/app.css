@@ -22,14 +22,9 @@ html, body, #app, #root, .contenedor {
     flex-direction: column;
 }
 
-main.contentAll {
-    background-color: black;
-    flex: 1;
-}
 .footer {
     background-color: blue;
 }
-/* #######################333 */
 
 /* ########################### EXTRAS ########################### */
 
