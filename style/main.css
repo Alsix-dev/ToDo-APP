@@ -6,14 +6,17 @@
     Todas estas etiquetas indican codigo que luego deben ser cambiados, modificados, testeados, etc...
 */
 main.contentAll {
-    flex: 1;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
 }
 
 main.contentAll .contentFirstMain {
-    height: 100%;
+    min-height: 0;
     display: grid;
     grid-template-columns: 280px 1fr 280px;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
     grid-template-areas: 
     ". mainAddTask ."
     "rootNav2 contentTaskList rootNav1";
@@ -34,7 +37,6 @@ main.contentAll .mainAddTask {
 }
 
 main.contentAll .mainAddTask #btn-AddTask {
-    background-color: #212529;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,12 +44,14 @@ main.contentAll .mainAddTask #btn-AddTask {
 
     padding: 8px 20px;
     gap: 8px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6); /*CAMBIAR*/
-    /* box-shadow: 0 0 10px 1px rgba(32, 201, 151, 0.5); */
+
     outline: none;
     border: none;
     cursor: pointer;
+
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6); /*CAMBIAR*/
+    background-color: #212529;
 }
 main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     color: white;
@@ -67,7 +71,7 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     width: 100%;
     display: flex;
     position: absolute;
-    top: 1%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
+    top: 4%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
 }
 
 .contentNav .navMenuButtons > button {
@@ -131,8 +135,137 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
 /* ######################################################################### */
 /* ######################################################################### */
 
-/* ############################### TASKS LIST ################################ */
+/* ############################### LISTA DE TAREAS ################################ */
 
 .contentTaskList {
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+    padding: 12px 0 12px 0;
+}
+
+.contentTaskList button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.contentTaskList ul li,
+.contentTaskList ul li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nota: Evitar agregar flex a los UL ya que causan muchos problemas a la hora de tener mucho contenido */
+.contentTaskList > ul {
+    width:95%;
+    list-style:none;
+    padding:0;
+    margin:0;
+    overflow-y: auto;
+}
+
+.contentTaskList > ul > li {
+    justify-content: space-between;
+    margin: 12px;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 1px rgba(32, 201, 151, 0.5);
+}
+
+.contentTaskList > ul > li > div {
+    padding: 4px;
+    margin: 2px;
+    gap: 16px;
+}
+
+.contentTaskList > ul > li > div * {
+    cursor: pointer;
+}
+
+/* ############################### CHECKBOX Y TITULO ################################ */
+
+.contentTaskList > ul .mainTask {
+    margin-left: 15px;
+}
+
+.todo-checkbox {
+  appearance: none;
+  -webkit-appearance: none; /* Para soporte en Safari */
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 4px; /* Un toque leve en las esquinas para que no se vea tosco */
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  display: grid;
+  place-content: center; /* Súper útil para centrar el check fácilmente */
+}
+.todo-checkbox:hover {
+  border-color: #999;
+}
+.todo-checkbox:checked {
+  background-color: #20C997; /* Verde agradable (puedes cambiarlo a #22c55e para algo más brillante) */
+  border-color: #20C997;
+}
+.todo-checkbox::before {
+  content: "";
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0; /* Dibujamos solo el borde derecho e inferior */
+  transform: rotate(45deg) scale(0); /* Oculto por defecto */
+  transition: transform 0.15s ease-in-out;
+  margin-bottom: 2px; /* Ajuste óptico de centrado */
+}
+.todo-checkbox:checked::before {
+  transform: rotate(45deg) scale(1);
+}
+
+/* ############################### DETALLES ################################ */
+.contentTaskList > ul .detailsTask * {
+    color: white;
+}
+
+.contentTaskList > ul .detailsTask > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.contentTaskList > ul .detailsTask > button > span {
+    font-size: 25px;
+}
+
+/* ############################### CONTROLES ROOT DE TAREAS ################################ */
+
+.contentTaskList > ul .controlsRootTask {
+    margin-right: 15px;
+}
+
+.contentTaskList > ul .controlsRootTask > button {
+    padding: 2px;
+}
+
+.contentTaskList > ul .controlsRootTask > button > span {
+    font-size: 25px;
+}
+
+.contentTaskList > ul .controlsRootTask #btn-Pause {
+    color: #FFC107;
+}
+
+.contentTaskList > ul .controlsRootTask #btn-Edit {
+    color: #33B5E5;
+}
+
+.contentTaskList > ul .controlsRootTask #btn-Delete {
+    color: #DC3545;
 }
