@@ -50,7 +50,7 @@ main.contentAll .mainAddTask #btn-AddTask {
     cursor: pointer;
 
     border-radius: 15px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6); /*CAMBIAR*/
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
     background-color: #212529;
 }
 main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
