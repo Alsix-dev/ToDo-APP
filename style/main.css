@@ -36,7 +36,7 @@ main.contentAll .mainAddTask {
     padding: 8px;
 }
 
-main.contentAll .mainAddTask #btn-AddTask {
+main.contentAll .mainAddTask #btn-openAddTask {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +53,7 @@ main.contentAll .mainAddTask #btn-AddTask {
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
     background-color: #212529;
 }
-main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
+main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
     color: white;
     font-size: 25px;
 }
