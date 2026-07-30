@@ -71,7 +71,7 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     width: 100%;
     display: flex;
     position: absolute;
-    top: 4%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
+    top: 10%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
 }
 
 .contentNav .navMenuButtons > button {
@@ -262,7 +262,6 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     scrollbar-color: rgba(6, 6, 6, 0.2) transparent;    
     scrollbar-width: thin;  /* Hace la barra delgada */
 }
-
 
 /* ############################### CONTROLES ROOT DE TAREAS ################################ */
 
