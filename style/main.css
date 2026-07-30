@@ -151,7 +151,6 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     outline: none;
 }
 
-.contentTaskList ul li,
 .contentTaskList ul li div {
     display: flex;
     flex-direction: row;
@@ -172,25 +171,31 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
 }
 
 .contentTaskList > ul > li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentTaskList > ul > li .dataTaskItem {
     justify-content: space-between;
     margin: 12px;
     padding: 4px;
     border-radius: 8px;
 }
 
-.contentTaskList > ul > li > div {
+.contentTaskList > ul > li > .dataTaskItem div {
     padding: 4px;
     margin: 2px;
     gap: 16px;
 }
 
-.contentTaskList > ul > li > div * {
+.contentTaskList > ul > li > .dataTaskItem div * {
     cursor: pointer;
 }
 
 /* ############################### CHECKBOX Y TITULO ################################ */
 
-.contentTaskList > ul .mainTask {
+.contentTaskList ul li .dataTaskItem .mainTask {
     margin-left: 15px;
 }
 
@@ -234,7 +239,7 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     color: white;
 }
 
-.contentTaskList > ul .detailsTask > button {
+.contentTaskList > ul .detailsTask > label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,13 +247,26 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
     font-size: 15px;
 }
 
-.contentTaskList > ul .detailsTask > button > span {
+.contentTaskList > ul .detailsTask > label > span {
     font-size: 25px;
 }
 
+.contentTaskList > ul > li .detailsInfoTask {
+    height: 100px;
+    margin: 0px 12px 12px 12px;
+    padding: 8px;
+    border: 5px solid #212529;
+    border-radius: 0px 0px 8px 8px;
+    background-color: #F0F0F0;
+    overflow-y: scroll;
+    scrollbar-color: rgba(6, 6, 6, 0.2) transparent;    
+    scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+
 /* ############################### CONTROLES ROOT DE TAREAS ################################ */
 
-.contentTaskList > ul .controlsRootTask {
+.contentTaskList > ul li .dataTaskItem .controlsRootTask {
     margin-right: 15px;
 }
 
@@ -274,31 +292,42 @@ main.contentAll .mainAddTask #btn-AddTask .iconoAddTask {
 
 /* ############################### CLASIFICACION DE TAREAS ################################ */
 /* ############################### EN PROGRESO */
-.contentTaskList > ul .taskInProgress {
+.contentTaskList > ul .taskInProgress .dataTaskItem,
+.contentTaskList > ul .taskInProgress .detailsInfoTask {
     box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
 }
-.contentTaskList > ul .taskInProgress h2,
-.contentTaskList > ul .taskInProgress > .detailsTask *{
+.contentTaskList > ul .taskInProgress .dataTaskItem h2,
+.contentTaskList > ul .taskInProgress > .dataTaskItem .detailsTask *{
     color: #4DA361;
     text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
 }
 
 /* ############################### EN PAUSA */
-.contentTaskList > ul .taskIsPause {
+.contentTaskList > ul .taskIsPause .dataTaskItem,
+.contentTaskList > ul .taskIsPause .detailsInfoTask {
     box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
 }
-.contentTaskList > ul .taskIsPause h2,
-.contentTaskList > ul .taskIsPause > .detailsTask *{
+.contentTaskList > ul .taskIsPause .dataTaskItem h2,
+.contentTaskList > ul .taskIsPause > .dataTaskItem .detailsTask *{
     color: #F2A359;
     text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
 }
 
 /* ############################### COMPLETADA */
-.contentTaskList > ul .taskIsComplete {
+.contentTaskList > ul .taskIsComplete .dataTaskItem,
+.contentTaskList > ul .taskIsComplete .detailsInfoTask {
     box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
 }
-.contentTaskList > ul .taskIsComplete h2,
-.contentTaskList > ul .taskIsComplete > .detailsTask *{
+.contentTaskList > ul .taskIsComplete .dataTaskItem h2,
+.contentTaskList > ul .taskIsComplete > .dataTaskItem .detailsTask *{
     color: #3A82F7;
     text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
+}
+
+.taskItem .checkboxInfo, .taskItem .detailsInfoTask {
+    display: none;
+}
+
+.taskItem .checkboxInfo:checked ~ .detailsInfoTask {
+    display: block;
 }
