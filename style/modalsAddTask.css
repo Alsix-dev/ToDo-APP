@@ -1,6 +1,6 @@
 /* ############################# OVERLAYS ############################# */
 /* #################################################################### */
-.overlays {
+#overlays {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -18,14 +18,19 @@
     backdrop-filter: blur(5px);
 }
 
-.overlays.activeModals {
+#overlays.activeModals {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
+
 /* ############################# MODAL: AGREGAR TAREA ############################# */
-.overlays .modalAddTask {
+#overlays .modalAddTask {
+    display: none;
+}
+
+#overlays .modalAddTask.active {
     width: 22%;
     height: 60%;
     margin: 5px;

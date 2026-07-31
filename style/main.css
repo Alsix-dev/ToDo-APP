@@ -277,15 +277,15 @@ main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
     font-size: 25px;
 }
 
-.contentTaskList > ul .controlsRootTask #btn-Pause {
+.contentTaskList > ul .controlsRootTask .btn-Pause {
     color: #FFC107;
 }
 
-.contentTaskList > ul .controlsRootTask #btn-Edit {
+.contentTaskList > ul .controlsRootTask .btn-Edit {
     color: #33B5E5;
 }
 
-.contentTaskList > ul .controlsRootTask #btn-Delete {
+.contentTaskList > ul .controlsRootTask .btn-Delete {
     color: #DC3545;
 }
 
