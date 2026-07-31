@@ -36,7 +36,7 @@ main.contentAll .mainAddTask {
     padding: 8px;
 }
 
-main.contentAll .mainAddTask #btn-openAddTask {
+main.contentAll .mainAddTask .btn-openAddTask {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +53,7 @@ main.contentAll .mainAddTask #btn-openAddTask {
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
     background-color: #212529;
 }
-main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
+main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     color: white;
     font-size: 25px;
 }
@@ -151,16 +151,9 @@ main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
     outline: none;
 }
 
-.contentTaskList ul li div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Nota: Evitar agregar flex a los UL ya que causan muchos problemas a la hora de tener mucho contenido */
 .contentTaskList > ul {
-    width:95%;
+    width: 95%;
     list-style:none;
     padding:0;
     margin:0;
@@ -168,6 +161,13 @@ main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
 
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;    
     scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+.contentTaskList ul li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .contentTaskList > ul > li {
@@ -329,4 +329,34 @@ main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
 
 .taskItem .checkboxInfo:checked ~ .detailsInfoTask {
     display: block;
+}
+
+/* ############################### TAREA IMAGINARIA ################################ */
+/* Recordar .dataTaskItem en este caso se aplica para mostrar el borde ya que los demas no muestran
+    su borde, sino el box-shadow */
+/* .contentTaskList > ul > li.emptyTask {
+    display: none;
+}
+
+.contentTaskList > ul > li.emptyTask.active {
+    display: block;
+} */
+
+#taskListItem .emptyTask .dataTaskItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#taskListItem .emptyTask .btn-openAddTask {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.contentTaskList > ul .emptyTask .dataTaskItem {
+    box-shadow: 0 0 10px 2px rgba(253, 254, 255, 0.5);
 }
