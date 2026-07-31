@@ -1,0 +1,3 @@
+1) detailsInfoTask: DIV 'detalles de tarea' | clase activadora: activeDetails    | Abrir/Cerrar la caja de detalles de la tarea.
+2) overlays: DIV 'contenedor de modales'    | clase activadora: activeModals     | Habilitar el contenedor de modales cuando querramos abrir un modal especifico.
+3) modals: DIV 'modal "x" '		    | clase activadora: active		 | Habilitar un modal especifico, por eso es solo 'activar' y no 'activarModalAddTask'.

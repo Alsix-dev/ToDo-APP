@@ -235,19 +235,17 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
 }
 
 /* ############################### DETALLES ################################ */
-.contentTaskList > ul .detailsTask * {
-    color: white;
-}
-
-.contentTaskList > ul .detailsTask > label {
+.contentTaskList > ul .btn-Details {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     font-size: 15px;
+    color: white;
+    cursor: pointer;
 }
 
-.contentTaskList > ul .detailsTask > label > span {
+.contentTaskList > ul .btn-Details > span {
     font-size: 25px;
 }
 
@@ -296,7 +294,7 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
 }
 .contentTaskList > ul .taskInProgress .dataTaskItem h2,
-.contentTaskList > ul .taskInProgress > .dataTaskItem .detailsTask *{
+.contentTaskList > ul .taskInProgress > .dataTaskItem .btn-Details *{
     color: #4DA361;
     text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
 }
@@ -307,7 +305,7 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
 }
 .contentTaskList > ul .taskIsPause .dataTaskItem h2,
-.contentTaskList > ul .taskIsPause > .dataTaskItem .detailsTask *{
+.contentTaskList > ul .taskIsPause > .dataTaskItem .btn-Details *{
     color: #F2A359;
     text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
 }
@@ -318,30 +316,20 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
 }
 .contentTaskList > ul .taskIsComplete .dataTaskItem h2,
-.contentTaskList > ul .taskIsComplete > .dataTaskItem .detailsTask *{
+.contentTaskList > ul .taskIsComplete > .dataTaskItem .btn-Details *{
     color: #3A82F7;
     text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
 }
 
-.taskItem .checkboxInfo, .taskItem .detailsInfoTask {
+.taskItem .detailsInfoTask {
     display: none;
 }
 
-.taskItem .checkboxInfo:checked ~ .detailsInfoTask {
+.taskItem .detailsInfoTask.activeDetails {
     display: block;
 }
 
 /* ############################### TAREA IMAGINARIA ################################ */
-/* Recordar .dataTaskItem en este caso se aplica para mostrar el borde ya que los demas no muestran
-    su borde, sino el box-shadow */
-/* .contentTaskList > ul > li.emptyTask {
-    display: none;
-}
-
-.contentTaskList > ul > li.emptyTask.active {
-    display: block;
-} */
-
 #taskListItem .emptyTask .dataTaskItem {
     display: flex;
     justify-content: center;

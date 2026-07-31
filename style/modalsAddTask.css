@@ -181,7 +181,7 @@
     width: 100%;
 }
 
-.modalAddTask .addExtrasTask-Collaborator #Collaborator {
+.modalAddTask .addExtrasTask-Collaborator #CollaboratorTask {
     width: 95%;
     padding: 8px 8px 8px 40px;
 }
