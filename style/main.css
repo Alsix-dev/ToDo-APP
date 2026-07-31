@@ -1,0 +1,332 @@
+/* 
+    Revisar al finalizar las etiquetas:
+        "CAMBIAR"
+        "QUITAR"
+
+    Todas estas etiquetas indican codigo que luego deben ser cambiados, modificados, testeados, etc...
+*/
+main.contentAll {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+}
+
+main.contentAll .contentFirstMain {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: 
+    ". mainAddTask ."
+    "rootNav2 contentTaskList rootNav1";
+}
+main.contentAll .mainAddTask { grid-area: mainAddTask;}
+main.contentAll .contentTaskList { grid-area: contentTaskList;}
+main.contentAll .rootNav1 { grid-area: rootNav1;}
+main.contentAll .rootNav2 { grid-area: rootNav2;}
+
+/* ############################# AGREGAR TAREA ############################# */
+
+main.contentAll .mainAddTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 4px 13px 4px;
+    padding: 8px;
+}
+
+main.contentAll .mainAddTask #btn-openAddTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 30px;
+    gap: 8px;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
+    background-color: #212529;
+}
+main.contentAll .mainAddTask #btn-openAddTask .iconoAddTask {
+    color: white;
+    font-size: 25px;
+}
+
+/* ######################################################################### */
+/* ######################################################################### */
+
+/* ############################### NAV MENU ################################ */
+
+.contentNav {
+    position: relative;
+}
+
+.contentNav > .navMenuButtons {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 10%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
+}
+
+.contentNav .navMenuButtons > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px;
+    gap: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    /* background-color: #212529; */
+    background-color: transparent;
+}
+
+/* ############################# NAV MENU 1 ############################# */
+.contentNav.rootNav1 > .navMenuButtons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.contentNav.rootNav1 .navMenuButtons > button {
+    border-radius: 8px 0 0 8px;
+    /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
+                    columna 1                  columna 2        columna 3             columna 4
+        fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
+    box-shadow: 
+        -2px 0 2px 1px rgba(195, 53, 220, 0.6),
+        0px 2px 2px 1px rgba(195, 53, 220, 0.6),
+        0px -2px 2px 1px rgba(195, 53, 220, 0.6);
+}
+.contentNav.rootNav1 .navMenuButtons > button > span {
+    color: #C335DC;
+}
+
+/* ############################# NAV MENU 2 ############################# */
+.contentNav.rootNav2 > .navMenuButtons {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contentNav.rootNav2 .navMenuButtons > button {
+    border-radius: 0 8px 8px 0;
+    /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
+                    columna 1                  columna 2        columna 3             columna 4
+        fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
+    box-shadow: 
+        2px 0 2px 1px rgba(220, 53, 69, 0.6),
+        0px 2px 2px 1px rgba(220, 53, 69, 0.6),
+        0px -2px 2px 1px rgba(220, 53, 69, 0.6);
+}
+.contentNav.rootNav2 .navMenuButtons > button > span {
+    color: #DC3545;
+}
+
+/* ######################################################################### */
+/* ######################################################################### */
+
+/* ############################### LISTA DE TAREAS ################################ */
+
+.contentTaskList {
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+    padding: 12px 0 12px 0;
+}
+
+.contentTaskList button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.contentTaskList ul li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nota: Evitar agregar flex a los UL ya que causan muchos problemas a la hora de tener mucho contenido */
+.contentTaskList > ul {
+    width:95%;
+    list-style:none;
+    padding:0;
+    margin:0;
+    overflow-y: auto;
+
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;    
+    scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+.contentTaskList > ul > li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentTaskList > ul > li .dataTaskItem {
+    justify-content: space-between;
+    margin: 12px;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.contentTaskList > ul > li > .dataTaskItem div {
+    padding: 4px;
+    margin: 2px;
+    gap: 16px;
+}
+
+.contentTaskList > ul > li > .dataTaskItem div * {
+    cursor: pointer;
+}
+
+/* ############################### CHECKBOX Y TITULO ################################ */
+
+.contentTaskList ul li .dataTaskItem .mainTask {
+    margin-left: 15px;
+}
+
+.todo-checkbox {
+  appearance: none;
+  -webkit-appearance: none; /* Para soporte en Safari */
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 4px; /* Un toque leve en las esquinas para que no se vea tosco */
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  display: grid;
+  place-content: center; /* Súper útil para centrar el check fácilmente */
+}
+.todo-checkbox:hover {
+  border-color: #999;
+}
+.todo-checkbox:checked {
+  background-color: #20C997; /* Verde agradable (puedes cambiarlo a #22c55e para algo más brillante) */
+  border-color: #20C997;
+}
+.todo-checkbox::before {
+  content: "";
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0; /* Dibujamos solo el borde derecho e inferior */
+  transform: rotate(45deg) scale(0); /* Oculto por defecto */
+  transition: transform 0.15s ease-in-out;
+  margin-bottom: 2px; /* Ajuste óptico de centrado */
+}
+.todo-checkbox:checked::before {
+  transform: rotate(45deg) scale(1);
+}
+
+/* ############################### DETALLES ################################ */
+.contentTaskList > ul .detailsTask * {
+    color: white;
+}
+
+.contentTaskList > ul .detailsTask > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.contentTaskList > ul .detailsTask > label > span {
+    font-size: 25px;
+}
+
+.contentTaskList > ul > li .detailsInfoTask {
+    height: 100px;
+    margin: 0px 12px 12px 12px;
+    padding: 8px;
+    border: 5px solid #212529;
+    border-radius: 0px 0px 8px 8px;
+    background-color: #F0F0F0;
+    overflow-y: scroll;
+    scrollbar-color: rgba(6, 6, 6, 0.2) transparent;    
+    scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+/* ############################### CONTROLES ROOT DE TAREAS ################################ */
+
+.contentTaskList > ul li .dataTaskItem .controlsRootTask {
+    margin-right: 15px;
+}
+
+.contentTaskList > ul .controlsRootTask > button {
+    padding: 2px;
+}
+
+.contentTaskList > ul .controlsRootTask > button > span {
+    font-size: 25px;
+}
+
+.contentTaskList > ul .controlsRootTask .btn-Pause {
+    color: #FFC107;
+}
+
+.contentTaskList > ul .controlsRootTask .btn-Edit {
+    color: #33B5E5;
+}
+
+.contentTaskList > ul .controlsRootTask .btn-Delete {
+    color: #DC3545;
+}
+
+/* ############################### CLASIFICACION DE TAREAS ################################ */
+/* ############################### EN PROGRESO */
+.contentTaskList > ul .taskInProgress .dataTaskItem,
+.contentTaskList > ul .taskInProgress .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
+}
+.contentTaskList > ul .taskInProgress .dataTaskItem h2,
+.contentTaskList > ul .taskInProgress > .dataTaskItem .detailsTask *{
+    color: #4DA361;
+    text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
+}
+
+/* ############################### EN PAUSA */
+.contentTaskList > ul .taskIsPause .dataTaskItem,
+.contentTaskList > ul .taskIsPause .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
+}
+.contentTaskList > ul .taskIsPause .dataTaskItem h2,
+.contentTaskList > ul .taskIsPause > .dataTaskItem .detailsTask *{
+    color: #F2A359;
+    text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
+}
+
+/* ############################### COMPLETADA */
+.contentTaskList > ul .taskIsComplete .dataTaskItem,
+.contentTaskList > ul .taskIsComplete .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
+}
+.contentTaskList > ul .taskIsComplete .dataTaskItem h2,
+.contentTaskList > ul .taskIsComplete > .dataTaskItem .detailsTask *{
+    color: #3A82F7;
+    text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
+}
+
+.taskItem .checkboxInfo, .taskItem .detailsInfoTask {
+    display: none;
+}
+
+.taskItem .checkboxInfo:checked ~ .detailsInfoTask {
+    display: block;
+}

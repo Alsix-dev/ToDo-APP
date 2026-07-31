@@ -1,8 +1,10 @@
 1) DETALLES: Habilitar un boton de configuracion en menu donde se pueda seleccionar como aparecer detalles, si desplazando hacia abajo o hacia la izquierda.
 
 2) FINALIZADO: Deberia quitar la tarea o poner la opcion de eliminarla y sea decision del usuario? En todo caso, poner finalizado como titulo y luego quitar los botones.
+		Es decir, al terminar una tarea solamente se pone en azul, pero el usuario deberia decidir si eliminarla o no. En todo caso
+		podriamos hacer que se elimine un tiempo despues automaticamente.
 
-3) PRIORIDAD TAREA: Agregar un sistema de prioridades que se establece cuando se agrega.
-
-4) BOTON DE REGRESO: Al agregar JS a la aplicacion, ajustrar los textos de MENU por un boton que permita el regreso al inicio.
+3) PRIORIDAD TAREA: Agregar un sistema de prioridades que se establece cuando se agrega. Que tarea tiene mas prioridad que otra, cual es mas critica, urgente, etc...
+			Esto implica una clasificacion, por ende deberia separar en la lista de tareas con titulos de tareas criticas
+				tareas sencillas, etc...
 	
