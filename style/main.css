@@ -250,15 +250,29 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
 }
 
 .contentTaskList > ul > li .detailsInfoTask {
-    height: 100px;
+    height: auto;
+    max-height: 100px;
     margin: 0px 12px 12px 12px;
-    padding: 8px;
+    /* padding: 8px; */
     border: 5px solid #212529;
     border-radius: 0px 0px 8px 8px;
     background-color: #F0F0F0;
     overflow-y: scroll;
     scrollbar-color: rgba(6, 6, 6, 0.2) transparent;    
     scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+.contentTaskList > ul > li .detailsInfo-Descripcion {
+    padding: 8px;
+}
+
+.contentTaskList > ul > li .detailsInfo-Extra {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px;
+    color: white;
+    background-color: #212529;
 }
 
 /* ############################### CONTROLES ROOT DE TAREAS ################################ */

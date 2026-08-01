@@ -17,7 +17,11 @@ function crearTarea(){
     let dateTaskInputInput = dateTaskInput.value;
     let CollaboratorInput = Collaborator.value;
 
-    const { buttonDetalles, contentDetalles } = devolverDetalles(detailsTaskInputInput, dateTaskInputInput, CollaboratorInput );
+    const { buttonDetalles, contentDetalles } = devolverDetalles(
+        detailsTaskInputInput,
+        dateTaskInputInput, 
+        CollaboratorInput 
+    );
 
     const li = document.createElement('li');
     li.className = 'taskItem taskInProgress';
@@ -89,6 +93,21 @@ function verificarSiHayDetalles(...detalles){
     return detalles.some(detalle => detalle.trim());
 }
 
+const devolverDetallesExtras = (fecha, colaborador) => {
+    if(fecha.trim() || colaborador.trim()){
+        return `
+            <div class="detailsInfo-Extra">
+                ${fecha.trim() ? `<p>Fecha límite: ${
+                    fecha.split('-').reverse().join('-')
+                }</p>` : ``}
+                ${colaborador.trim() ? `<p>Colaborador: ${colaborador}</p>` : ``}
+            </div>
+        `
+    } else {
+        return ``;
+    }
+}
+
 function devolverDetalles(...detalles){
     // detalles[0]: descripcion | [1]: fecha | [2]: colaborador
     if(verificarSiHayDetalles(...detalles)){
@@ -99,11 +118,11 @@ function devolverDetalles(...detalles){
                     Detalles
                 </button>
             `,
+
             contentDetalles: `
                 <div class="detailsInfoTask">
-                    ${detalles[1].trim() ? `<p>Fecha límite: ${detalles[1]}</p>` : ``}
-                    ${detalles[2].trim() ? `<p>Colaborador: ${detalles[2]}</p>` : ``}
-                    ${detalles[0].trim() ? `<p>${detalles[0]}</p>` : ``}
+                    ${devolverDetallesExtras(detalles[1], detalles[2])}
+                    ${detalles[0].trim() ? `<p class="detailsInfo-Descripcion">${detalles[0]}</p>` : ``}
                 </div>
             `
         };
