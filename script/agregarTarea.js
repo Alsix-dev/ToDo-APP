@@ -9,15 +9,15 @@ const contenedorLista = document.querySelector('#taskListItem');            // <
 function crearTarea(){
     const titleTaskInput = document.getElementById('titleTask');
     const detailsTaskInput = document.getElementById('detailsTask');
-    // const dateTaskInput = document.getElementById('#dateTask');
-    // const Collaborator = document.getElementById('#CollaboratorTask');
+    const dateTaskInput = document.getElementById('dateTask');
+    const Collaborator = document.getElementById('CollaboratorTask');
 
     let valuetitleTaskInput = titleTaskInput.value;
     let detailsTaskInputInput = detailsTaskInput.value;
-    // let dateTaskInputInput = dateTaskInput.value;
-    // let CollaboratorInput = Collaborator.value;
+    let dateTaskInputInput = dateTaskInput.value;
+    let CollaboratorInput = Collaborator.value;
 
-    const { buttonDetalles, contentDetalles } = devolverDetalles(detailsTaskInputInput);
+    const { buttonDetalles, contentDetalles } = devolverDetalles(detailsTaskInputInput, dateTaskInputInput, CollaboratorInput );
 
     const li = document.createElement('li');
     li.className = 'taskItem taskInProgress';
@@ -90,6 +90,7 @@ function verificarSiHayDetalles(...detalles){
 }
 
 function devolverDetalles(...detalles){
+    // detalles[0]: descripcion | [1]: fecha | [2]: colaborador
     if(verificarSiHayDetalles(...detalles)){
         return {
             buttonDetalles: `
@@ -100,7 +101,9 @@ function devolverDetalles(...detalles){
             `,
             contentDetalles: `
                 <div class="detailsInfoTask">
-                    <p>${detalles[0]}</p>
+                    ${detalles[1].trim() ? `<p>Fecha límite: ${detalles[1]}</p>` : ``}
+                    ${detalles[2].trim() ? `<p>Colaborador: ${detalles[2]}</p>` : ``}
+                    ${detalles[0].trim() ? `<p>${detalles[0]}</p>` : ``}
                 </div>
             `
         };
