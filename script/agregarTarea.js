@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ############################# AGREGAR TAREA ############################# */
 /* ######################################################################### */
 const contenedorLista = document.querySelector('#taskListItem');            // <UL> - Contenedor lista de tareas
+const titleTaskInput = document.getElementById('titleTask');
+const detailsTaskInput = document.getElementById('detailsTask');
+const dateTaskInput = document.getElementById('dateTask');
+const Collaborator = document.getElementById('CollaboratorTask');
 
 function crearTarea(){
-    const titleTaskInput = document.getElementById('titleTask');
-    const detailsTaskInput = document.getElementById('detailsTask');
-    const dateTaskInput = document.getElementById('dateTask');
-    const Collaborator = document.getElementById('CollaboratorTask');
-
     let valuetitleTaskInput = titleTaskInput.value;
     let detailsTaskInputInput = detailsTaskInput.value;
     let dateTaskInputInput = dateTaskInput.value;
@@ -52,14 +51,6 @@ function crearTarea(){
 
     return li;
 }
-
-const formAddTask = document.getElementById('formAddTask');
-formAddTask.addEventListener('submit', (e) => {
-    e.preventDefault();
-    verificarSiHayTareas();
-    const getNewTask = crearTarea();
-    contenedorLista.appendChild(getNewTask);
-});
 
 /* ############################# TAREA 0: NO HAY TAREAS EN LISTA ############################# */
 /* ###### Si no existen tareas, entonces se muestra el boton agregar tarea como un item ###### */
@@ -143,6 +134,109 @@ contenedorLista.addEventListener('click', (e) => {
         .classList.toggle('activeDetails');
 });
 
+
+/* ############################ VALIDACIONES DE INPUTS ############################# */
+/* ###### Validamos la entrada de datos de cada input del boton agregar tarea ###### */
+/* ################################################################################# */
+const validarEntradaTitulo = () => {
+    let errores = [];
+    let valuetitleTaskInput = titleTaskInput.value;
+    valuetitleTaskInput = valuetitleTaskInput.trim();       // Borramos espacios en blancos inicio y fin
+
+    if(!valuetitleTaskInput){
+        errores.push("El titulo es obligatorio");
+    }
+
+    if((valuetitleTaskInput.length > 0 && valuetitleTaskInput.length < 3)){
+        errores.push("El mínimo permitido de titulo es de 3 caracteres");
+    }
+
+    if(valuetitleTaskInput.length > 100){
+        errores.push("El máximo permitido de titulo es de 100 caracteres");
+    }
+
+    return errores;
+}
+
+const validarEntradaDetalles = () => {
+    let errores = [];
+    let detailsTaskInputInput = detailsTaskInput.value;
+    detailsTaskInputInput = detailsTaskInputInput.trim();
+
+    if(detailsTaskInputInput.length > 1000){
+        errores.push("El máximo permitido en descripción es de 1000 caracteres");
+    }
+
+    return errores;
+}
+
+// const validarEntradaFecha = () => {
+//     const fechaLocal = new Date().toLocaleDateString();
+//     const dateTaskInput = document.getElementById('dateTask');
+//     let dateTaskInputInput = dateTaskInput.value;
+//     dateTaskInputInput = dateTaskInputInput.split('-').reverse.join('-');
+// }
+
+const validarEntradaColaborador = () => {
+    let errores = [];
+    let CollaboratorInput = Collaborator.value;
+    CollaboratorInput = CollaboratorInput.trim();
+
+    if(CollaboratorInput.length > 50){
+        errores.push("El máximo permitido en colaborador es de 50 caracteres");
+    }
+
+    return errores;
+}
+
+const acumularErrores = () => {
+    const listaErrores = [
+        ...validarEntradaTitulo(),
+        ...validarEntradaDetalles(),
+        ...validarEntradaColaborador()
+    ];
+
+    return {
+        hayError: listaErrores.length > 0,
+        ...(listaErrores.length > 0 && {errores: listaErrores})
+    };
+}
+
+function mostrarErrores(errores){
+    const reportError = document.querySelector('.reportError');
+    const MessageError = document.getElementById('MessageError');
+    MessageError.replaceChildren();
+
+    if(errores.length > 0){
+        reportError.classList.add('activeError');
+        errores.forEach(error => {
+            let li = document.createElement('li');
+            li.textContent = error;
+            MessageError.appendChild(li);
+        });
+    } else {
+        reportError.classList.remove('activeError');
+    }
+}
+
+/* ################################### CREAR TAREA #################################### */
+/* ###### Evento que ejecuta todas las funciones anteriores para crear una tarea ###### */
+/* #################################################################################### */
+const formAddTask = document.getElementById('formAddTask');
+formAddTask.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const {hayError, errores} = acumularErrores();
+    if(hayError){
+        mostrarErrores(errores);
+        return
+    }
+    
+    mostrarErrores([]);
+    verificarSiHayTareas();
+    const getNewTask = crearTarea();
+    contenedorLista.appendChild(getNewTask);
+});
 
 // TaskInProgress, TaskIsPause, TaskIsComplete --> Falta TaskIsCreate (verde) y el boton de aceptar tarea 
                                                 //  para que entre en progreso

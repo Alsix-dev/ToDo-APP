@@ -31,8 +31,11 @@
 }
 
 #overlays .modalAddTask.active {
-    width: 22%;
-    height: 60%;
+    width: 350px;
+    max-width: 90vw;
+
+    height: auto;
+    max-height: 90vh;
     margin: 5px;
     padding: 8px;
 
@@ -214,4 +217,35 @@
     border-radius: 10px;
     background-image: linear-gradient(180deg, #5e0d0d 0%, #712d2d 100%);
     /* background-image: linear-gradient(180deg, #212529 0%, #2f2f33 100%); */
+}
+
+
+/* ##################### MENSAJE DE ERROR */
+
+.modalAddTask .reportError {
+    display: none;
+}
+
+.modalAddTask .reportError.activeError {
+    /* max-height: 150px;
+    overflow-y: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin: 12px 6px 6px 6px;
+    color: red;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px 2px rgb(247, 5, 5);
+}
+
+.modalAddTask #MessageError {
+    padding: 12px;
+}
+
+.modalAddTask #MessageError > li {
+    margin-left: 15px;
+    padding: 4px;
 }

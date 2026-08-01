@@ -136,14 +136,16 @@
                             </button>
                         </div>
 
-                        <form id="formAddTask">
+                        <form id="formAddTask" novalidate>
                             <div class="addTitleTask">
                                 <label for="titleTask">
                                     <h3 class="titleModal">Titulo tarea</h3>
                                 </label>
                                 <div class="inputAddTitle">
                                     <span class="material-symbols-outlined iconoAddTask">format_h3</span>
-                                    <input type="text" name="titleTask" id="titleTask" placeholder="Ingresa el titulo de la tarea">
+                                    <input type="text"
+                                        name="titleTask" id="titleTask" placeholder="Ingresa el titulo de la tarea"
+                                        autocomplete="off">
                                 </div>
                             </div>
 
@@ -153,7 +155,8 @@
                                 </label>
                                 <div class="textareaAddTask">
                                     <span class="material-symbols-outlined iconoDetailsTask">text_ad</span>
-                                    <textarea placeholder="Descripción de la tarea" name="detailsTask" id="detailsTask"></textarea>
+                                    <textarea placeholder="Descripción de la tarea"
+                                        name="detailsTask" id="detailsTask"></textarea>
                                 </div>
                             </div>
 
@@ -162,7 +165,8 @@
                                     <label for="dateTask">
                                         <h3 class="titleModal">Fecha límite</h3>
                                     </label>
-                                    <input type="date" name="dateTask" id="dateTask"> 
+                                    <input type="date" 
+                                        name="dateTask" id="dateTask">
                                 </div>
 
                                 <div class="addExtrasTask-Collaborator">
@@ -171,7 +175,9 @@
                                     </label>
                                     <div class="AddTaskcollaborator">
                                         <span class="material-symbols-outlined iconoColaborador">co_present</span>
-                                        <input type="text" name="Collaborator" id="CollaboratorTask" placeholder="Colaborador">  
+                                        <input type="text" 
+                                            name="Collaborator" id="CollaboratorTask" placeholder="Colaborador"
+                                            autocomplete="off">  
                                     </div>
                                 </div>
                             </div>
@@ -185,6 +191,12 @@
                                 </button>
                             </div>
                         </form>
+                        <!-- activeError -->
+                        <div class="reportError">
+                            <ul id="MessageError">
+                                <!-- <li>El titulo es obligatorio debe llenar el campo para poder cumplir</li> -->
+                            </ul>
+                        </div>
                     </section>
                 </div>
             </div>
