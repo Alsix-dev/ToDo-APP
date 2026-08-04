@@ -12,23 +12,23 @@ main.contentAll {
     min-height:0;
 }
 
-main.contentAll .contentFirstMain {
+main.contentAll .contentMainFirst {
     min-height: 0;
     display: grid;
     grid-template-columns: 280px 1fr 280px;
     grid-template-rows: auto minmax(0, 1fr);
     grid-template-areas: 
-    ". mainAddTask ."
-    "rootNav2 contentTaskList rootNav1";
+    ". openAddTask ."
+    "navRoot2 taskListContent navRoot1";
 }
-main.contentAll .mainAddTask { grid-area: mainAddTask;}
-main.contentAll .contentTaskList { grid-area: contentTaskList;}
-main.contentAll .rootNav1 { grid-area: rootNav1;}
-main.contentAll .rootNav2 { grid-area: rootNav2;}
+main.contentAll .openAddTask { grid-area: openAddTask;}
+main.contentAll .taskListContent { grid-area: taskListContent;}
+main.contentAll .navRoot1 { grid-area: navRoot1;}
+main.contentAll .navRoot2 { grid-area: navRoot2;}
 
 /* ############################# AGREGAR TAREA ############################# */
 
-main.contentAll .mainAddTask {
+main.contentAll .openAddTask {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ main.contentAll .mainAddTask {
     padding: 8px;
 }
 
-main.contentAll .mainAddTask .btn-openAddTask {
+main.contentAll .openAddTask .btn-openAddTask {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,28 +53,27 @@ main.contentAll .mainAddTask .btn-openAddTask {
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
     background-color: #212529;
 }
-main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
+
+/* CAMBIAR : hacerlo generico, no hace falta especificar */
+main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     color: white;
     font-size: 25px;
 }
 
-/* ######################################################################### */
-/* ######################################################################### */
-
 /* ############################### NAV MENU ################################ */
 
-.contentNav {
+.navContent {
     position: relative;
 }
 
-.contentNav > .navMenuButtons {
+.navContent > .navMenuButtons {
     width: 100%;
     display: flex;
     position: absolute;
     top: 26px;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
 }
 
-.contentNav .navMenuButtons > button {
+.navContent .navMenuButtons > button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -91,14 +90,14 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
 }
 
 /* ############################# NAV MENU 1 ############################# */
-.contentNav.rootNav1 > .navMenuButtons {
+.navContent.navRoot1 > .navMenuButtons {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 20px;
 }
 
-.contentNav.rootNav1 .navMenuButtons > button {
+.navContent.navRoot1 .navMenuButtons > button {
     border-radius: 8px 0 0 8px;
     /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
                     columna 1                  columna 2        columna 3             columna 4
@@ -108,17 +107,17 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
         0px 2px 2px 1px rgba(75, 50, 140, .5),
         0px -2px 2px 1px rgba(75, 50, 140, .5);
 }
-.contentNav.rootNav1 .navMenuButtons > button > span {
+.navContent.navRoot1 .navMenuButtons > button > span {
     color: #9B6DFF;
 }
 
 /* ############################# NAV MENU 2 ############################# */
-.contentNav.rootNav2 > .navMenuButtons {
+.navContent.navRoot2 > .navMenuButtons {
     justify-content: flex-start;
     align-items: center;
 }
 
-.contentNav.rootNav2 .navMenuButtons > button {
+.navContent.navRoot2 .navMenuButtons > button {
     border-radius: 0 8px 8px 0;
     /* Box-Shadow -> Orden: 1ero derecha | 2do abajo | 3ro arriba 
                     columna 1                  columna 2        columna 3             columna 4
@@ -128,16 +127,13 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
         0px 2px 2px 1px rgba(220, 53, 69, 0.5),
         0px -2px 2px 1px rgba(220, 53, 69, 0.5);
 }
-.contentNav.rootNav2 .navMenuButtons > button > span {
+.navContent.navRoot2 .navMenuButtons > button > span {
     color: #DC3545;
 }
 
-/* ######################################################################### */
-/* ######################################################################### */
-
 /* ############################### LISTA DE TAREAS ################################ */
 
-.contentTaskList {
+.taskListContent {
     display: flex;
     justify-content: center;
     min-height: 0;
@@ -145,15 +141,15 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     padding: 12px 0 12px 0;
 }
 
-.contentTaskList button {
+.taskListContent button {
     background-color: transparent;
     border: none;
     outline: none;
 }
 
 /* Nota: Evitar agregar flex a los UL ya que causan muchos problemas a la hora de tener mucho contenido */
-.contentTaskList > ul {
-    width: 95%;
+.taskListContent ul {
+    width: 100%;
     list-style:none;
     padding:0;
     margin:0;
@@ -163,79 +159,94 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     scrollbar-width: thin;  /* Hace la barra delgada */
 }
 
-.contentTaskList ul li div {
+.taskListContent ul > .taskItem {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.contentTaskList > ul > li {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.contentTaskList > ul > li .dataTaskItem {
-    justify-content: space-between;
+.taskListContent .taskItem .dataTaskItem {
+    width: 95%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 0.5fr repeat(2, auto);
     margin: 12px;
     padding: 4px;
     border-radius: 8px;
 }
 
-.contentTaskList > ul > li > .dataTaskItem div {
+.taskListContent .taskItem .dataTaskItem > div,
+.taskListContent .taskItem .dataTaskItem > button {
     padding: 4px;
     margin: 2px;
-    gap: 16px;
+    cursor: pointer;
 }
 
-.contentTaskList > ul > li > .dataTaskItem div * {
+.taskListContent .taskItem .dataTaskItem div * {
     cursor: pointer;
 }
 
 /* ############################### CHECKBOX Y TITULO ################################ */
 
-.contentTaskList ul li .dataTaskItem .mainTask {
-    margin-left: 15px;
-}
-
-.todo-checkbox {
+.checkTask {
   appearance: none;
-  -webkit-appearance: none; /* Para soporte en Safari */
+  -webkit-appearance: none;
   width: 22px;
   height: 22px;
   border: 2px solid #ccc;
-  border-radius: 4px; /* Un toque leve en las esquinas para que no se vea tosco */
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   background-color: #fff;
   transition: all 0.2s ease-in-out;
   display: grid;
-  place-content: center; /* Súper útil para centrar el check fácilmente */
+  place-content: center;
 }
-.todo-checkbox:hover {
+.checkTask:hover {
   border-color: #999;
 }
-.todo-checkbox:checked {
-  background-color: #20C997; /* Verde agradable (puedes cambiarlo a #22c55e para algo más brillante) */
+.checkTask:checked {
+  background-color: #20C997;
   border-color: #20C997;
 }
-.todo-checkbox::before {
+.checkTask::before {
   content: "";
   width: 6px;
   height: 10px;
   border: solid white;
-  border-width: 0 2.5px 2.5px 0; /* Dibujamos solo el borde derecho e inferior */
-  transform: rotate(45deg) scale(0); /* Oculto por defecto */
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) scale(0);
   transition: transform 0.15s ease-in-out;
-  margin-bottom: 2px; /* Ajuste óptico de centrado */
+  margin-bottom: 2px;
 }
-.todo-checkbox:checked::before {
+.checkTask:checked::before {
   transform: rotate(45deg) scale(1);
 }
 
+.taskItem .dataTaskItem .checkCompleteTask {
+    margin-left: 15px;
+}
+
+.taskItem .dataTaskItem .isTaskTitle {
+    justify-self: start;
+    min-width: 0;
+    width: 100%;
+}
+
+.taskItem .dataTaskItem .isTaskTitle h2 {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
 /* ############################### DETALLES ################################ */
-.contentTaskList > ul .btn-Details {
+.taskItem .btn-Details {
+    justify-self: start;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -245,111 +256,21 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     cursor: pointer;
 }
 
-.contentTaskList > ul .btn-Details > span {
+.taskItem .btn-Details .material-symbols-outlined {
     font-size: 25px;
 }
 
-.contentTaskList > ul > li .detailsInfoTask {
+.taskItem .detailsInfoTask {
     height: auto;
+    width: 95%;
     max-height: 100px;
     margin: 0px 12px 12px 12px;
-    /* padding: 8px; */
     border: 5px solid #212529;
     border-radius: 0px 0px 8px 8px;
     background-color: #F0F0F0;
     overflow-y: scroll;
     scrollbar-color: rgba(6, 6, 6, 0.2) transparent;    
-    scrollbar-width: thin;  /* Hace la barra delgada */
-}
-
-.contentTaskList > ul > li .detailsInfo-Descripcion {
-    padding: 8px;
-}
-
-.contentTaskList > ul > li .detailsInfo-Extra {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 4px;
-    color: white;
-    background-color: #212529;
-}
-
-/* ############################### CONTROLES ROOT DE TAREAS ################################ */
-
-.contentTaskList > ul li .dataTaskItem .controlsRootTask {
-    margin-right: 15px;
-}
-
-.contentTaskList > ul .controlsRootTask > button {
-    padding: 2px;
-}
-
-.contentTaskList > ul .controlsRootTask > button > span {
-    font-size: 25px;
-}
-
-.contentTaskList > ul .controlsRootTask .btn-Star {
-    color: #20C997;
-}
-
-.contentTaskList > ul .controlsRootTask .btn-Pause {
-    color: #FFC107;
-}
-
-.contentTaskList > ul .controlsRootTask .btn-Edit {
-    color: #33B5E5;
-}
-
-.contentTaskList > ul .controlsRootTask .btn-Delete {
-    color: #DC3545;
-}
-
-/* ############################### CLASIFICACION DE TAREAS ################################ */
-/* ############################### CREADA */
-.contentTaskList > ul .taskIsCreate .dataTaskItem,
-.contentTaskList > ul .taskIsCreate .detailsInfoTask {
-    box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
-}
-.contentTaskList > ul .taskIsCreate .dataTaskItem h2,
-.contentTaskList > ul .taskIsCreate > .dataTaskItem .btn-Details *{
-    text-shadow: 1px 1px 10px rgba(75, 50, 140, .5);
-    color: #9B6DFF;
-}
-
-/* ############################### EN PROGRESO */
-.contentTaskList > ul .taskInProgress .dataTaskItem,
-.contentTaskList > ul .taskInProgress .detailsInfoTask {
-    box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
-}
-.contentTaskList > ul .taskInProgress .dataTaskItem h2,
-.contentTaskList > ul .taskInProgress > .dataTaskItem .btn-Details *{
-    color: #4DA361;
-    text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
-}
-
-
-
-/* ############################### EN PAUSA */
-.contentTaskList > ul .taskIsPause .dataTaskItem,
-.contentTaskList > ul .taskIsPause .detailsInfoTask {
-    box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
-}
-.contentTaskList > ul .taskIsPause .dataTaskItem h2,
-.contentTaskList > ul .taskIsPause > .dataTaskItem .btn-Details *{
-    color: #F2A359;
-    text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
-}
-
-/* ############################### COMPLETADA */
-.contentTaskList > ul .taskIsComplete .dataTaskItem,
-.contentTaskList > ul .taskIsComplete .detailsInfoTask {
-    box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
-}
-.contentTaskList > ul .taskIsComplete .dataTaskItem h2,
-.contentTaskList > ul .taskIsComplete > .dataTaskItem .btn-Details *{
-    color: #3A82F7;
-    text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
+    scrollbar-width: thin;
 }
 
 .taskItem .detailsInfoTask {
@@ -358,6 +279,95 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
 
 .taskItem .detailsInfoTask.activeDetails {
     display: block;
+}
+
+.taskItem .detailsInfo-Extra {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px;
+    color: white;
+    background-color: #212529;
+}
+
+.taskItem .detailsInfo-Descripcion {
+    padding: 8px;
+}
+
+/* ############################### CONTROLES ROOT DE TAREAS ################################ */
+
+.taskItem .dataTaskItem .taskRootControls {
+    justify-self: end;
+    margin-right: 15px;
+}
+
+.taskItem .taskRootControls > button {
+    padding: 2px;
+}
+
+.taskItem .taskRootControls > button > span {
+    font-size: 25px;
+}
+
+.taskItem .taskRootControls .btn-Star {
+    color: #20C997;
+}
+
+.taskItem .taskRootControls .btn-Pause {
+    color: #FFC107;
+}
+
+.taskItem .taskRootControls .btn-Edit {
+    color: #33B5E5;
+}
+
+.taskItem .taskRootControls .btn-Delete {
+    color: #DC3545;
+}
+
+/* ############################### CLASIFICACION DE TAREAS ################################ */
+/* ############################### CREADA */
+.taskListContent > ul .taskIsCreate .dataTaskItem,
+.taskListContent > ul .taskIsCreate .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
+}
+.taskListContent > ul .taskIsCreate .dataTaskItem h2,
+.taskListContent > ul .taskIsCreate > .dataTaskItem .btn-Details *{
+    text-shadow: 1px 1px 10px rgba(75, 50, 140, .5);
+    color: #9B6DFF;
+}
+
+/* ############################### EN PROGRESO */
+.taskListContent > ul .taskInProgress .dataTaskItem,
+.taskListContent > ul .taskInProgress .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
+}
+.taskListContent > ul .taskInProgress .dataTaskItem h2,
+.taskListContent > ul .taskInProgress > .dataTaskItem .btn-Details *{
+    color: #4DA361;
+    text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
+}
+
+/* ############################### EN PAUSA */
+.taskListContent > ul .taskIsPause .dataTaskItem,
+.taskListContent > ul .taskIsPause .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
+}
+.taskListContent > ul .taskIsPause .dataTaskItem h2,
+.taskListContent > ul .taskIsPause > .dataTaskItem .btn-Details *{
+    color: #F2A359;
+    text-shadow: 1px 1px 10px rgba(97, 62, 27, 0.5);
+}
+
+/* ############################### COMPLETADA */
+.taskListContent > ul .taskIsComplete .dataTaskItem,
+.taskListContent > ul .taskIsComplete .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
+}
+.taskListContent > ul .taskIsComplete .dataTaskItem h2,
+.taskListContent > ul .taskIsComplete > .dataTaskItem .btn-Details *{
+    color: #3A82F7;
+    text-shadow: 1px 1px 10px rgba(24, 55, 110, 0.5);
 }
 
 /* ############################### TAREA IMAGINARIA ################################ */
@@ -376,6 +386,6 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     cursor: pointer;
 }
 
-.contentTaskList > ul .emptyTask .dataTaskItem {
+.taskListContent ul .emptyTask .dataTaskItem {
     box-shadow: 0 0 10px 2px rgba(253, 254, 255, 0.5);
 }

@@ -1,8 +1,8 @@
 /* ######################### MODAL DE AGREGAR TAREA ########################## */
 /* ############################# APERTURA */
 // const btn_openAddTask = document.querySelector('.btn-openAddTask');
-const overlay_modalAddTask = document.querySelector('#overlays');
-const modalAddTask = document.querySelector('.modalAddTask');
+const overlay_createTaskModal = document.querySelector('#overlays');
+const createTaskModal = document.querySelector('.createTaskModal');
 
 document.addEventListener('click', (e) => {
     if(e.target.closest('.btn-openAddTask')){
@@ -11,15 +11,15 @@ document.addEventListener('click', (e) => {
 });
 
 /* ############################# CIERRE */
-overlay_modalAddTask.addEventListener('click', (e) => {
+overlay_createTaskModal.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-cancelMenu');
-    if(btn || e.target === overlay_modalAddTask){
+    if(btn || e.target === overlay_createTaskModal){
         alternarAperturaCierreModal();
     }
 });
 
 const alternarAperturaCierreModal = () => {
-    overlay_modalAddTask.classList.toggle('activeModals');
-    modalAddTask.classList.toggle('active');
+    overlay_createTaskModal.classList.toggle('activeModals');
+    createTaskModal.classList.toggle('active');
     return;
 }

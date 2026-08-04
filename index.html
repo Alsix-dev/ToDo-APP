@@ -9,60 +9,58 @@
     <link rel="stylesheet" href="../style/header.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/footer.css">
-    <link rel="stylesheet" href="../style/modalsAddTask.css">
+    <link rel="stylesheet" href="../style/taskAddModal.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 
 </head>
 <body>
-    <div id="app">                          <!-- Configuraciones iniciales: Margin, Box, Padding -->
-        <div id="root">                     <!-- Contenedor general donde cargo todos mis elementos -->
-            <div class="contenedor">        <!-- Nuestro Layout: Aplicamos CSS grid -->
+    <div id="app">
+        <div id="root">
+            <div class="contenedor">
 
-<!--###################################################### HEADER ##########################################################-->
                 <header class="header">
-                    <section class="titleApp">
-                        <h1 id="titleApp">Todo App</h1>
-                    </section>
-                    <section class="contentFilterTask">
-                        <span class="titleInputFilter">
-                            <label for="searchTask">
-                                <h2 class="titleh2">Buscar</h2>
-                            </label>
-                        </span>
-                        <div class="inputFilterTask">
-                            <span class="material-symbols-outlined iconoSearchTask">search</span>
-                            <input type="text" id="searchTask" placeholder="Ingresa el titulo de la tarea">
+                    <h1>Todo App</h1>
+                    <section class="filterTaskContent">
+                        <label for="searchTaskInput">
+                            <h2 class="titleh2">Buscar</h2>
+                        </label>
+                        <div class="tasksFilterInput">
+                            <span class="material-symbols-outlined">search</span>
+                            <input type="text" name="searchTaskInput" id="searchTaskInput" placeholder="Ingresa el titulo de la tarea">
                         </div>
                     </section>
                 </header>
 
-<!--###################################################### MAIN ##########################################################-->
                 <main class="contentAll">
-                    <section class="contentFirstMain">
-                        <!--############################ BOTON AGREGAR TAREA -->
-                        <div class="mainAddTask">
-                            <button class="btn-openAddTask" data-btn-event="addTask">
+                    <section class="contentMainFirst">
+                        <div class="openAddTask">
+                            <button class="btn-openAddTask">
                                 <h2 class="titleh2">AGREGAR TAREA</h2>
-                                <span class="material-symbols-outlined iconoAddTask">list_alt_add</span>
+                                <span class="material-symbols-outlined">list_alt_add</span>
                             </button>
                         </div>
 
-                        <!--############################ LISTADO DE TAREA -->
-                        <div class="contentTaskList">
+                        <div class="taskListContent">
                             <ul id="taskListItem">
+                                
                                 <!-- <li class="taskItem taskIsCreate">
                                     <div class="dataTaskItem">
-                                        <div class="mainTask">
-                                            <input type="checkbox" class="todo-checkbox">
+
+                                        <div class="checkCompleteTask">
+                                            <input type="checkbox" class="checkTask">
+                                        </div>
+
+                                        <div class="isTaskTitle">
                                             <h2 class="titleh2">Titulo tarea</h2>
                                         </div>
+                                        
                                         <button class="btn-Details">
                                             <span class="material-symbols-outlined">description</span>
                                             Detalles
                                         </button>
-                                        
-                                        <div class="controlsRootTask">
+
+                                        <div class="taskRootControls">
                                             <button class="btn-Pause">
                                                 <span class="material-symbols-outlined">pause_circle</span>
                                             </button>
@@ -75,7 +73,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="detailsInfoTask">
+                                    <div class="detailsInfoTask activeDetails">
                                         <div class="detailsInfo-Extra">
                                             <p>Fecha límite: 26/03/2000</p>
                                             <p>Colaborador: Alex Urquiza</p>
@@ -90,93 +88,89 @@
                             </ul>
                         </div>
 
-                        <!--############################ BOTONES BARRA LATERAL DERECHO -->
-                        <section class="contentNav rootNav1">
+                        <section class="navContent navRoot1">
                             <div class="navMenuButtons">
-                                <button id="btn-historyTasks">
+                                <button>
                                     <span class="material-symbols-outlined">arrow_circle_left</span>
                                     HISTORIAL
                                 </button>
-                                <button id="btn-stateTasks">
+                                <button>
                                     <span class="material-symbols-outlined">arrow_circle_left</span>
                                     ESTADO
                                 </button>
                             </div>
                         </section>
 
-                        <!--############################ BOTONES BARRA LATERAL IZQUIERDO -->
-                        <section class="contentNav rootNav2">
+                        <section class="navContent navRoot2">
                             <div class="navMenuButtons">
-                                <button id="btn-deleteTasks">
+                                <button>
                                     ELIMINAR
-                                    <span class="material-symbols-outlined iconoDelete">arrow_circle_right</span>
+                                    <span class="material-symbols-outlined">arrow_circle_right</span>
                                 </button>
                             </div>
                         </section>
                     </section>
                 </main>
                 
-<!--###################################################### FOOTER ##########################################################-->
                 <footer id="footer">
-                    <div class="creditos">
-                        <!-- Queda para futuras modificaciones -->
+                    <div class="ownerData">
                         <span>Creado y diseñado por @Alsix-dev - 2026</span>
                     </div>
                 </footer>
 
-<!--###################################################### MODALS ##########################################################-->
-                <!-- activeModals -->
-                <div id="overlays">
+                <div id="overlays" class="">
                     <!--############################ MENU DE AGREGAR TAREA -->
-                    <section class="modalAddTask">
-                        <div class="titleMainModal">
+                    <section class="createTaskModal">
+                        <div class="createTaskMenuTitle">
                             <h2 class="titleh2">NUEVA TAREA</h2>
                             <button class="btn-cancelMenu">
                                 <span class="material-symbols-outlined iconoCancelarMenu">close</span>
                             </button>
                         </div>
 
-                        <form id="formAddTask" novalidate>
-                            <div class="addTitleTask">
-                                <label for="titleTask">
+                        <form id="creatTaskForm" novalidate>
+                            <div class="taskTitleInputContent">
+                                <label for="enterTitleTaskCreate">
                                     <h3 class="titleModal">Titulo tarea</h3>
                                 </label>
-                                <div class="inputAddTitle">
+                                <div class="taskTitleInput">
                                     <span class="material-symbols-outlined iconoAddTask">format_h3</span>
                                     <input type="text"
-                                        name="titleTask" id="titleTask" placeholder="Ingresa el titulo de la tarea"
+                                        name="enterTitleTaskCreate" id="enterTitleTaskCreate" 
+                                        placeholder="Ingresa el titulo de la tarea"
                                         autocomplete="off">
                                 </div>
                             </div>
 
-                            <div class="addDetailsTask">
-                                <label for="detailsTask">
+                            <div class="taskDetailsContent">
+                                <label for="enterDetailsTaskCreate">
                                     <h3 class="titleModal">Descripción</h3>
                                 </label>
                                 <div class="textareaAddTask">
                                     <span class="material-symbols-outlined iconoDetailsTask">text_ad</span>
-                                    <textarea placeholder="Descripción de la tarea"
-                                        name="detailsTask" id="detailsTask"></textarea>
+                                    <textarea
+                                        name="enterDetailsTaskCreate" id="enterDetailsTaskCreate"
+                                        placeholder="Descripción de la tarea"></textarea>
                                 </div>
                             </div>
 
-                            <div class="addExtrasTask">
-                                <div class="addExtrasTask-Date">
-                                    <label for="dateTask">
+                            <div class="taskExtrasContent">
+                                <div class="taskExtras-Date">
+                                    <label for="enterTaskDateCreate">
                                         <h3 class="titleModal">Fecha límite</h3>
                                     </label>
                                     <input type="date" 
-                                        name="dateTask" id="dateTask">
+                                        name="enterTaskDateCreate" id="enterTaskDateCreate">
                                 </div>
 
-                                <div class="addExtrasTask-Collaborator">
-                                    <label for="Collaborator">
+                                <div class="taskExtras-Collaborator">
+                                    <label for="enterTaskCbCreate">
                                         <h3 class="titleModal">Colaborador</h3>
                                     </label>
-                                    <div class="AddTaskcollaborator">
+                                    <div class="addTaskCb">
                                         <span class="material-symbols-outlined iconoColaborador">co_present</span>
                                         <input type="text" 
-                                            name="Collaborator" id="CollaboratorTask" placeholder="Colaborador"
+                                            name="enterTaskCbCreate" id="enterTaskCbCreate" placeholder="Colaborador"
                                             autocomplete="off">  
                                     </div>
                                 </div>
@@ -203,7 +197,8 @@
         </div>
     </div>
 
-    <script src="../script/agregarTarea.js"></script>
-    <script src="../script/modals.js"></script>
+    <script type="module" src="../script/crearTarea.js"></script>
+    <!-- <script type="module" src="../script/operarTarea.js"></script> -->
+    <script type="module" src="../script/modals.js"></script>
 </body>
 </html>
