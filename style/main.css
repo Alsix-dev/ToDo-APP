@@ -171,7 +171,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     width: 95%;
     display: grid;
     align-items: center;
-    grid-template-columns: auto 0.5fr repeat(2, auto);
+    grid-template-columns: 50px 0.5fr repeat(2, auto);
     margin: 12px;
     padding: 4px;
     border-radius: 8px;
@@ -191,6 +191,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 /* ############################### CHECKBOX Y TITULO ################################ */
 
 .checkTask {
+  margin-left: 10px;
   appearance: none;
   -webkit-appearance: none;
   width: 22px;
@@ -226,13 +227,14 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 }
 
 .taskItem .dataTaskItem .checkCompleteTask {
-    margin-left: 15px;
+    grid-column: 1;
 }
 
 .taskItem .dataTaskItem .isTaskTitle {
     justify-self: start;
+    grid-column: 2;
     min-width: 0;
-    width: 100%;
+    width: 100%;    
 }
 
 .taskItem .dataTaskItem .isTaskTitle h2 {
@@ -246,6 +248,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 
 /* ############################### DETALLES ################################ */
 .taskItem .btn-Details {
+    grid-column: 3;
     justify-self: start;
     display: flex;
     justify-content: center;
@@ -298,6 +301,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 
 .taskItem .dataTaskItem .taskRootControls {
     justify-self: end;
+    grid-column: 4;
     margin-right: 15px;
 }
 
