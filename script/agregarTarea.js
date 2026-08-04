@@ -23,17 +23,19 @@ function crearTarea(){
     );
 
     const li = document.createElement('li');
-    li.className = 'taskItem taskInProgress';
+    li.className = 'taskItem taskIsCreate';
     li.innerHTML = `
         <div class="dataTaskItem">
             <div class="mainTask">
                 <input type="checkbox" class="todo-checkbox">
                 <h2 class="titleh2">${titleTaskInput.value}</h2>
             </div>
-            
-            ${buttonDetalles}
+
             
             <div class="controlsRootTask">
+                <button class="btn-Star">
+                    <span class="material-symbols-outlined">play_circle</span>
+                </button>
                 <button class="btn-Pause">
                     <span class="material-symbols-outlined">pause_circle</span>
                 </button>
@@ -65,7 +67,7 @@ const verificarSiHayTareas = () => {
             <div class="dataTaskItem">
                 <button class="btn-openAddTask" data-btn-event="addTask">
                     <h2 class="titleh2">Agregar tarea</h2>
-                    <span class="material-symbols-outlined iconoAddTask">add_circle</span>
+                    <span class="material-symbols-outlined iconoAddTask">list_alt_add</span>
                 </button>
             </div>
         `;

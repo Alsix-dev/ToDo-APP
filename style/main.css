@@ -71,7 +71,7 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     width: 100%;
     display: flex;
     position: absolute;
-    top: 10%;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
+    top: 26px;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
 }
 
 .contentNav .navMenuButtons > button {
@@ -104,12 +104,12 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
                     columna 1                  columna 2        columna 3             columna 4
         fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
     box-shadow: 
-        -2px 0 2px 1px rgba(195, 53, 220, 0.6),
-        0px 2px 2px 1px rgba(195, 53, 220, 0.6),
-        0px -2px 2px 1px rgba(195, 53, 220, 0.6);
+        -2px 0 2px 1px rgba(75, 50, 140, .5),
+        0px 2px 2px 1px rgba(75, 50, 140, .5),
+        0px -2px 2px 1px rgba(75, 50, 140, .5);
 }
 .contentNav.rootNav1 .navMenuButtons > button > span {
-    color: #C335DC;
+    color: #9B6DFF;
 }
 
 /* ############################# NAV MENU 2 ############################# */
@@ -124,9 +124,9 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
                     columna 1                  columna 2        columna 3             columna 4
         fila: derecha(+)/izquierda (-)    arriba(+)/abajo(-)  cuando se difulmina     alcance*/
     box-shadow: 
-        2px 0 2px 1px rgba(220, 53, 69, 0.6),
-        0px 2px 2px 1px rgba(220, 53, 69, 0.6),
-        0px -2px 2px 1px rgba(220, 53, 69, 0.6);
+        2px 0 2px 1px rgba(220, 53, 69, 0.5),
+        0px 2px 2px 1px rgba(220, 53, 69, 0.5),
+        0px -2px 2px 1px rgba(220, 53, 69, 0.5);
 }
 .contentNav.rootNav2 .navMenuButtons > button > span {
     color: #DC3545;
@@ -289,6 +289,10 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     font-size: 25px;
 }
 
+.contentTaskList > ul .controlsRootTask .btn-Star {
+    color: #20C997;
+}
+
 .contentTaskList > ul .controlsRootTask .btn-Pause {
     color: #FFC107;
 }
@@ -302,6 +306,17 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
 }
 
 /* ############################### CLASIFICACION DE TAREAS ################################ */
+/* ############################### CREADA */
+.contentTaskList > ul .taskIsCreate .dataTaskItem,
+.contentTaskList > ul .taskIsCreate .detailsInfoTask {
+    box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
+}
+.contentTaskList > ul .taskIsCreate .dataTaskItem h2,
+.contentTaskList > ul .taskIsCreate > .dataTaskItem .btn-Details *{
+    text-shadow: 1px 1px 10px rgba(75, 50, 140, .5);
+    color: #9B6DFF;
+}
+
 /* ############################### EN PROGRESO */
 .contentTaskList > ul .taskInProgress .dataTaskItem,
 .contentTaskList > ul .taskInProgress .detailsInfoTask {
@@ -312,6 +327,8 @@ main.contentAll .mainAddTask .btn-openAddTask .iconoAddTask {
     color: #4DA361;
     text-shadow: 1px 1px 10px rgba(30, 71, 42, 0.5);
 }
+
+
 
 /* ############################### EN PAUSA */
 .contentTaskList > ul .taskIsPause .dataTaskItem,
