@@ -31,6 +31,11 @@ function pausarTarea(tarea){
     tarea.classList.add('taskIsPause');
 }
 
+function eliminarTarea(tarea){
+    tarea.remove();
+    verificarSiHayTareas();
+}
+
 contenedorLista.addEventListener('click', (e) => {
     /* ################################# HABILITAR POR BTN START ################################# */
     if(e.target.closest('.btn-Start')){
@@ -54,6 +59,11 @@ contenedorLista.addEventListener('click', (e) => {
         if(tarea.classList.contains('taskInProgress')){
             pausarTarea(tarea);
         }
+    }
+
+    if(e.target.closest('.btn-Delete')){
+        const tarea = e.target.closest('.taskItem');
+        eliminarTarea(tarea);
     }
 });
 

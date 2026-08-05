@@ -43,3 +43,4 @@
 28) Habilitar el pausa cuando la tarea este en progreso.
 ---------------------------- ✓	29) El pasar la tarea de creada a en progreso hacerla una funcion. Ya que luego pasarla de pausa o completa tambien sera a en progreso.
 ---------------------------- ✓	30) Si esta completada pero se desmarca el check, pasar directamente a en progreso.
+31) Agregar el aviso de confirmacion de si quiere eliminar o no la tarea.
