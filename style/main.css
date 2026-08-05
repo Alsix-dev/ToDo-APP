@@ -245,7 +245,6 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     text-overflow: ellipsis;
 }
 
-
 /* ############################### DETALLES ################################ */
 .taskItem .btn-Details {
     grid-column: 3;
@@ -302,7 +301,6 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 .taskItem .dataTaskItem .taskRootControls {
     justify-self: end;
     grid-column: 4;
-    margin-right: 15px;
 }
 
 .taskItem .taskRootControls > button {
@@ -313,7 +311,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     font-size: 25px;
 }
 
-.taskItem .taskRootControls .btn-Star {
+.taskItem .taskRootControls .btn-Start {
     color: #20C997;
 }
 

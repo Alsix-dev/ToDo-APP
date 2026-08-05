@@ -1,41 +1,22 @@
+/* ########################################################################################### */
+/* ########################################################################################### */
 import { 
-    devolverDetalles
+    devolverDetalles,
+    verificarSiHayTareas
 } from "../script/operarTarea.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    verificarSiHayTareas();                         // Verificamos si hay o no tareas en lista, sino mostrmaos TAREA 0.
-});
+import {
+    capitalizarTexto
+} from "../script/genericas.js"
 
-/* ############################# AGREGAR TAREA ############################# */
-/* ######################################################################### */
-const contenedorLista           = document.querySelector('#taskListItem');            // <UL> - Contenedor lista de tareas
-const enterTitleTaskCreate      = document.getElementById('enterTitleTaskCreate');
-const enterDetailsTaskCreate    = document.getElementById('enterDetailsTaskCreate');
-const enterTaskDateCreate       = document.getElementById('enterTaskDateCreate');
-const enterTaskCbCreate         = document.getElementById('enterTaskCbCreate');
-
-/* ############################# TAREA 0: NO HAY TAREAS EN LISTA ############################# */
-/* ###### Si no existen tareas, entonces se muestra el boton agregar tarea como un item ###### */
 /* ########################################################################################### */
-function verificarSiHayTareas(){
-    const listaTareas = document.querySelectorAll('.taskItem');
-    const emptyTask = document.querySelector('.emptyTask');
-    if(listaTareas.length === 0 && !emptyTask){
-        const li = document.createElement('li');
-        li.className = 'taskItem emptyTask';
-        li.innerHTML = `
-            <div class="dataTaskItem">
-                <button class="btn-openAddTask">
-                    <h2 class="titleh2">Agregar tarea</h2>
-                    <span class="material-symbols-outlined">list_alt_add</span>
-                </button>
-            </div>
-        `;
-        contenedorLista.appendChild(li);
-    } else if (emptyTask){
-        emptyTask.remove();
-    }
-}
+/* ########################################################################################### */
+
+const contenedorLista = document.querySelector('#taskListItem');
+const enterTitleTaskCreate = document.getElementById('enterTitleTaskCreate');
+const enterDetailsTaskCreate = document.getElementById('enterDetailsTaskCreate');
+const enterTaskDateCreate = document.getElementById('enterTaskDateCreate');
+const enterTaskCbCreate = document.getElementById('enterTaskCbCreate');
 
 /* ############################ VALIDACIONES DE INPUTS ############################# */
 /* ###### Validamos la entrada de datos de cada input del boton agregar tarea ###### */
@@ -125,15 +106,11 @@ function mostrarErrores(errores){
 /* ###### Evento que ejecuta todas las funciones anteriores para crear una tarea ###### */
 /* #################################################################################### */
 
-function capitalizarTexto(texto){
-    return texto.charAt(0).toUpperCase() + texto.slice(1);
-}
-
 const crearTarea = () => {
-    let titleInputValue     = enterTitleTaskCreate.value;
-    let detailsInputValue   = enterDetailsTaskCreate.value;
-    let dateInputValue      = enterTaskDateCreate.value;
-    let CBValue             = enterTaskCbCreate.value;
+    let titleInputValue = enterTitleTaskCreate.value;
+    let detailsInputValue = enterDetailsTaskCreate.value;
+    let dateInputValue = enterTaskDateCreate.value;
+    let CBValue = enterTaskCbCreate.value;
 
     const { 
         buttonDetalles, 
@@ -151,16 +128,19 @@ const crearTarea = () => {
         <div class="dataTaskItem">
 
             <div class="checkCompleteTask">
-                <input type="checkbox" class="checkTask">
+                <input type="checkbox" class="checkTask" disabled>
             </div>
 
             <div class="isTaskTitle">
-                <h2 class="titleh2">${titleCapitalizado}</h2>
+                <h2>${titleCapitalizado}</h2>
             </div>
             
             ${buttonDetalles}
 
             <div class="taskRootControls">
+                <button class="btn-Start">
+                    <span class="material-symbols-outlined">play_circle</span>
+                </button>
                 <button class="btn-Pause">
                     <span class="material-symbols-outlined">pause_circle</span>
                 </button>
