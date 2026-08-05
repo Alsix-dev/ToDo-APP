@@ -124,6 +124,11 @@ function mostrarErrores(errores){
 /* ################################### CREAR TAREA #################################### */
 /* ###### Evento que ejecuta todas las funciones anteriores para crear una tarea ###### */
 /* #################################################################################### */
+
+function capitalizarTexto(texto){
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
 const crearTarea = () => {
     let titleInputValue     = enterTitleTaskCreate.value;
     let detailsInputValue   = enterDetailsTaskCreate.value;
@@ -138,6 +143,8 @@ const crearTarea = () => {
         CBValue 
     );
 
+    let titleCapitalizado = capitalizarTexto(titleInputValue);
+
     const li = document.createElement('li');
     li.className = 'taskItem taskIsCreate';
     li.innerHTML = `
@@ -148,7 +155,7 @@ const crearTarea = () => {
             </div>
 
             <div class="isTaskTitle">
-                <h2 class="titleh2">${enterTitleTaskCreate.value}</h2>
+                <h2 class="titleh2">${titleCapitalizado}</h2>
             </div>
             
             ${buttonDetalles}

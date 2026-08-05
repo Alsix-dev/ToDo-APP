@@ -24,8 +24,8 @@
 ---------------------------- ✓	12) Que el detalles se ajuste al tamaño del contenido.
 ---------------------------- ✓	13) Poner condiciones a la hora de crear tareas como la longitud del titulo, etc...
 ---------------------------- ✓	14) Cuando se pone un titulo, este empuja a los demas elementos. Editar para que eso no ocurra
-15) Revisar si es posible no usar display: none para temas de rendimientos.
-16) Capitalizar cuando ya se crea la tarea?
+---------------------------- ✓	15) Revisar si es posible no usar display: none para temas de rendimientos.
+---------------------------- ✓	16) Capitalizar cuando se crea la tarea
 17) Limitar la fecha limite, ya que son de tareas, no sea ni menor al dia actual ni mayor a 2 semanas? ver cual podria ser el maximo.   inputFecha.setAttribute('min', '2026-01-01');
 18) Editar el como llamar a los elementos en .js ya que por ej: titulo podria usarlo para ediciones. Por eso, hacerlo general y luego solo pasarlo como argumento a validar.
 ---------------------------- ✓	19) Al ya poder crear la tarea deberian desaparecer los errores.
@@ -37,5 +37,6 @@
 					en algunas tareas detalles se vea en la derecha y en otras en el centro. 
 					Si no, pasar a grid la estructura. Decidir luego. -------- 	SE APLICO GRID.
 24) Investigar a futuro: Virtualizacion y Windowing que crea/destruye a medida que hace uno scroll. Usado en muchas aplicaciones hoy en dia.
-25) Modificar HTML y CSS para que los H2 no sean especificos. Solo ajustar los necesarios.
-26) Verificar que los  botones de cerrar menu sean genericos asi evito llamarlos siempre
+---------------------------- ✓	25) Modificar HTML y CSS para que los H2 no sean especificos. Solo ajustar los necesarios.
+26) Verificar que los botones de cerrar menu sean genericos asi evito llamarlos siempre.
+27) El checkbox se habilita cuando la tarea se encuentra en proceso o pausa.
