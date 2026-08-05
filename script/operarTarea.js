@@ -8,19 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ########################################################################################### */
 const contenedorLista = document.querySelector('#taskListItem');
 
-/* ################################# PONER TAREA EN PROGRESO ################################# */
+/* ############################### HABILITAR BOTONES DE TAREA ################################ */
 /* ###### Si la tarea esta creada/pausada/completa puede pasarse a progreso nuevamente  ###### */
+/* ###### La tarea solo puede pausarse si esta se encuentra en progreso unicamente      ###### */
 /* ########################################################################################### */
 function iniciarTarea(tarea){
     tarea.classList.remove('taskIsPause', 'taskIsComplete');
     tarea.classList.add('taskInProgress');
+
     const checkbox = tarea.querySelector('.checkTask');
+    checkbox.checked = false;
     checkbox.disabled = false;
 }
 
 function completarTarea(tarea){
     tarea.classList.remove('taskIsPause', 'taskInProgress');
     tarea.classList.add('taskIsComplete');
+}
+
+function pausarTarea(tarea){
+    tarea.classList.remove('taskIsComplete', 'taskInProgress');
+    tarea.classList.add('taskIsPause');
 }
 
 contenedorLista.addEventListener('click', (e) => {
@@ -39,13 +47,16 @@ contenedorLista.addEventListener('click', (e) => {
             completarTarea(tarea);
         }
     }
+
+    /* ################################# HABILITAR POR BTN PAUSE ################################# */
+    if(e.target.closest('.btn-Pause')){
+        const tarea = e.target.closest('.taskItem');
+        if(tarea.classList.contains('taskInProgress')){
+            pausarTarea(tarea);
+        }
+    }
 });
 
-
-
-/* ############################# TAREA 0: NO HAY TAREAS EN LISTA ############################# */
-/* ###### Si no existen tareas, entonces se muestra el boton agregar tarea como un item ###### */
-/* ########################################################################################### */
 
 function verificarSiHayTareas(){
     const listaTareas = document.querySelectorAll('.taskItem');
