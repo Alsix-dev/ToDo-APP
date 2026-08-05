@@ -30,7 +30,7 @@
 18) Editar el como llamar a los elementos en .js ya que por ej: titulo podria usarlo para ediciones. Por eso, hacerlo general y luego solo pasarlo como argumento a validar.
 ---------------------------- ✓	19) Al ya poder crear la tarea deberian desaparecer los errores.
 20) Cambiar donde salen los errores para que salgan debajo de sus respectivos inputs.
-21) Al apretar el checkbox la tarea pasa a aser TaskIsComplete. Si se vuelve a apretar, pasa a ser en progreso. Si ya hay un limite de tareas en progreso, entonces pasa a ser creada.
+---------------------------- ✓	21) Al apretar el checkbox la tarea pasa a ser TaskIsComplete. Si se vuelve a apretar, pasa a ser en progreso.
 22) Concluir con otras funciones como eliminar, editar, pausar, etc.
 ---------------------------- ✓	23) Boton detalles ahora queda junto a los botones de root de la tarea. 
 					Ya que hay que ajustar el titulo por fallas de que empuja el contenido y no queda bien que
@@ -39,5 +39,7 @@
 24) Investigar a futuro: Virtualizacion y Windowing que crea/destruye a medida que hace uno scroll. Usado en muchas aplicaciones hoy en dia.
 ---------------------------- ✓	25) Modificar HTML y CSS para que los H2 no sean especificos. Solo ajustar los necesarios.
 ---------------------------- ✓	26) Verificar que los botones de cerrar menu sean genericos asi evito llamarlos siempre.
-27) El checkbox se habilita cuando la tarea se encuentra en proceso.
+---------------------------- ✓	27) El checkbox se habilita cuando la tarea se encuentra en proceso.
 28) Habilitar el pausa cuando la tarea este en progreso.
+---------------------------- ✓	29) El pasar la tarea de creada a en progreso hacerla una funcion. Ya que luego pasarla de pausa o completa tambien sera a en progreso.
+---------------------------- ✓	30) Si esta completada pero se desmarca el check, pasar directamente a en progreso.

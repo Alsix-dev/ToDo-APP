@@ -8,16 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ########################################################################################### */
 const contenedorLista = document.querySelector('#taskListItem');
 
-/* ############################# HABILITAR/DESHABILITAR CHECKBOX ############################# */
-/* ###### Si es solo completada/pausa/en progreso se habilita el checkbox, si no, no    ###### */
+/* ################################# PONER TAREA EN PROGRESO ################################# */
+/* ###### Si la tarea esta creada/pausada/completa puede pasarse a progreso nuevamente  ###### */
 /* ########################################################################################### */
+function iniciarTarea(tarea){
+    tarea.classList.remove('taskIsPause', 'taskIsComplete');
+    tarea.classList.add('taskInProgress');
+    const checkbox = tarea.querySelector('.checkTask');
+    checkbox.disabled = false;
+}
 
-// Debo habilitarlo cuando este en progreso.
+function completarTarea(tarea){
+    tarea.classList.remove('taskIsPause', 'taskInProgress');
+    tarea.classList.add('taskIsComplete');
+}
 
-// taskItem.addEventListener('click', () => {
-//     const taskCheckBox = classList.closest('.checkTask');
-        // si esta en progreso, se habilita el disabled a true.
-// });
+contenedorLista.addEventListener('click', (e) => {
+    /* ################################# HABILITAR POR BTN START ################################# */
+    if(e.target.closest('.btn-Start')){
+        const tarea = e.target.closest('.taskItem');
+        iniciarTarea(tarea);
+    }
+
+    /* ############################# HABILITAR/DESHABILITAR CHECKBOX ############################# */
+    if(e.target.closest('.checkTask')){
+        const tarea = e.target.closest('.taskItem');
+        if(tarea.classList.contains('taskIsComplete')){
+            iniciarTarea(tarea);
+        } else {
+            completarTarea(tarea);
+        }
+    }
+});
+
+
 
 /* ############################# TAREA 0: NO HAY TAREAS EN LISTA ############################# */
 /* ###### Si no existen tareas, entonces se muestra el boton agregar tarea como un item ###### */
@@ -101,26 +125,6 @@ contenedorLista.addEventListener('click', (e) => {
         .querySelector('.detailsInfoTask')
         .classList.toggle('activeDetails');
 });
-
-
-/* ############################### ENTRAR A TAREA EN PROGRESO ################################ */
-/* ###### Si la tarea esta creada/pausada/completa puede pasarse a progreso nuevamente  ###### */
-/* ########################################################################################### */
-
-contenedorLista.addEventListener('click', (e) => {
-    if(e.target.closest('.btn-Start')){
-        const tarea = e.target.closest('.taskItem');
-        tarea.classList.add('taskInProgress');
-    }
-});
-
-
-
-
-
-
-
-
 
 export {
     devolverDetalles,
