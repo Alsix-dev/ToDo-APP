@@ -177,8 +177,6 @@ const crearTarea = () => {
 const creatTaskForm = document.getElementById('creatTaskForm');
 creatTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const createTaskModal = document.querySelector('.createTaskModal');
-    const titleModal = createTaskModal.querySelector('.createTaskMenuTitle h2');
 
     const {
         hayError, 
@@ -197,6 +195,12 @@ creatTaskForm.addEventListener('submit', (e) => {
         const getTask = crearTarea();
         contenedorLista.appendChild(getTask);
     } else {
-        modificarTarea(tareaAModificar);
+        modificarTarea(
+            tareaAModificar,
+            enterTitleTaskCreate.value,
+            enterDetailsTaskCreate.value,
+            enterTaskDateCreate.value,
+            enterTaskCbCreate.value
+        );
     }
 });
