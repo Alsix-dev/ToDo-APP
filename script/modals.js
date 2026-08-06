@@ -1,3 +1,6 @@
+import { configurarFormulario } from "../script/crearTarea.js";
+
+
 /* ######################### MODAL DE AGREGAR TAREA ########################## */
 /* ############################# APERTURA */
 // const btn_openAddTask = document.querySelector('.btn-openAddTask');
@@ -5,7 +8,18 @@ const overlay_createTaskModal = document.querySelector('#overlays');
 const createTaskModal = document.querySelector('.createTaskModal');
 
 document.addEventListener('click', (e) => {
+    let estadoModal = null; // EDITAR | CREAR --> Referenciando a editar/crear tareas
+
     if(e.target.closest('.btn-openAddTask')){
+        estadoModal = 'crear';
+        configurarFormulario(estadoModal);
+        alternarAperturaCierreModal();
+    }
+
+    if(e.target.closest('.btn-Edit')){
+        const tarea = e.target.closest('.taskItem');
+        estadoModal = 'editar';
+        configurarFormulario(estadoModal, tarea);
         alternarAperturaCierreModal();
     }
 });

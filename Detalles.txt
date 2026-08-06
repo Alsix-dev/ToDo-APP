@@ -27,11 +27,11 @@
 ---------------------------- ✓	15) Revisar si es posible no usar display: none para temas de rendimientos.
 ---------------------------- ✓	16) Capitalizar cuando se crea la tarea
 17) Limitar la fecha limite, ya que son de tareas, no sea ni menor al dia actual ni mayor a 2 semanas? ver cual podria ser el maximo.   inputFecha.setAttribute('min', '2026-01-01');
-18) Editar el como llamar a los elementos en .js ya que por ej: titulo podria usarlo para ediciones. Por eso, hacerlo general y luego solo pasarlo como argumento a validar.
+---------------------------- ✓	18) Editar el como llamar a los elementos en .js ya que por ej: titulo podria usarlo para ediciones. Por eso, hacerlo general y luego solo pasarlo como argumento a validar.
 ---------------------------- ✓	19) Al ya poder crear la tarea deberian desaparecer los errores.
 20) Cambiar donde salen los errores para que salgan debajo de sus respectivos inputs.
 ---------------------------- ✓	21) Al apretar el checkbox la tarea pasa a ser TaskIsComplete. Si se vuelve a apretar, pasa a ser en progreso.
-22) Concluir con otras funciones como eliminar, editar, pausar, etc.
+---------------------------- ✓	22) Concluir con otras funciones como eliminar, editar, pausar, etc.
 ---------------------------- ✓	23) Boton detalles ahora queda junto a los botones de root de la tarea. 
 					Ya que hay que ajustar el titulo por fallas de que empuja el contenido y no queda bien que
 					en algunas tareas detalles se vea en la derecha y en otras en el centro. 
@@ -40,7 +40,8 @@
 ---------------------------- ✓	25) Modificar HTML y CSS para que los H2 no sean especificos. Solo ajustar los necesarios.
 ---------------------------- ✓	26) Verificar que los botones de cerrar menu sean genericos asi evito llamarlos siempre.
 ---------------------------- ✓	27) El checkbox se habilita cuando la tarea se encuentra en proceso.
-28) Habilitar el pausa cuando la tarea este en progreso.
+---------------------------- ✓	28) Habilitar el pausa cuando la tarea este en progreso.
 ---------------------------- ✓	29) El pasar la tarea de creada a en progreso hacerla una funcion. Ya que luego pasarla de pausa o completa tambien sera a en progreso.
 ---------------------------- ✓	30) Si esta completada pero se desmarca el check, pasar directamente a en progreso.
 31) Agregar el aviso de confirmacion de si quiere eliminar o no la tarea.
+32) Reorganizar, optimizar y asegurar el codigo de editar y crear tarea para evitar confusiones.

@@ -1,3 +1,5 @@
+import { capitalizarTexto } from "../script/genericas.js";
+
 /* ########################################################################################### */
 /* ########################################################################################### */
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +36,25 @@ function pausarTarea(tarea){
 function eliminarTarea(tarea){
     tarea.remove();
     verificarSiHayTareas();
+}
+
+// modificar el addEventListener de form en crearTarea.js asi verifico por titulo si es para editar o crear.
+function modificarTarea(tarea){
+    const contenedorLista = document.querySelector('#taskListItem');
+    const enterTitleTaskCreate = document.getElementById('enterTitleTaskCreate');
+    const enterDetailsTaskCreate = document.getElementById('enterDetailsTaskCreate');
+    const enterTaskDateCreate = document.getElementById('enterTaskDateCreate');
+    const enterTaskCbCreate = document.getElementById('enterTaskCbCreate');
+
+    let titleInputValue = capitalizarTexto(enterTitleTaskCreate.value);
+    let detailsInputValue = enterDetailsTaskCreate.value;
+    let dateInputValue = enterTaskDateCreate.value;
+    let CBValue = enterTaskCbCreate.value;
+
+    tarea.querySelector('.isTaskTitle > h2').textContent = titleInputValue;
+    tarea.querySelector('.detailsInfo-Descripcion').textContent = detailsInputValue;
+    tarea.querySelector('.taskDate').textContent = dateInputValue;
+    tarea.querySelector('.taskCB').textContent = CBValue;
 }
 
 contenedorLista.addEventListener('click', (e) => {
@@ -101,10 +122,10 @@ const devolverDetallesExtras = (fecha, colaborador) => {
     if(fecha.trim() || colaborador.trim()){
         return `
             <div class="detailsInfo-Extra">
-                ${fecha.trim() ? `<p>Fecha límite: ${
+                ${fecha.trim() ? `<p class='taskDate'>Fecha límite: ${
                     fecha.split('-').reverse().join('-')
                 }</p>` : ``}
-                ${colaborador.trim() ? `<p>Colaborador: ${colaborador}</p>` : ``}
+                ${colaborador.trim() ? `<p class="taskCB">Colaborador: ${colaborador}</p>` : ``}
             </div>
         `
     } else {
@@ -149,5 +170,6 @@ contenedorLista.addEventListener('click', (e) => {
 
 export {
     devolverDetalles,
-    verificarSiHayTareas
+    verificarSiHayTareas,
+    modificarTarea
 }

@@ -2,7 +2,8 @@
 /* ########################################################################################### */
 import { 
     devolverDetalles,
-    verificarSiHayTareas
+    verificarSiHayTareas,
+    modificarTarea
 } from "../script/operarTarea.js";
 
 import {
@@ -105,6 +106,20 @@ function mostrarErrores(errores){
 /* ################################### CREAR TAREA #################################### */
 /* ###### Evento que ejecuta todas las funciones anteriores para crear una tarea ###### */
 /* #################################################################################### */
+let tareaAModificar = null;
+export function configurarFormulario(estadoModal, tarea = null){
+    const createTaskModal = document.querySelector('.createTaskModal');
+    const titleModal = createTaskModal.querySelector('.createTaskMenuTitle h2');
+    const buttonModal = createTaskModal.querySelector('#btn-addTask');
+    if(estadoModal === 'crear'){
+        titleModal.textContent = 'NUEVA TAREA';
+        buttonModal.textContent = "CREAR TAREA";
+    } else if (estadoModal === 'editar'){
+        titleModal.textContent = 'EDITAR TAREA';
+        buttonModal.textContent = "EDITAR TAREA";
+        tareaAModificar = tarea;
+    }
+}
 
 const crearTarea = () => {
     let titleInputValue = enterTitleTaskCreate.value;
@@ -162,6 +177,8 @@ const crearTarea = () => {
 const creatTaskForm = document.getElementById('creatTaskForm');
 creatTaskForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const createTaskModal = document.querySelector('.createTaskModal');
+    const titleModal = createTaskModal.querySelector('.createTaskMenuTitle h2');
 
     const {
         hayError, 
@@ -176,6 +193,10 @@ creatTaskForm.addEventListener('submit', (e) => {
     mostrarErrores([]);
     verificarSiHayTareas();
 
-    const getNewTask = crearTarea();
-    contenedorLista.appendChild(getNewTask);
+    if(tareaAModificar === null){
+        const getTask = crearTarea();
+        contenedorLista.appendChild(getTask);
+    } else {
+        modificarTarea(tareaAModificar);
+    }
 });
