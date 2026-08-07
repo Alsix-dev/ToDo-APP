@@ -262,7 +262,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     font-size: 25px;
 }
 
-.taskItem .detailsInfoTask {
+.taskItem .contentDetailsTask {
     height: auto;
     width: 95%;
     max-height: 100px;
@@ -275,11 +275,11 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     scrollbar-width: thin;
 }
 
-.taskItem .detailsInfoTask {
+.taskItem .contentDetailsTask {
     display: none;
 }
 
-.taskItem .detailsInfoTask.activeDetails {
+.taskItem .contentDetailsTask.activeDetails {
     display: block;
 }
 
@@ -330,7 +330,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 /* ############################### CLASIFICACION DE TAREAS ################################ */
 /* ############################### CREADA */
 .taskListContent > ul .taskIsCreate .dataTaskItem,
-.taskListContent > ul .taskIsCreate .detailsInfoTask {
+.taskListContent > ul .taskIsCreate .contentDetailsTask {
     box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
 }
 .taskListContent > ul .taskIsCreate .dataTaskItem h2,
@@ -341,7 +341,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 
 /* ############################### EN PROGRESO */
 .taskListContent > ul .taskInProgress .dataTaskItem,
-.taskListContent > ul .taskInProgress .detailsInfoTask {
+.taskListContent > ul .taskInProgress .contentDetailsTask {
     box-shadow: 0 0 10px 2px rgba(30, 71, 42, 0.5);
 }
 .taskListContent > ul .taskInProgress .dataTaskItem h2,
@@ -352,7 +352,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 
 /* ############################### EN PAUSA */
 .taskListContent > ul .taskIsPause .dataTaskItem,
-.taskListContent > ul .taskIsPause .detailsInfoTask {
+.taskListContent > ul .taskIsPause .contentDetailsTask {
     box-shadow: 0 0 10px 2px rgba(97, 62, 27, 0.5);
 }
 .taskListContent > ul .taskIsPause .dataTaskItem h2,
@@ -363,7 +363,7 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 
 /* ############################### COMPLETADA */
 .taskListContent > ul .taskIsComplete .dataTaskItem,
-.taskListContent > ul .taskIsComplete .detailsInfoTask {
+.taskListContent > ul .taskIsComplete .contentDetailsTask {
     box-shadow: 0 0 10px 2px rgba(24, 55, 110, 0.5);
 }
 .taskListContent > ul .taskIsComplete .dataTaskItem h2,

@@ -1,19 +1,48 @@
-import { capitalizarTexto } from "../script/genericas.js";
+import { 
+    capitalizarTexto 
+} from "../script/genericas.js";
 
-/* ########################################################################################### */
-/* ########################################################################################### */
-document.addEventListener('DOMContentLoaded', () => {
-    verificarSiHayTareas();                                             // Verificamos si hay o no tareas en lista, sino mostrmaos TAREA 0.
-});
+import { 
+    crearDetalles 
+} from "../script/crearTarea.js";
 
-/* ########################################################################################### */
-/* ########################################################################################### */
 const contenedorLista = document.querySelector('#taskListItem');
 
-/* ############################### HABILITAR BOTONES DE TAREA ################################ */
-/* ###### Si la tarea esta creada/pausada/completa puede pasarse a progreso nuevamente  ###### */
-/* ###### La tarea solo puede pausarse si esta se encuentra en progreso unicamente      ###### */
-/* ########################################################################################### */
+/* ==========================================================================
+   OPERAR TAREA
+   ==========================================================================
+   • [!] Si hay detalles se crea el boton de detalles, caso contrario no 
+         aparece. Detallaes son: fecha o colaborador o descripcion.
+   • [!] CAPAS:
+        . FUNCIONES - MODIFICAR - TAREA
+        . FUNCIONES - CREAR - TAREA
+        . EVENTOS - TAREA
+   ========================================================================== */
+
+function verificarSiHayTareas(){
+    const listaTareas = document.querySelectorAll('.taskItem');
+    const emptyTask = document.querySelector('.emptyTask');
+
+    if(listaTareas.length === 0 && !emptyTask){
+        const li = document.createElement('li');
+        li.className = 'taskItem emptyTask';
+        li.innerHTML = `
+            <div class="dataTaskItem">
+                <button class="btn-openAddTask">
+                    <h2>Agregar tarea</h2>
+                    <span class="material-symbols-outlined">list_alt_add</span>
+                </button>
+            </div>
+        `;
+        contenedorLista.appendChild(li);
+    } else if (emptyTask){
+        emptyTask.remove();
+    }
+}
+
+/* ==========================================================================
+   FUNCIONES - OPERAR - TAREA
+   ========================================================================== */
 function iniciarTarea(tarea){
     tarea.classList.remove('taskIsPause', 'taskIsComplete');
     tarea.classList.add('taskInProgress');
@@ -38,24 +67,74 @@ function eliminarTarea(tarea){
     verificarSiHayTareas();
 }
 
-function modificarTarea(tarea, titulo, detalles, fecha, colaborador){
-    let tituloNuevo = capitalizarTexto(titulo);
-    tarea.querySelector('.isTaskTitle > h2').textContent = tituloNuevo;
-    tarea.querySelector('.detailsInfo-Descripcion').textContent = detalles;
-    tarea.querySelector('.taskDate').textContent = fecha;
-    tarea.querySelector('.taskCB').textContent = colaborador;
+/* ==========================================================================
+   MODIFICAR - TAREA
+   ========================================================================== */
+// Siempre que se modifique, se desactiva el activeDetails para ocultar los detalles automaticamente.
+function editarTarea(tarea, datos){
+    const btn_Detalles = tarea.querySelector('.btn-Details');
+    const { 
+        buttonTask, 
+        detailsTask } = crearDetalles(
+        datos.newDetails, 
+        datos.newDate, 
+        datos.newCB
+    );
+
+    // Caso 1: Solo edita el titulo, pero no ingresa nada mas.
+    if(datos.newTitle){
+        tarea.querySelector('.isTaskTitle > h2').textContent = datos.newTitle;
+    }
+    
+    // Caso 2: No hay boton inicialmente. Pero, se agregan datos como para crear uno.
+    if(!btn_Detalles && buttonTask){
+        tarea.querySelector('.disabledBtn-Details')
+            .innerHTML = buttonTask;
+
+        tarea.querySelector('.contentDetailsTask')
+            .innerHTML = detailsTask;
+    }
+
+    // Caso 3: Si hay boton inicialmente. Si hay detalles, se actualizan los detalles.
+    if(btn_Detalles && detailsTask){
+        tarea.querySelector('.contentDetailsTask')
+            .innerHTML = detailsTask;
+    }
+
+    // Caso 4: Si hay boton inicialmente. Pero, no hay detalles, se debe borrar el
+    //          boton y la descripcion.
+    if(btn_Detalles && !detailsTask){
+        tarea.querySelector('.disabledBtn-Details')
+            .innerHTML = buttonTask;
+
+        tarea.querySelector('.contentDetailsTask')
+            .innerHTML = detailsTask;
+    }   
 }
 
-contenedorLista.addEventListener('click', (e) => {
+/* ==========================================================================
+        EVENTOS - TAREA
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    verificarSiHayTareas();                                             // Verificamos si hay o no tareas en lista, sino mostrmaos TAREA 0.
+});
+
+contenedorLista.addEventListener('click', (event) => {
+    if(event.target.closest('.btn-Details')){
+        event.target.closest('.taskItem')
+            .querySelector('.contentDetailsTask')
+            .classList.toggle('activeDetails');
+    }
+
     /* ################################# HABILITAR POR BTN START ################################# */
-    if(e.target.closest('.btn-Start')){
-        const tarea = e.target.closest('.taskItem');
+    if(event.target.closest('.btn-Start')){
+        const tarea = event.target.closest('.taskItem');
         iniciarTarea(tarea);
     }
 
     /* ############################# HABILITAR/DESHABILITAR CHECKBOX ############################# */
-    if(e.target.closest('.checkTask')){
-        const tarea = e.target.closest('.taskItem');
+    if(event.target.closest('.checkTask')){
+        const tarea = event.target.closest('.taskItem');
         if(tarea.classList.contains('taskIsComplete')){
             iniciarTarea(tarea);
         } else {
@@ -64,101 +143,20 @@ contenedorLista.addEventListener('click', (e) => {
     }
 
     /* ################################# HABILITAR POR BTN PAUSE ################################# */
-    if(e.target.closest('.btn-Pause')){
-        const tarea = e.target.closest('.taskItem');
+    if(event.target.closest('.btn-Pause')){
+        const tarea = event.target.closest('.taskItem');
         if(tarea.classList.contains('taskInProgress')){
             pausarTarea(tarea);
         }
     }
-
-    if(e.target.closest('.btn-Delete')){
-        const tarea = e.target.closest('.taskItem');
+    /* ################################# HABILITAR POR BTN delete ################################# */
+    if(event.target.closest('.btn-Delete')){
+        const tarea = event.target.closest('.taskItem');
         eliminarTarea(tarea);
     }
 });
 
-
-function verificarSiHayTareas(){
-    const listaTareas = document.querySelectorAll('.taskItem');
-    const emptyTask = document.querySelector('.emptyTask');
-
-    if(listaTareas.length === 0 && !emptyTask){
-        const li = document.createElement('li');
-        li.className = 'taskItem emptyTask';
-        li.innerHTML = `
-            <div class="dataTaskItem">
-                <button class="btn-openAddTask">
-                    <h2>Agregar tarea</h2>
-                    <span class="material-symbols-outlined">list_alt_add</span>
-                </button>
-            </div>
-        `;
-        contenedorLista.appendChild(li);
-    } else if (emptyTask){
-        emptyTask.remove();
-    }
-}
-
-/* ########################################### BOTON DETALLES ################################################# */
-/* ###### Si no hay detalles, no mostramos el boton de detalles. Por ende, tampoco hay caja de detalles. ###### */
-/* ############################################################################################################ */
-/* ####################### NO/MOSTRAR BOTON DETALLES ######################## */
-const verificarSiHayDetalles = (...detalles) => {
-    return detalles.some(detalle => detalle.trim());
-}
-
-const devolverDetallesExtras = (fecha, colaborador) => {
-    if(fecha.trim() || colaborador.trim()){
-        return `
-            <div class="detailsInfo-Extra">
-                ${fecha.trim() ? `<p class='taskDate'>Fecha límite: ${
-                    fecha.split('-').reverse().join('-')
-                }</p>` : ``}
-                ${colaborador.trim() ? `<p class="taskCB">Colaborador: ${colaborador}</p>` : ``}
-            </div>
-        `
-    } else {
-        return ``;
-    }
-}
-
-function devolverDetalles(...detalles){
-    // detalles[0]: descripcion | [1]: fecha | [2]: colaborador
-    if(verificarSiHayDetalles(...detalles)){
-        return {
-            buttonDetalles: `
-                <button class="btn-Details">
-                    <span class="material-symbols-outlined">description</span>
-                    Detalles
-                </button>
-            `,
-
-            contentDetalles: `
-                <div class="detailsInfoTask">
-                    ${devolverDetallesExtras(detalles[1], detalles[2])}
-                    ${detalles[0].trim() ? `<p class="detailsInfo-Descripcion">${detalles[0]}</p>` : ``}
-                </div>
-            `
-        };
-    } else {
-        return {
-            buttonDetalles: ``,
-            contentDetalles: ``
-        }
-    }
-}
-
-/* ####################### ABRIR/CERRAR CAJA DETALLES ######################## */
-contenedorLista.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-Details')
-    if(!btn) return;
-    e.target.closest('.taskItem')
-        .querySelector('.detailsInfoTask')
-        .classList.toggle('activeDetails');
-});
-
 export {
-    devolverDetalles,
     verificarSiHayTareas,
-    modificarTarea
+    editarTarea
 }

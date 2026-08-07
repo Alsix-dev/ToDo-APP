@@ -1,142 +1,124 @@
-/* ########################################################################################### */
-/* ########################################################################################### */
 import { 
-    devolverDetalles,
-    verificarSiHayTareas,
-    modificarTarea
-} from "../script/operarTarea.js";
+    capitalizarTexto 
+} from "../script/genericas.js";
 
-import {
-    capitalizarTexto
-} from "../script/genericas.js"
+/* ==========================================================================
+   OPERAR TAREA
+   ==========================================================================
+   • [!] Si hay detalles se crea el boton de detalles, caso contrario no 
+         aparece. Detallaes son: fecha o colaborador o descripcion.
+   • [!] CAPAS:
+        . FUNCIONES - CREAR - TAREA
+   ========================================================================== */
 
-/* ########################################################################################### */
-/* ########################################################################################### */
-
-const contenedorLista = document.querySelector('#taskListItem');
-const enterTitleTaskCreate = document.getElementById('enterTitleTaskCreate');
-const enterDetailsTaskCreate = document.getElementById('enterDetailsTaskCreate');
-const enterTaskDateCreate = document.getElementById('enterTaskDateCreate');
-const enterTaskCbCreate = document.getElementById('enterTaskCbCreate');
-
-/* ############################ VALIDACIONES DE INPUTS ############################# */
-/* ###### Validamos la entrada de datos de cada input del boton agregar tarea ###### */
-/* ################################################################################# */
-const validarEntradaTitulo = () => {
-    let errores = [];
-    let titleInputValue = enterTitleTaskCreate.value;
-    titleInputValue = titleInputValue.trim();       // Borramos espacios en blancos inicio y fin
-
-    if(!titleInputValue){
-        errores.push("El titulo es obligatorio");
-    }
-
-    if((titleInputValue.length > 0 && titleInputValue.length < 3)){
-        errores.push("El mínimo permitido de titulo es de 3 caracteres");
-    }
-
-    if(titleInputValue.length > 100){
-        errores.push("El máximo permitido de titulo es de 100 caracteres");
-    }
-
-    return errores;
+const crearBotonesTarea = () => {
+    return `
+        <div class="taskRootControls">
+            <button class="btn-Start">
+                <span class="material-symbols-outlined">play_circle</span>
+            </button>
+            <button class="btn-Pause">
+                <span class="material-symbols-outlined">pause_circle</span>
+            </button>
+            <button class="btn-Edit">
+                <span class="material-symbols-outlined">edit</span>
+            </button>
+            <button class="btn-Delete">
+                <span class="material-symbols-outlined">delete</span>
+            </button>
+        </div>
+    `
 }
 
-const validarEntradaDetalles = () => {
-    let errores = [];
-    let detailsInputValue = enterDetailsTaskCreate.value;
-    detailsInputValue = detailsInputValue.trim();
+const devolverFecha = (fecha) => {
+    if(fecha){
+        return `
+            <p class='taskDate'>
+                Fecha límite: ${fecha.split('-').reverse().join('-')}
+            </p>`
+    } else return ``;
+}
 
-    if(detailsInputValue.length > 1000){
-        errores.push("El máximo permitido en descripción es de 1000 caracteres");
+const devolverColaborador = (colaborador) => {
+    if(colaborador){
+        return `
+            <p class='taskCB'>
+                Colaborador: ${colaborador}
+            </p>`
+    } else return ``;
+}
+
+const devolverDescripcion = (descripcion) => {
+    if(descripcion){
+        return `
+            <p class='detailsInfo-Descripcion'>
+                ${descripcion}
+            </p>`
+    } else return ``;
+}
+
+function verificarDetalles(...detalles){
+    return detalles.some(detalle => detalle);
+}
+
+function habilitadBoton(){
+    return `
+    <button class="btn-Details">
+        <span class="material-symbols-outlined">description</span>
+        Detalles
+    </button>`;
+}
+
+function crearDetalles(descripcion, fecha, colaborador){
+    const flag = {
+        buttonTask: ``,
+        detailsTask: ``
     }
 
-    return errores;
-}
+    let hayCajaDeDetalles = verificarDetalles(descripcion, fecha, colaborador);
+    if(hayCajaDeDetalles){
+        const tarea_Descripcion = devolverDescripcion(descripcion);
+        const tarea_Fecha = devolverFecha(fecha);
+        const tarea_Colaborador = devolverColaborador(colaborador);
+        let acumularContenido = "";
+        flag.buttonTask = habilitadBoton();
 
-// const validarEntradaFecha = () => {
-//     const fechaLocal = new Date().toLocaleDateString();
-//     const enterTaskDateCreate = document.getElementById('dateTask');
-//     let dateTaskInputInput = enterTaskDateCreate.value;
-//     dateTaskInputInput = dateTaskInputInput.split('-').reverse.join('-');
-// }
+        if(fecha || colaborador){
+            acumularContenido += `
+                <div class="detailsInfo-Extra">
+                    ${devolverFecha(fecha)}
+                    ${devolverColaborador(colaborador)}
+                </div>
+            `
+        }
+        if(descripcion){
+            acumularContenido += `
+                <div class="detailsInfoTask">
+                    ${devolverDescripcion(descripcion)}
+                </div>
+            `
+        }
 
-const validarEntradaColaborador = () => {
-    let errores = [];
-    let CBValue = enterTaskCbCreate.value;
-    CBValue = CBValue.trim();
-
-    if(CBValue.length > 50){
-        errores.push("El máximo permitido en colaborador es de 50 caracteres");
+        flag.detailsTask = `
+        <div class="detailsInfoTask">
+            ${acumularContenido}
+        </div>
+        `;
     }
-
-    return errores;
+    return flag;
 }
 
-const acumularErrores = () => {
-    const listaErrores = [
-        ...validarEntradaTitulo(),
-        ...validarEntradaDetalles(),
-        ...validarEntradaColaborador()
-    ];
-
-    return {
-        hayError: listaErrores.length > 0,
-        ...(listaErrores.length > 0 && {errores: listaErrores})
-    };
-}
-
-function mostrarErrores(errores){
-    const reportError = document.querySelector('.reportError');
-    const MessageError = document.getElementById('MessageError');
-    MessageError.replaceChildren();
-
-    if(errores.length > 0){
-        reportError.classList.add('activeError');
-        errores.forEach(error => {
-            let li = document.createElement('li');
-            li.textContent = error;
-            MessageError.appendChild(li);
-        });
-    } else {
-        reportError.classList.remove('activeError');
-    }
-}
-
-/* ################################### CREAR TAREA #################################### */
-/* ###### Evento que ejecuta todas las funciones anteriores para crear una tarea ###### */
-/* #################################################################################### */
-let tareaAModificar = null;
-export function configurarFormulario(estadoModal, tarea = null){
-    const createTaskModal = document.querySelector('.createTaskModal');
-    const titleModal = createTaskModal.querySelector('.createTaskMenuTitle h2');
-    const buttonModal = createTaskModal.querySelector('#btn-addTask');
-    if(estadoModal === 'crear'){
-        titleModal.textContent = 'NUEVA TAREA';
-        buttonModal.textContent = "CREAR TAREA";
-    } else if (estadoModal === 'editar'){
-        titleModal.textContent = 'EDITAR TAREA';
-        buttonModal.textContent = "EDITAR TAREA";
-        tareaAModificar = tarea;
-    }
-}
-
-const crearTarea = () => {
-    let titleInputValue = enterTitleTaskCreate.value;
-    let detailsInputValue = enterDetailsTaskCreate.value;
-    let dateInputValue = enterTaskDateCreate.value;
-    let CBValue = enterTaskCbCreate.value;
-
+function crearTarea(datos){
     const { 
-        buttonDetalles, 
-        contentDetalles } = devolverDetalles(
-        detailsInputValue,
-        dateInputValue, 
-        CBValue 
+        buttonTask, 
+        detailsTask } = crearDetalles(
+        datos.newDetails, 
+        datos.newDate, 
+        datos.newCB
     );
 
-    let titleCapitalizado = capitalizarTexto(titleInputValue);
-
+    let titleCapitalize = capitalizarTexto(datos.newTitle);
+    
     const li = document.createElement('li');
     li.className = 'taskItem taskIsCreate';
     li.innerHTML = `
@@ -147,60 +129,24 @@ const crearTarea = () => {
             </div>
 
             <div class="isTaskTitle">
-                <h2>${titleCapitalizado}</h2>
+                <h2>${titleCapitalize}</h2>
             </div>
-            
-            ${buttonDetalles}
 
-            <div class="taskRootControls">
-                <button class="btn-Start">
-                    <span class="material-symbols-outlined">play_circle</span>
-                </button>
-                <button class="btn-Pause">
-                    <span class="material-symbols-outlined">pause_circle</span>
-                </button>
-                <button class="btn-Edit">
-                    <span class="material-symbols-outlined">edit</span>
-                </button>
-                <button class="btn-Delete">
-                    <span class="material-symbols-outlined">delete</span>
-                </button>
+            <div class="disabledBtn-Details">
+                ${buttonTask}
             </div>
+
+            ${crearBotonesTarea()}
         </div>
 
-        ${contentDetalles}
+        <div class="contentDetailsTask">
+            ${detailsTask}
+        </div>
     `;
-
     return li;
 }
 
-const creatTaskForm = document.getElementById('creatTaskForm');
-creatTaskForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const {
-        hayError, 
-        errores
-    } = acumularErrores();
-
-    if(hayError){
-        mostrarErrores(errores);
-        return
-    }
-
-    mostrarErrores([]);
-    verificarSiHayTareas();
-
-    if(tareaAModificar === null){
-        const getTask = crearTarea();
-        contenedorLista.appendChild(getTask);
-    } else {
-        modificarTarea(
-            tareaAModificar,
-            enterTitleTaskCreate.value,
-            enterDetailsTaskCreate.value,
-            enterTaskDateCreate.value,
-            enterTaskCbCreate.value
-        );
-    }
-});
+export {
+    crearDetalles,
+    crearTarea
+}

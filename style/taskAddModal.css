@@ -26,11 +26,11 @@
 
 
 /* ############################# MODAL: AGREGAR TAREA ############################# */
-#overlays .createTaskModal {
+#overlays #createTaskModal {
     display: none;
 }
 
-#overlays .createTaskModal.active {
+#overlays #createTaskModal.active {
     width: 350px;
     max-width: 90vw;
 
@@ -48,60 +48,60 @@
     box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
 }
 
-.createTaskModal .btn-cancelMenu, 
-.createTaskModal input,
-.createTaskModal textarea,
-.createTaskModal #btn-addTask {
+#createTaskModal .btn-cancelMenu, 
+#createTaskModal input,
+#createTaskModal textarea,
+#createTaskModal #btn-addTask {
     border: none;
     outline: none;
 }
 
-.createTaskModal h3 {
+#createTaskModal h3 {
     margin-bottom: 5px;
 }
 
-.createTaskModal h3, 
-.createTaskModal .btn-cancelMenu, 
-.createTaskModal .material-symbols-outlined {
+#createTaskModal h3, 
+#createTaskModal .btn-cancelMenu, 
+#createTaskModal .material-symbols-outlined {
     color: white;
     cursor: pointer;
 }
 
-.createTaskModal .material-symbols-outlined:not(.iconoCancelarMenu) {
+#createTaskModal .material-symbols-outlined:not(.iconoCancelarMenu) {
     color: black;
     position: absolute;
 }
 
-.createTaskModal button {
+#createTaskModal button {
     cursor: pointer;
 }
 
-.createTaskModal .taskTitleInputContent,
-.createTaskModal .taskDetailsContent,
-.createTaskModal .taskExtrasContent {
+#createTaskModal .taskTitleInputContent,
+#createTaskModal .taskDetailsContent,
+#createTaskModal .taskExtrasContent {
     width: 100%;
 }
 
-.createTaskModal .taskTitleInputContent,
-.createTaskModal .taskDetailsContent {
+#createTaskModal .taskTitleInputContent,
+#createTaskModal .taskDetailsContent {
     display: flex;
     flex-direction: column;
 }
 
-.createTaskModal input {
+#createTaskModal input {
     border-radius: 10px;
     margin: 2px;
     box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
 }
 
-.createTaskModal .taskTitleInput,
-.createTaskModal .textareaAddTask,
-.createTaskModal .addTaskCb {
+#createTaskModal .taskTitleInput,
+#createTaskModal .textareaAddTask,
+#createTaskModal .addTaskCb {
     position: relative;
     width: 100%;
 }
 /* ############################# MODAL: TITULO SUPERIOR PRINCIPAL ############################# */
-.createTaskModal .createTaskMenuTitle {
+#createTaskModal .createTaskMenuTitle {
     position: relative;
     display: flex;
     justify-content: space-evenly;
@@ -109,7 +109,7 @@
     padding: 8px;
 }
 
-.createTaskModal .createTaskMenuTitle .btn-cancelMenu:not(.btn-cancelMenu.menuModal) {
+#createTaskModal .createTaskMenuTitle .btn-cancelMenu:not(.btn-cancelMenu.menuModal) {
     position: absolute;
     right: 25px;
     top: 9px;
@@ -117,7 +117,7 @@
 }
 
 /* ############################# MODAL: FORMULARIO ############################# */
-.createTaskModal form#creatTaskForm {
+#createTaskModal form#creatTaskForm {
     flex: 1;
     padding: 4px 8px;
     display: flex;
@@ -128,18 +128,18 @@
 }
 
 /* ############################# AGREGAR TITULO */
-.createTaskModal .taskTitleInput #enterTitleTaskCreate {
+#createTaskModal .taskTitleInput #enterTitleTaskCreate {
     width: 100%;
     padding: 8px 8px 8px 50px;
 }
 
-.createTaskModal .taskTitleInput .iconoAddTask {
+#createTaskModal .taskTitleInput .iconoAddTask {
     top: 14%;
     left: 16px;
 }
 
 /* ############################# AGREGAR DETALLES */
-.createTaskModal #enterDetailsTaskCreate {
+#createTaskModal #enterDetailsTaskCreate {
     width: 100%;
     min-height: 80px;
     border-radius: 10px;
@@ -151,45 +151,45 @@
     box-shadow: 0 0 10px 2px rgba(75, 50, 140, .5);
 }
 
-.createTaskModal .taskDetailsContent .iconoDetailsTask {
+#createTaskModal .taskDetailsContent .iconoDetailsTask {
     top: 8%;
     left: 16px;
 }
 
 /* ############################# AGREGAR EXTRAS */
-.createTaskModal .taskExtrasContent {
+#createTaskModal .taskExtrasContent {
     display: grid;
     grid-template-columns: auto 0.9fr;
     gap: 12px;
 }
 
 /* ################### FECHA LIMITE */
-.createTaskModal .taskExtrasContent .taskExtras-Date {
+#createTaskModal .taskExtrasContent .taskExtras-Date {
     align-self: center;
     justify-self: center;
 }
 
-.createTaskModal .taskExtras-Date #enterTaskDateCreate {
+#createTaskModal .taskExtras-Date #enterTaskDateCreate {
     padding: 8px 8px 8px 20px;
 }
 
 /* ################### COLABORADOR */
-.createTaskModal .taskExtrasContent .taskExtras-Collaborator {
+#createTaskModal .taskExtrasContent .taskExtras-Collaborator {
     align-self: center;
     justify-self: flex-start;
 }
 
-.createTaskModal .taskExtras-Collaborator .addTaskCb {
+#createTaskModal .taskExtras-Collaborator .addTaskCb {
     position: relative;
     width: 100%;
 }
 
-.createTaskModal .taskExtras-Collaborator #enterTaskCbCreate {
+#createTaskModal .taskExtras-Collaborator #enterTaskCbCreate {
     width: 95%;
     padding: 8px 8px 8px 40px;
 }
 
-.createTaskModal .taskExtras-Collaborator .iconoColaborador {
+#createTaskModal .taskExtras-Collaborator .iconoColaborador {
     position: absolute;
     top: 8px;
     left: 15px;
@@ -197,7 +197,7 @@
 }
 
 /* ##################### BOTONES SUBMIT Y CANCELAR */
-.createTaskModal #btn-addTask {
+#createTaskModal #btn-addTask {
     width: 100%;
     padding: 8px;
     border-radius: 10px;
@@ -205,14 +205,14 @@
     background-image: linear-gradient(180deg, #20C997 0%, #82ccb6 100%);
 }
 
-.createTaskModal .exit-menuModal {
+#createTaskModal .exit-menuModal {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.createTaskModal .exit-menuModal .btn-cancelMenu {
+#createTaskModal .exit-menuModal .btn-cancelMenu {
     padding: 8px;
     border-radius: 10px;
     background-image: linear-gradient(180deg, #5e0d0d 0%, #712d2d 100%);
@@ -222,11 +222,11 @@
 
 /* ##################### MENSAJE DE ERROR */
 
-.createTaskModal .reportError {
+#createTaskModal .reportError {
     display: none;
 }
 
-.createTaskModal .reportError.activeError {
+#createTaskModal .reportError.activeError {
     /* max-height: 150px;
     overflow-y: auto; */
     display: flex;
@@ -241,11 +241,11 @@
     box-shadow: 0 0 10px 2px rgb(247, 5, 5);
 }
 
-.createTaskModal #MessageError {
+#createTaskModal #MessageError {
     padding: 12px;
 }
 
-.createTaskModal #MessageError > li {
+#createTaskModal #MessageError > li {
     margin-left: 15px;
     padding: 4px;
 }

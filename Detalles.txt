@@ -1,3 +1,7 @@
+NOTA IMPORTANTE: Cuando se haga un contenedor de detalles y un boton de detalles donde si no hay contenido entonces ambos desaparecen
+			hacer un contenedor para el boton y la caja de detalles. Porque si no, es un lio. Estos contenedores
+			son estaticos y no desaparecen. Solo lo de dentro suyo. Se vuelve tedioso sino modificar algo
+
 ---------------------------- ✓	1) En header > .contentFilterTask encerramos el h2 en un label siendo label > span.titleInputFilter
 ---------------------------- ✓	2) En main.contentAll > section.contentMain cambiamos su nombre a section.contentFirstMain
 ---------------------------- ✓	3) Cambio section.contentMain por div.contentMain siendo ahora div.mainAddTask => section.mainAddTask && div.contentTaskList => section.contentTaskList
@@ -50,3 +54,5 @@
 35) Cuando se cree o modifique una tarea, borrar automaticamente los valores que se habian ingresado en los campos del formulario.
 36) Optimizar el uso de .closest.
 37) Crear funciones especificas llamadas "crear nodo tarea" y "editar nodo tarea" para evitar funciones grandes y solo ir a los especifico.
+38) Hacer dos funciones: una que limpie los errores y otra los inputs del formulario cada vez que deje de usarse.
+39) Al editar la tarea, si no hay detalles que no aparezcan.

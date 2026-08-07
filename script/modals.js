@@ -1,39 +1,93 @@
-import { configurarFormulario } from "../script/crearTarea.js";
+/* ==========================================================================
+   MODAL PARA CONFIGURAR TAREA: CREAR O EDITAR TAREA
+   ==========================================================================
+   • (>) Si se presiona el boton de agregar, se abrira el modal de crear tarea.
+   • (>) Si se presiona el boton de editar, se abrira el modal de editar tarea.
+   • [!] En ambos casos, se comparte el mismo modal, solo cambia el texto del
+         titulo y boton, y como interactua el menu con la lista de tareas.
 
+   • [!] CAPAS:
+        . Funciones - Modal
+        . Eventos - Modal
+   ========================================================================== */
 
-/* ######################### MODAL DE AGREGAR TAREA ########################## */
-/* ############################# APERTURA */
-// const btn_openAddTask = document.querySelector('.btn-openAddTask');
-const overlay_createTaskModal = document.querySelector('#overlays');
-const createTaskModal = document.querySelector('.createTaskModal');
+const overlay = document.getElementById('overlays');
+const modal = document.getElementById('createTaskModal');
 
-document.addEventListener('click', (e) => {
-    let estadoModal = null; // EDITAR | CREAR --> Referenciando a editar/crear tareas
+const estadoFormulario = {
+    estado: '',
+    tarea: null
+}
 
-    if(e.target.closest('.btn-openAddTask')){
-        estadoModal = 'crear';
-        configurarFormulario(estadoModal);
-        alternarAperturaCierreModal();
+/* ==========================================================================
+        FUNCIONES - Modal
+   ========================================================================== */
+
+const abrirFormulario = () => {
+    overlay.classList.add('activeModals');
+    modal.classList.add('active');
+}
+
+const cerrarFormulario = () => {
+    overlay.classList.remove('activeModals');
+    modal.classList.remove('active');
+}
+
+function abrirFormularioCrearTarea(){
+    configurarFormulario('crear');
+    abrirFormulario();
+}
+
+function abrirFormularioEditarTarea(tarea){
+    configurarFormulario('editar', tarea);
+    abrirFormulario();
+}
+
+function configurarFormulario(estado, tarea = null){
+    estadoFormulario.estado = estado;
+    estadoFormulario.tarea = tarea;
+
+    const titulo = modal.querySelector('.createTaskMenuTitle > h2');
+    const boton = modal.querySelector('#btn-addTask');
+    
+    if(estado === 'crear'){
+        titulo.textContent = 'NUEVA TAREA';
+        boton.textContent = 'CREAR TAREA';
+    } else {
+        titulo.textContent = 'EDITAR TAREA';
+        boton.textContent = 'EDITAR TAREA';
     }
+}
 
-    if(e.target.closest('.btn-Edit')){
-        const tarea = e.target.closest('.taskItem');
-        estadoModal = 'editar';
-        configurarFormulario(estadoModal, tarea);
-        alternarAperturaCierreModal();
+function obtenerEstadoFormulario(){
+    return estadoFormulario;
+}
+
+/* ==========================================================================
+        EVENTOS - Modal
+   ========================================================================== */
+document.addEventListener('click', (event) => {
+    const btn_Abrir = event.target.closest('.btn-openAddTask');
+    if(btn_Abrir){
+        abrirFormularioCrearTarea();
+    }
+    
+    const btn_Editar = event.target.closest('.btn-Edit');
+    if(btn_Editar){
+        const tarea = event.target.closest('.taskItem');
+        abrirFormularioEditarTarea(tarea);
     }
 });
 
-/* ############################# CIERRE */
-overlay_createTaskModal.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-cancelMenu');
-    if(btn || e.target === overlay_createTaskModal){
-        alternarAperturaCierreModal();
+overlay.addEventListener('click', (event) => {
+    const btn_Cerrar = event.target.closest('.btn-cancelMenu');
+    const isOverlay = event.target;
+
+    if(btn_Cerrar || isOverlay === overlay){
+        cerrarFormulario();
     }
 });
 
-const alternarAperturaCierreModal = () => {
-    overlay_createTaskModal.classList.toggle('activeModals');
-    createTaskModal.classList.toggle('active');
-    return;
+export {
+    obtenerEstadoFormulario
 }
