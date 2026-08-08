@@ -13,6 +13,7 @@ main.contentAll {
 }
 
 main.contentAll .contentMainFirst {
+    height: 100%;
     min-height: 0;
     display: grid;
     grid-template-columns: 280px 1fr 280px;
@@ -63,17 +64,20 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 /* ############################### NAV MENU ################################ */
 
 .navContent {
-    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 .navContent > .navMenuButtons {
     width: 100%;
     display: flex;
-    position: absolute;
-    top: 26px;    /*CAMBIAR: Cambiar cuando haga el menu central asi decido si lo pongo a la altura de la lista de tareas o no*/
 }
 
 .navContent .navMenuButtons > button {
+    display: none;
+}
+
+.navContent .navMenuButtons > button.activeNav {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -129,6 +133,44 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
 }
 .navContent.navRoot2 .navMenuButtons > button > span {
     color: #DC3545;
+}
+
+/* ############################# PAPELERA ############################# */
+.navContent .papelera {
+    display: none;
+}
+
+.navContent .papelera.activeTrash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    padding: 4px;
+}
+
+.navContent .papelera .interiorPapelera {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    height: 95%;
+    width: 95%;
+    padding: 8px;
+    gap: 8px;
+
+    background-color: #7d2d2d16;
+    border-radius: 10px;
+    border: 1px dashed #DC3545;
+}
+
+.papelera .interiorPapelera .material-symbols-outlined {
+    color: #DC3545;
+    font-size: 35px;
 }
 
 /* ############################### LISTA DE TAREAS ################################ */

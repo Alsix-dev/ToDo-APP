@@ -48,11 +48,11 @@
 
                         <section class="navContent navRoot1">
                             <div class="navMenuButtons">
-                                <button>
+                                <button class="activeNav">
                                     <span class="material-symbols-outlined">arrow_circle_left</span>
                                     HISTORIAL
                                 </button>
-                                <button>
+                                <button class="activeNav">
                                     <span class="material-symbols-outlined">arrow_circle_left</span>
                                     ESTADO
                                 </button>
@@ -61,10 +61,22 @@
 
                         <section class="navContent navRoot2">
                             <div class="navMenuButtons">
-                                <button>
+                                <button class="btn-deleteNav2 activeNav">
                                     ELIMINAR
                                     <span class="material-symbols-outlined">arrow_circle_right</span>
                                 </button>
+                                <button class="btn-backNav2">
+                                    VOLVER
+                                    <span class="material-symbols-outlined">arrow_circle_left</span>
+                                </button>
+                            </div>
+                            
+                            <div class="papelera">
+                                <div class="interiorPapelera">
+                                    <h2>ELIMINAR TAREA</h2>
+                                    <p>(arrastra la tarea aqui para eliminarla)<p>
+                                    <span class="material-symbols-outlined">close</span>
+                                </div>
                             </div>
                         </section>
                     </section>
@@ -161,5 +173,6 @@
     <script type="module" src="../script/genericas.js"></script>
     <script type="module" src="../script/formulario.js"></script>
     <script type="module" src="../script/buscarTarea.js"></script>
+    <script type="module" src="../script/papelera.js"></script>
 </body>
 </html>

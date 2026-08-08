@@ -50,9 +50,9 @@ NOTA IMPORTANTE: Cuando se haga un contenedor de detalles y un boton de detalles
 31) Agregar el aviso de confirmacion de si quiere eliminar o no la tarea.
 32) Reorganizar, optimizar y asegurar el codigo de editar y crear tarea para evitar confusiones.
 33) EDITAR que si no hay detalles se quite el boton cuando se edita una tarea. Volver a hacer la validacion aqui.
-34) Al crear y luego modificar, si no hay fecha/colaborador/detalles devuelve null y eso genera un error. Solucionar.
+---------------------------- ✓	34) Al crear y luego modificar, si no hay fecha/colaborador/detalles devuelve null y eso genera un error. Solucionar.
 35) Cuando se cree o modifique una tarea, borrar automaticamente los valores que se habian ingresado en los campos del formulario.
-36) Optimizar el uso de .closest.
-37) Crear funciones especificas llamadas "crear nodo tarea" y "editar nodo tarea" para evitar funciones grandes y solo ir a los especifico.
+---------------------------- ✓	36) Optimizar el uso de .closest.
+---------------------------- X	37) Crear funciones especificas llamadas "crear nodo tarea" y "editar nodo tarea" para evitar funciones grandes y solo ir a los especifico.
 38) Hacer dos funciones: una que limpie los errores y otra los inputs del formulario cada vez que deje de usarse.
 39) Al editar la tarea, si no hay detalles que no aparezcan.
