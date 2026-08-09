@@ -177,6 +177,86 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     visibility: hidden;
 }
 
+/* ############################# HISTORIAL ############################# */
+.navContent .historial {
+    display: none;
+}
+
+.navContent .historial.activeHistory {
+    height: 100%;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    background-color: #232529;
+    overflow: hidden;
+}
+
+.navContent .historial .interiorHistorial {
+    /* queda column para el boton expandir a futuro. */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    height: 95%;
+    width: 95%;
+    padding: 8px;
+    gap: 8px;
+
+    background-color: #f0f0f0db;
+    border-radius: 10px;
+}
+
+.historial .interiorHistorial > ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+    
+    overflow-y: auto;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scrollbar-width: thin;  /* Hace la barra delgada */
+}
+
+.historial .interiorHistorial > h2 {
+    color: black;
+    margin-top: 15px;
+    margin-left: 13px;
+}
+
+.historial .historyList .historyItem {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 18px;
+    border-radius: 10px;
+    padding: 8px;
+    border-bottom: 1px solid black;
+}
+
+.historial .historyList .historyItem > p:first-child {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.historial .historyList .historyItem > p:last-child {
+    flex-shrink: 0;
+}
+
 /* ############################### LISTA DE TAREAS ################################ */
 
 .taskListContent {
