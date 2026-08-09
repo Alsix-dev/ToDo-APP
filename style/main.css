@@ -173,6 +173,10 @@ main.contentAll .openAddTask .btn-openAddTask > .material-symbols-outlined {
     font-size: 35px;
 }
 
+.placeholder {
+    visibility: hidden;
+}
+
 /* ############################### LISTA DE TAREAS ################################ */
 
 .taskListContent {
