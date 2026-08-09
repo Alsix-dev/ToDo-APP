@@ -6,6 +6,10 @@ import {
     crearDetalles 
 } from "../script/crearTarea.js";
 
+import { 
+    crearHistoriaTarea 
+} from "../script/historial.js"
+
 const contenedorLista = document.querySelector('#taskListItem');
 
 /* ==========================================================================
@@ -18,6 +22,10 @@ const contenedorLista = document.querySelector('#taskListItem');
         . FUNCIONES - CREAR - TAREA
         . EVENTOS - TAREA
    ========================================================================== */
+
+function obtenerHistoriaTarea(){
+    return historiaTarea;
+}
 
 function verificarSiHayTareas(){
     const listaTareas = document.querySelectorAll('.taskItem');
@@ -50,20 +58,31 @@ function iniciarTarea(tarea){
     const checkbox = tarea.querySelector('.checkTask');
     checkbox.checked = false;
     checkbox.disabled = false;
+
+    const tituloTarea = tarea.querySelector('.isTaskTitle > h2').textContent;
+    crearHistoriaTarea(tituloTarea, 'Entro en progreso');
 }
 
 function completarTarea(tarea){
     tarea.classList.remove('taskIsPause', 'taskInProgress');
     tarea.classList.add('taskIsComplete');
+
+    const tituloTarea = tarea.querySelector('.isTaskTitle > h2').textContent;
+    crearHistoriaTarea(tituloTarea, 'Se a completado');
 }
 
 function pausarTarea(tarea){
     tarea.classList.remove('taskIsComplete', 'taskInProgress');
     tarea.classList.add('taskIsPause');
+
+    const tituloTarea = tarea.querySelector('.isTaskTitle > h2').textContent;
+    crearHistoriaTarea(tituloTarea, 'Se ha pausado');
 }
 
 function eliminarTarea(tarea){
     tarea.remove();
+    const tituloTarea = tarea.querySelector('.isTaskTitle > h2').textContent;
+    crearHistoriaTarea(tituloTarea, 'Se ha eliminado');
     verificarSiHayTareas();
 }
 

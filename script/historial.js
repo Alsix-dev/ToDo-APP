@@ -25,6 +25,18 @@ function alternarMenu(contenedor){
     historial.classList.toggle('activeHistory');
 }
 
+function crearHistoriaTarea(titulo, estado){
+    const historyList = document.querySelector('.historyList');
+    const li = document.createElement('li');
+    li.className = 'historyItem';
+    li.innerHTML = `
+        <p>${titulo}</p>
+        <p>${estado}</p>
+    `;
+ 
+    historyList.appendChild(li);
+}
+
 /* ==========================================================================
    EVENTOS - HISTORIAL
    ========================================================================== */
@@ -42,3 +54,7 @@ navRoot1.addEventListener('click', (event) => {
         alternarMenu(contPadre);    
     }
 });
+
+export {
+    crearHistoriaTarea
+}

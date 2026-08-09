@@ -11,6 +11,10 @@ import {
     verificarSiHayTareas
 } from "../script/operarTarea.js";
 
+import { 
+    crearHistoriaTarea 
+} from "../script/historial.js";
+
 const contenedorLista = document.querySelector('#taskListItem');
 
 /* ==========================================================================
@@ -155,11 +159,13 @@ function submitFormulario(event){
 
     if(modoFormulario.estado === 'crear'){
         const nuevaTarea = crearTarea(valoresInputs);
-        contenedorLista.appendChild(nuevaTarea);    
+        contenedorLista.appendChild(nuevaTarea);
+        crearHistoriaTarea(valoresInputs.newTitle, 'Se ha creado');
         verificarSiHayTareas();
     } 
     else {
         editarTarea(modoFormulario.tarea, valoresInputs);
+        crearHistoriaTarea(valoresInputs.newTitle, 'Se ha editado');
     }
 }
 
